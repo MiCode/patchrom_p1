@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>บ้าน</item>
+        <item>ที่ทำงาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนดเอง</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>ที่ทำงาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนดเอง</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>บ้าน</item>
+        <item>มือถือ</item>
+        <item>ที่ทำงาน</item>
+        <item>โทรสารที่ทำงาน</item>
+        <item>โทรสารที่บ้าน</item>
+        <item>เพจเจอร์</item>
+        <item>อื่นๆ</item>
+        <item>กำหนดเอง</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>บ้าน</item>
+        <item>ที่ทำงาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนดเอง</item>
+    </string-array>
+    <string-array name="imAddressTypes">
+        <item>บ้าน</item>
+        <item>ที่ทำงาน</item>
+        <item>อื่นๆ</item>
+        <item>กำหนดเอง</item>
+    </string-array>
+    <string-array name="status_bar_icon_order">
+        <item>นาฬิกา</item>
+        <item>ปลอดภัย</item>
+        <item>นาฬิกาปลุก</item>
+        <item>แบตเตอรี</item>
+        <item>สัญญาณโทรศัพท์</item>
+        <item>สัญญาณวิดีโอโทรศัพท์</item>
+        <item>การเชื่อมต่อข้อมูล</item>
+        <item>cdma_eri</item>
+        <item>tty</item>
+        <item>ระดับเสียง</item>
+        <item>ปิดเสียง</item>
+        <item>ลำโพง</item>
+        <item>wifi</item>
+        <item>tty</item>
+        <item>บลูทูธ</item>
+        <item>GPS</item>
+        <item>เปิดใช้งานการซิงค์แล้ว</item>
+        <item>การซิงค์ล้มเหลว</item>
+        <item>IME</item>
+    </string-array>
+</resources>
