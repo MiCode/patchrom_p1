@@ -18,9 +18,17 @@ local-modified-apps := #SettingsProvider
 local-miui-removed-apps     := SettingsProvider MediaProvider Stk Bluetooth Phone
 
 # All apps need to be removed from original ZIP file
-local-remove-apps := AllBackup SystemUI SetupWizard Cloud NotePad HwIME Superuser MusicFx Launcher2 FileManager HwOUC \
-	rootexplorer GenieWidget GalleryGoogle CalendarGoogle Gmail GoogleQuickSearchBox GooglePackageVerifier GooglePackageVerifierUpdater \
-	GoogleTTS GooglePlayMusic Maps Talk TotemWeather Trebuchet ToolBox Vending VoiceSearch
+#local-remove-apps := AllBackup SystemUI SetupWizard Cloud NotePad HwIME Superuser MusicFx Launcher2 FileManager HwOUC \
+#	rootexplorer GenieWidget GalleryGoogle CalendarGoogle Gmail GoogleQuickSearchBox GooglePackageVerifier GooglePackageVerifierUpdater \
+#	GoogleTTS GooglePlayMusic Maps Talk TotemWeather Trebuchet ToolBox Vending VoiceSearch
+
+local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 Hispace.apk \
+	HandWritingSimpPack Hispace HoloSpiralWallpaper HuaweiSecurityGuard HuaweiSyncClient \
+	HwAppIconsBoxy HwAppIconsBreeze HwBeyondTheSkyTheme HwCalendar3D HwCloudDrive HwDLNA \
+	HwDawnTheme_small HwEmail3D HwFlashlight HwMms HwMusicWidget3D HwPhotoAlbumWidget3D \
+	HwSoundRecorder HwUnlock3D HwWallpaper HwWeatherClock3D MyCalendar MyEmail PhaseBeam \
+	PhoneFinder PinyinPack PotterUnlock ProjectMenuAct Protips PushService Readme HwLauncher5 \
+	HwLauncher3D
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
