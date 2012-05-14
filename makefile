@@ -9,26 +9,23 @@ local-zip-file     := stockrom.zip
 local-out-zip-file := MIUI_p1.zip
 
 #
-local-miui-modified-apps := #MiuiSystemUI MiuiHome Mms Phone Settings
+local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := #SettingsProvider
 
 # All apks from MIUI
-local-miui-removed-apps     := SettingsProvider MediaProvider Stk Bluetooth Phone
+local-miui-removed-apps     := SettingsProvider MediaProvider Stk Bluetooth 
 
 # All apps need to be removed from original ZIP file
-#local-remove-apps := AllBackup SystemUI SetupWizard Cloud NotePad HwIME Superuser MusicFx Launcher2 FileManager HwOUC \
-#	rootexplorer GenieWidget GalleryGoogle CalendarGoogle Gmail GoogleQuickSearchBox GooglePackageVerifier GooglePackageVerifierUpdater \
-#	GoogleTTS GooglePlayMusic Maps Talk TotemWeather Trebuchet ToolBox Vending VoiceSearch
-
 local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 Hispace.apk \
 	HandWritingSimpPack Hispace HoloSpiralWallpaper HuaweiSecurityGuard HuaweiSyncClient \
 	HwAppIconsBoxy HwAppIconsBreeze HwBeyondTheSkyTheme HwCalendar3D HwCloudDrive HwDLNA \
 	HwDawnTheme_small HwEmail3D HwFlashlight HwMms HwMusicWidget3D HwPhotoAlbumWidget3D \
 	HwSoundRecorder HwUnlock3D HwWallpaper HwWeatherClock3D MyCalendar MyEmail PhaseBeam \
 	PhoneFinder PinyinPack PotterUnlock ProjectMenuAct Protips PushService Readme HwLauncher5 \
-	HwLauncher3D
+	HwLauncher3D AllBackup HwIME MagicSmokeWallpapers HwGPMS HwOUC MMITest_II MagicSmokeWallpapers \
+	MediaCenter NoiseField NotePad RootExplorer Superuser SystemUI ToolBox TotemWeather VideoEditor
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
@@ -45,7 +42,6 @@ include $(PORT_BUILD)/porting.mk
 # To define any local-target
 local-zip-misc:
 	#rm -rf $(ZIP_DIR)/system/cdrom
-#	rm $(ZIP_DIR)/system/bin/su
-#	cp other/build.prop $(ZIP_DIR)/system/build.prop
-#	cp other/HuaWeiSettings.apk $(ZIP_DIR)/system/app/HuaWeiSettings.apk
-#	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
+	#rm $(ZIP_DIR)/system/xbin/su
+	cp other/build.prop $(ZIP_DIR)/system/build.prop
+	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
