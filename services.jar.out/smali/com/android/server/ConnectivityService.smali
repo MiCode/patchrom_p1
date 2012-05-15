@@ -12023,7 +12023,6 @@
 
     invoke-interface {v13, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1084
     :cond_7
     monitor-exit p0
     :try_end_0
@@ -12043,10 +12042,8 @@
 
     invoke-virtual {v13, v14, v15, v12}, Lmiui/net/FirewallManager;->onStartUsingNetworkFeature(III)V
 
-    .line 1086
     if-ltz v10, :cond_8
 
-    .line 1087
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;

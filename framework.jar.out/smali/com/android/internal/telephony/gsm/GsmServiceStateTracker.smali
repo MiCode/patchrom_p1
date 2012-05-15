@@ -8515,20 +8515,17 @@
 
     if-eqz v7, :cond_2
 
-    .line 549
     :cond_1
     const-string v7, "GSM"
 
-    const-string/jumbo v8, "updateSpnDisplay():get plmn from network! "
+    const-string v8, "updateSpnDisplay():get plmn from network! "
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 550
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getPlmn()Ljava/lang/String;    
     
     move-result-object v1
 
-    .line 554
     :cond_2
     iget-boolean v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mEmergencyOnly:Z
 
