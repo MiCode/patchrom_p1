@@ -45,3 +45,5 @@ local-zip-misc:
 	#rm $(ZIP_DIR)/system/xbin/su
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
+	cp other/internal_sd.fstab $(ZIP_DIR)/system/etc/
+	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
