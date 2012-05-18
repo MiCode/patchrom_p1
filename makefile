@@ -15,7 +15,7 @@ local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings
 local-modified-apps := #SettingsProvider
 
 # All apks from MIUI
-local-miui-removed-apps     := SettingsProvider MediaProvider Stk Bluetooth 
+local-miui-removed-apps     := SettingsProvider MediaProvider  
 
 # All apps need to be removed from original ZIP file
 local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 Hispace.apk \
