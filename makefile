@@ -47,3 +47,5 @@ local-zip-misc:
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
 	cp other/internal_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
+	cp other/boot-B110-rooted.img $(ZIP_DIR)/boot.img
+	#cp other/bootloader.img $(ZIP_DIR)/
