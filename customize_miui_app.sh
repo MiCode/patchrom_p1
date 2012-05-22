@@ -27,3 +27,8 @@ fi
 if [ $1 = "Settings" ];then
 	$XMLMERGYTOOL $1/res/values $2/res/values
 fi
+
+if [ $1 = "ThemeManager" ];then
+      $XMLMERGYTOOL $1/res/values $2/res/values
+fi
+
