@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:orientation="horizontal" android:id="@id/video_camera" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.hwcamera">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <com.android.hwcamera.PreviewFrameLayout android:id="@id/frame_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_weight="1.0" android:layout_centerInParent="true">
+            <SurfaceView android:id="@id/camera_preview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <ImageView android:id="@id/video_frame" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <RelativeLayout android:orientation="vertical" android:id="@id/relative" android:paddingLeft="6.0dip" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <include layout="@layout/camera_flash_switchcamera" />
+                <include layout="@layout/gps_signal_layout" />
+                <com.android.hwcamera.hwui.RotateLayout android:id="@id/recording_time_rect" style="@style/ViewfinderLableLayout">
+                    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <include android:id="@id/labels" layout="@layout/viewfinder_labels_video" />
+                    </RelativeLayout>
+                </com.android.hwcamera.hwui.RotateLayout>
+            </RelativeLayout>
+        </com.android.hwcamera.PreviewFrameLayout>
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/review_root" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentBottom="true">
+        <include layout="@layout/review" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/camera_root" android:background="#00ffffff" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/panellayout" />
+        <com.android.hwcamera.hwui.RotateLinearLayout android:orientation="vertical" android:id="@id/linearLayouttest" android:background="@drawable/bg_submenu" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ListView android:id="@id/lv" android:paddingTop="2.0dip" android:paddingRight="4.0dip" android:paddingBottom="2.0dip" android:layout_width="270.0dip" android:layout_height="270.0dip" android:listSelector="@drawable/list_submenu_selector" android:cacheColorHint="#00000000" />
+        </com.android.hwcamera.hwui.RotateLinearLayout>
+    </RelativeLayout>
+</merge>

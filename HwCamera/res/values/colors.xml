@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="recording_time_elapsed_text">#ffffffff</color>
+    <color name="recording_time_remaining_text">#ffff0033</color>
+    <color name="icon_disabled_color">#dd777777</color>
+    <color name="text_color">#ffffffff</color>
+    <color name="summary_color">#ff878787</color>
+    <color name="dialog_title_color">#ff33b3e2</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="popup_title_color">#ff33b5e5</color>
+    <color name="popup_background">#ff282828</color>
+    <color name="pano_custom_dialog_background">#ff666666</color>
+    <color name="pano_progress_empty">#ff2e2e2e</color>
+    <color name="pano_progress_done">#ff33525e</color>
+    <color name="pano_progress_indication">#ff0099cc</color>
+    <color name="pano_progress_indication_fast">#ffff2222</color>
+</resources>

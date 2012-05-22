@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hint_y_offset">64.0dip</dimen>
+    <dimen name="setting_item_list_margin">17.0dip</dimen>
+    <dimen name="setting_item_list_minheight">52.0dip</dimen>
+    <dimen name="seekbar_padding">15.0dip</dimen>
+    <dimen name="pano_control_layout_min_width">76.0dip</dimen>
+    <dimen name="pano_control_start_button_size">70.0dip</dimen>
+    <dimen name="pano_mosaic_surface_height">240.0dip</dimen>
+    <dimen name="pano_review_button_width">70.0dip</dimen>
+    <dimen name="pano_review_button_height">45.0dip</dimen>
+    <dimen name="pano_review_saving_indication_size">14.0sp</dimen>
+    <dimen name="pano_capture_too_fast_text_height">70.0dip</dimen>
+    <dimen name="pano_indication_width">150.0dip</dimen>
+    <dimen name="pano_indication_height">75.0dip</dimen>
+    <dimen name="indicator_bar_width">90.0dip</dimen>
+</resources>

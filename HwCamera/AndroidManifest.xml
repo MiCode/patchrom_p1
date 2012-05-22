@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="1" android:versionName="1.0.3" package="com.android.hwcamera"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <original-package android:name="com.android.hwcamera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application android:label="@string/camera_label" android:icon="@drawable/ic_launcher_camera" android:name="com.android.hwcamera.CameraAppImpl" android:taskAffinity="" android:hardwareAccelerated="true">
+        <uses-library android:name="com.google.android.media.effects" android:required="false" />
+        <uses-library android:name="com.huawei.hwextcamera" android:required="false" />
+        <receiver android:name="com.android.hwcamera.CameraButtonIntentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.CAMERA_BUTTON" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".BootCamera">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.android.hwcamera.Camera" android:taskAffinity="android.task.camera" android:clearTaskOnLaunch="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.STILL_IMAGE_CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:label="@string/video_camera_label" android:icon="@drawable/ic_launcher_video_camera" android:name="com.android.hwcamera.VideoCamera" android:taskAffinity="android.task.camcorder" android:clearTaskOnLaunch="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.media.action.VIDEO_CAMERA" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.VIDEO_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".panoramaviewer.PanoramaViewer" android:screenOrientation="landscape" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" />
+                <data android:host="com.scalado.csps.PanoramaWall" />
+                <data android:path="/data" />
+            </intent-filter>
+        </activity>
+        <activity android:label="Rewind" android:name=".rewind.RewindActivity" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation" android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".panorama.PanoramaActivity" android:clearTaskOnLaunch="true" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+    </application>
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15" />
+</manifest>

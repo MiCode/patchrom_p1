@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="subpopupwindow_anim_in_time">200</integer>
+    <integer name="subpopupwindow_anim_out_time">200</integer>
+    <integer name="focus_rectangle_size">80</integer>
+    <integer name="superpanel_step_px">30</integer>
+</resources>

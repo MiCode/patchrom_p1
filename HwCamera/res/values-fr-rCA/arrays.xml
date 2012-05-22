@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_gallery_size_choices">
+        <item>Grande</item>
+        <item>"Petite "</item>
+    </string-array>
+    <string-array name="pref_gallery_sort_choices">
+        <item>La plus récente en premier</item>
+        <item>La plus récente en dernier</item>
+    </string-array>
+    <string-array name="pref_gallery_slideshow_interval_choices">
+        <item>2 secondes</item>
+        <item>3 secondes</item>
+        <item>4 secondes</item>
+    </string-array>
+    <string-array name="pref_gallery_slideshow_transition_choices">
+        <item>Fondu enchaîné</item>
+        <item>Glisser de gauche à droite</item>
+        <item>Glisser de haut en bas</item>
+        <item>Sélection aléatoire</item>
+    </string-array>
+</resources>

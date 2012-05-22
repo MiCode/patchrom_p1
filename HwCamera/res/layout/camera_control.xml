@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/control_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/indicator_bar_width" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/lastpicture_switcher" android:background="@drawable/bg_camera_pattern" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="60.0dip" android:layout_alignParentBottom="true">
+        <com.android.hwcamera.RotateImageView android:id="@id/review_thumbnail" android:background="@drawable/border_last_picture" android:padding="2.0dip" android:focusable="false" android:clickable="true" android:layout_width="45.0dip" android:layout_height="45.0dip" android:layout_marginLeft="8.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <RelativeLayout android:id="@id/camera_switch_set" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <com.android.hwcamera.Switcher android:id="@id/camera_switch" android:background="@drawable/btn_mode_switch_bg" android:layout_width="95.0dip" android:layout_height="40.0dip" android:src="@drawable/btn_mode_switch_knob" />
+            <RelativeLayout android:id="@id/camera_video" android:layout_width="95.0dip" android:layout_height="wrap_content" android:layout_centerVertical="true">
+                <com.android.hwcamera.RotateImageView android:id="@id/video_switch_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:src="@drawable/btn_ic_mode_switch_video" android:layout_above="@id/camera_switch" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <com.android.hwcamera.RotateImageView android:id="@id/camera_switch_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:src="@drawable/btn_ic_mode_switch_camera" android:layout_above="@id/camera_switch" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <com.android.hwcamera.hwui.RotateLinearLayout android:id="@id/shutter_rotatelayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="25.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <com.android.hwcamera.ShutterButton android:gravity="center" android:id="@id/shutter_button" android:background="@drawable/btn_shutter" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/btn_ic_camera_shutter" android:scaleType="center" />
+    </com.android.hwcamera.hwui.RotateLinearLayout>
+</RelativeLayout>

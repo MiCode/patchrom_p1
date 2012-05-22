@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/control_bar" android:layout_width="173.0dip" android:layout_height="fill_parent" android:layout_alignParentRight="true"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.hwcamera">
+    <RelativeLayout android:id="@id/lastpicture_switcher" android:background="@drawable/bg_camera_pattern" android:layout_width="120.0dip" android:layout_height="fill_parent" android:layout_alignParentRight="true" />
+    <com.android.hwcamera.hwui.RotateLinearLayout android:id="@id/shutter_rotatelayout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <com.android.hwcamera.ShutterButton android:gravity="center" android:id="@id/shutter_button" android:background="@drawable/btn_shutter" android:focusable="true" android:clickable="true" android:layout_width="173.0dip" android:layout_height="173.0dip" android:src="@drawable/btn_ic_camera_shutter" android:scaleType="center" android:layout_centerInParent="true" />
+    </com.android.hwcamera.hwui.RotateLinearLayout>
+</RelativeLayout>
