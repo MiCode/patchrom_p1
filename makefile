@@ -12,13 +12,13 @@ local-out-zip-file := MIUI_p1.zip
 local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := HwCamera Gallery2  #SettingsProvider
+local-modified-apps := #HwCamera #SettingsProvider
 
 # All apks from MIUI
-local-miui-removed-apps     := SettingsProvider MediaProvider MiuiGallery 
+local-miui-removed-apps     := SettingsProvider MediaProvider 
 
 # All apps need to be removed from original ZIP file
-local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Hispace.apk \
+local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 Hispace.apk \
 	HandWritingSimpPack Hispace HoloSpiralWallpaper HuaweiSecurityGuard HuaweiSyncClient \
 	HwAppIconsBoxy HwAppIconsBreeze HwBeyondTheSkyTheme HwCalendar3D HwCloudDrive HwDLNA \
 	HwDawnTheme_small HwEmail3D HwFlashlight HwMms HwMusicWidget3D HwPhotoAlbumWidget3D \
@@ -49,3 +49,15 @@ local-zip-misc:
 	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/boot-B110-rooted.img $(ZIP_DIR)/boot.img
 	#cp other/bootloader.img $(ZIP_DIR)/
+
+	@echo update default theme icons
+	mv $(ZIP_DIR)/system/media/theme/default/icons $(TMP_DIR)/icons.zip
+	$(UNZIP) $(TMP_DIR)/icons.zip -d $(TMP_DIR)/default_theme_icons
+	cp other/default_theme_icons/* $(TMP_DIR)/default_theme_icons
+	$(ZIP) -j $(ZIP_DIR)/system/media/theme/default/icons.zip $(TMP_DIR)/default_theme_icons/*
+	mv $(ZIP_DIR)/system/media/theme/default/icons.zip $(ZIP_DIR)/system/media/theme/default/icons
+
+	@echo update bootanimation
+	rm $(ZIP_DIR)/system/bin/bootanimation
+	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
+
