@@ -12,7 +12,7 @@ local-out-zip-file := MIUI_p1.zip
 local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := HwCamera #SettingsProvider
+local-modified-apps := HwCamera SettingsProvider
 
 # All apks from MIUI
 local-miui-removed-apps     := SettingsProvider MediaProvider 
