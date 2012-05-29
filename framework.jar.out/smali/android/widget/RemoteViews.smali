@@ -640,7 +640,7 @@
     .local v0, c:Landroid/content/Context;
     iget v4, p0, Landroid/widget/RemoteViews;->mDefaultTheme:I
 
-    invoke-virtual {v0, v3}, Landroid/content/Context;->setTheme(I)V
+    invoke-virtual {v0, v4}, Landroid/content/Context;->setTheme(I)V
 
     const-string v4, "layout_inflater"
 
