@@ -50,13 +50,6 @@ local-zip-misc:
 	cp other/boot-B110-rooted.img $(ZIP_DIR)/boot.img
 	#cp other/bootloader.img $(ZIP_DIR)/
 
-	@echo update default theme icons
-	mv $(ZIP_DIR)/system/media/theme/default/icons $(TMP_DIR)/icons.zip
-	$(UNZIP) $(TMP_DIR)/icons.zip -d $(TMP_DIR)/default_theme_icons
-	cp other/default_theme_icons/* $(TMP_DIR)/default_theme_icons
-	$(ZIP) -j $(ZIP_DIR)/system/media/theme/default/icons.zip $(TMP_DIR)/default_theme_icons/*
-	mv $(ZIP_DIR)/system/media/theme/default/icons.zip $(ZIP_DIR)/system/media/theme/default/icons
-
 	@echo update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation
 	cp other/bootanimation $(ZIP_DIR)/system/bin/bootanimation
