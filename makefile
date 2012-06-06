@@ -25,7 +25,7 @@ local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 H
 	HwSoundRecorder HwUnlock3D HwWallpaper HwWeatherClock3D MyCalendar MyEmail PhaseBeam \
 	PhoneFinder PinyinPack PotterUnlock ProjectMenuAct Protips PushService Readme HwLauncher5 \
 	HwLauncher3D AllBackup HwIME MagicSmokeWallpapers HwGPMS HwOUC MMITest_II MagicSmokeWallpapers \
-	MediaCenter NoiseField NotePad RootExplorer Superuser SystemUI ToolBox TotemWeather VideoEditor
+	NoiseField NotePad RootExplorer Superuser SystemUI ToolBox TotemWeather VideoEditor
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
@@ -41,14 +41,12 @@ include $(PORT_BUILD)/porting.mk
 
 # To define any local-target
 local-zip-misc:
-	#rm -rf $(ZIP_DIR)/system/cdrom
-	#rm $(ZIP_DIR)/system/xbin/su
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
 	cp other/internal_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/boot-B110-rooted.img $(ZIP_DIR)/boot.img
-	#cp other/bootloader.img $(ZIP_DIR)/
+	cp other/StockSettings.apk $(ZIP_DIR)/system/app
 
 	@echo update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation

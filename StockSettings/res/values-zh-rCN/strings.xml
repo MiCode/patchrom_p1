@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"原厂设置"</string>
+    <string name="stock_settings">"原厂设置"</string>
+    <string name="power_saving_mode">"省电模式"</string>
+    <string name="auto_adjust_screen_power_title">"自动调节屏幕电量"</string>
+    <string name="auto_adjust_screen_power_summary">"通过分析屏幕内容，调整LCD亮度，节省电量"</string>
+    <string name="auto_strengthen_gallery_image_color_title">"图像增强"</string>
+    <string name="auto_strengthen_gallery_image_color_summary">"使图像更加绚丽生动"</string>
+</resources>
+
