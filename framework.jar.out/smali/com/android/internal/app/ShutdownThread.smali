@@ -1233,6 +1233,10 @@
     .line 164
     .local v4, resourceId:I
     :goto_1
+    invoke-static {v4}, Lcom/android/internal/app/ShutdownThread;->getResourceId(I)I
+
+    move-result v4
+    
     const-string v5, "ShutdownThread"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1433,14 +1437,10 @@
     new-instance v5, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v5, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    
+    invoke-static {}, Lcom/android/internal/app/ShutdownThread;->getTitleResourceId()I
 
-    const v6, 0x1010355
-
-    invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v5
-
-    const v6, 0x1040124
+    move-result v6
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2376,13 +2376,13 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x1040318
+    const v0, 0x60c018c
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x1040124
+    const v0, 0x60c0191
 
     goto :goto_0
 .end method
@@ -2476,7 +2476,7 @@
 
     .end local v0           #animationDrawable:Landroid/graphics/drawable/AnimationDrawable;
     :cond_0
-    const v6, 0x1040128
+    const v6, 0x60c01aa
 
     invoke-virtual {v4, v6}, Landroid/widget/TextView;->setText(I)V
 
