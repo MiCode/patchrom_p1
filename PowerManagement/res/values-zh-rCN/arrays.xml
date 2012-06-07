@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="peak_time">
+        <item>15 分钟</item>
+        <item>30 分钟</item>
+        <item>45 分钟</item>
+        <item>60 分钟</item>
+        <item>从不</item>
+    </string-array>
+    <string-array name="peak_value">
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="peak_defvalue">
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>0</item>
+    </string-array>
+</resources>

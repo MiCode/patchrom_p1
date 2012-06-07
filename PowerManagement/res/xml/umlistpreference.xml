@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/custom_mode" android:key="screen_list"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.huawei.powermanagement.ChooseOffPeakHours android:key="chooseoffpeakhours" />
+    <com.huawei.powermanagement.OffPeakPreference android:entries="@array/peak_time" android:key="offpeakPreference" android:defaultValue="@array/peak_defvalue" android:dialogTitle="@string/dialogtitle" android:entryValues="@array/peak_value" />
+    <com.huawei.powermanagement.PeakPreference android:entries="@array/peak_time" android:key="peakPreference" android:defaultValue="@array/peak_defvalue" android:dialogTitle="@string/dialogtitle" android:entryValues="@array/peak_value" />
+    <com.huawei.powermanagement.BrightnessPreference android:key="brightnessPreference" />
+</PreferenceScreen>

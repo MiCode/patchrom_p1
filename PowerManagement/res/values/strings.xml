@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choose_custom_mode">false</string>
+    <string name="choose_performance_mode">true</string>
+    <string name="choose_night_mode">false</string>
+    <string name="choose_maximum_mode">false</string>
+    <string name="app_name">Power saving mode</string>
+    <string name="change_mode_activity">Power saving mode</string>
+    <string name="current_mode">Current mode:</string>
+    <string name="change_mode">Change</string>
+    <string name="maximum_mode">Maximum battery saver</string>
+    <string name="maximum_mode_info">Best battery saving. Least automatic data updates.</string>
+    <string name="night_time_mode">Normal mode</string>
+    <string name="night_time_mode_info">Normal power saving</string>
+    <string name="performance_mode">Performance mode</string>
+    <string name="performance_mode_info">Mobile performs excellently. No battery savings.</string>
+    <string name="custom_mode">Custom mode</string>
+    <string name="custom_mode_info">Give full control over the battery saving features of your phone.</string>
+    <string name="change_mode_text">Modify custom mode</string>
+    <string name="software_list_title_string">SOFTWARE USAGE</string>
+    <string name="hareware_list_title_string">HARDWARE USAGE</string>
+    <string name="close">Close</string>
+    <string name="unknown">UnKnown</string>
+    <string name="user_mode">UserModeActivity</string>
+    <string name="offpeaktitle">Off-peak hours turn off data after:</string>
+    <string name="infosummary">While screen locked, system will turn off the data after this time</string>
+    <string name="peaktitle">Peak hours turn off data after:</string>
+    <string name="dialogtitle">Set time</string>
+    <string name="fromto">to</string>
+    <string name="am">am</string>
+    <string name="pm">pm</string>
+    <string name="minutes">minutes</string>
+    <string name="never">Never</string>
+    <string name="offpeakhour">Off-peak hours</string>
+    <string name="tilesummary">Off-peak hours is the time interval you not frequently use your phone</string>
+    <string name="brghtnsstitle">Brightness</string>
+    <string name="automaticmode">Automatic brightness</string>
+    <string name="android_system">Android System</string>
+    <string name="android_core_apps">Android core Apps</string>
+    <string name="screen">Screen</string>
+    <string name="phone_idle">Phone idle</string>
+    <string name="voice_calls">Voice calls</string>
+    <string name="cell_standby">Cell standby</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="wi_fi">WLAN</string>
+</resources>

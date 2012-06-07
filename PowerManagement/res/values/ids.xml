@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="brghtnsstitle">false</item>
+    <item type="id" name="brghtnssseekbar">false</item>
+    <item type="id" name="automatic">false</item>
+    <item type="id" name="automatic_mode">false</item>
+    <item type="id" name="mode_setting_fragment">false</item>
+    <item type="id" name="offpeaktile">false</item>
+    <item type="id" name="starttime">false</item>
+    <item type="id" name="fromto">false</item>
+    <item type="id" name="endtime">false</item>
+    <item type="id" name="tilesummary">false</item>
+    <item type="id" name="linear_allView">false</item>
+    <item type="id" name="soft_list_linearlayout01">false</item>
+    <item type="id" name="soft_icon">false</item>
+    <item type="id" name="soft_name">false</item>
+    <item type="id" name="soft_consumption">false</item>
+    <item type="id" name="soft_progress">false</item>
+    <item type="id" name="battery_info">false</item>
+    <item type="id" name="LinearLayout01">false</item>
+    <item type="id" name="current_mode">false</item>
+    <item type="id" name="mode_info">false</item>
+    <item type="id" name="change_mode">false</item>
+    <item type="id" name="preference_linearlayout">false</item>
+    <item type="id" name="preference_radio">false</item>
+    <item type="id" name="linear_button">false</item>
+    <item type="id" name="close">false</item>
+    <item type="id" name="itemtitle">false</item>
+    <item type="id" name="itemtime">false</item>
+    <item type="id" name="itemsmmry">false</item>
+</resources>

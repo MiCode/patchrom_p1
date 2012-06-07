@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+    <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:id="@id/offpeaktile" android:fadingEdge="horizontal" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/offpeakhour" android:singleLine="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <Button android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:gravity="center" android:id="@id/starttime" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="11:00am" android:layout_weight="1.0" />
+        <TextView android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:gravity="center" android:id="@id/fromto" android:layout_width="50.0dip" android:layout_height="wrap_content" android:text="@string/fromto" android:layout_weight="1.0" />
+        <Button android:textAppearance="?android:textAppearanceMedium" android:ellipsize="marquee" android:gravity="center" android:id="@id/endtime" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="05:00am" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="?android:textColorSecondary" android:id="@id/tilesummary" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/tilesummary" />
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+    <View android:background="?android:listDivider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+</LinearLayout>

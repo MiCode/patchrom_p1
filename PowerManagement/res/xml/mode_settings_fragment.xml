@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.huawei.powermanagement.ModeSettingsPreference android:title="@string/maximum_mode" android:key="maximum_mode" android:summary="@string/maximum_mode_info" />
+    <com.huawei.powermanagement.ModeSettingsPreference android:title="@string/night_time_mode" android:key="night_mode" android:summary="@string/night_time_mode_info" />
+    <com.huawei.powermanagement.ModeSettingsPreference android:title="@string/performance_mode" android:key="performance_mode" android:summary="@string/performance_mode_info" />
+</PreferenceScreen>
