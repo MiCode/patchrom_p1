@@ -3242,6 +3242,145 @@
 
 
 # virtual methods
+.method public insertSkipAlreadyExsisted(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 10
+    .parameter
+    .parameter
+    .parameter
+    .parameter
+
+    .prologue
+    const/4 v5, 0x0
+
+    const/4 v8, 0x1
+
+    const/4 v9, 0x0
+
+    .line 1874
+    new-array v2, v8, [Ljava/lang/String;
+
+    const-string v0, "name"
+
+    aput-object v0, v2, v9
+
+    .line 1875
+    const-string v3, "name=?"
+
+    .line 1876
+    new-array v4, v8, [Ljava/lang/String;
+
+    aput-object p3, v4, v9
+
+    move-object v0, p1
+
+    move-object v1, p2
+
+    move-object v6, v5
+
+    move-object v7, v5
+
+    .line 1879
+    invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 1880
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
+
+    move-result v0
+
+    if-lez v0, :cond_1
+
+    move v0, v8
+
+    .line 1888
+    :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "INSERT INTO "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "(name,value) values(\'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "\',\'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "\')"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1889
+    if-nez v0, :cond_0
+
+    .line 1890
+    const-string v0, "SettingsProvider"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "[OnlyInsert] statement is : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1891
+    invoke-virtual {p1, v1}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
+
+    .line 1893
+    :cond_0
+    return-void
+
+    :cond_1
+    move v0, v9
+
+    .line 1880
+    goto :goto_0
+.end method
+
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 1
     .parameter "db"
@@ -6521,4 +6660,289 @@
 
     .line 1755
     goto :goto_1
+.end method
+
+.method protected updateSystemexSettings(Landroid/database/sqlite/SQLiteDatabase;)I
+    .locals 7
+    .parameter
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 1832
+    new-instance v0, Ljava/io/File;
+
+    const-string v2, "/data/cust/"
+
+    const-string v3, "xml/hw_defaults.xml"
+
+    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1834
+    :try_start_0
+    new-instance v2, Ljava/io/FileReader;
+
+    invoke-direct {v2, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1838
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    .line 1841
+    :try_start_1
+    invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v3
+
+    .line 1842
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
+
+    .line 1843
+    const-string v0, "resources"
+
+    invoke-static {v3, v0}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+
+    move v0, v1
+
+    .line 1845
+    :cond_0
+    :goto_0
+    :try_start_2
+    invoke-static {v3}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
+
+    .line 1847
+    const-string v2, "string"
+
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 1848
+    const/4 v2, 0x0
+
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1857
+    :goto_1
+    if-eqz v2, :cond_0
+
+    .line 1858
+    const-string v4, "systemex"
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeName(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, p1, v4, v5, v2}, Lcom/android/providers/settings/DatabaseHelper;->insertSkipAlreadyExsisted(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1860
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 1835
+    :catch_0
+    move-exception v0
+
+    move v0, v1
+
+    .line 1868
+    :cond_1
+    :goto_2
+    return v0
+
+    .line 1849
+    :cond_2
+    const-string v2, "bool"
+
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 1850
+    const/4 v2, 0x0
+
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, "true"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 v2, 0x1
+
+    :goto_3
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    goto :goto_1
+
+    :cond_3
+    move v2, v1
+
+    goto :goto_3
+
+    .line 1851
+    :cond_4
+    const-string v2, "integer"
+
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    .line 1852
+    const/4 v2, 0x0
+
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_1
+
+    .line 1853
+    :cond_5
+    const-string v2, "fraction"
+
+    invoke-interface {v3}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 1854
+    const/4 v2, 0x0
+
+    invoke-interface {v3, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, -0x1
+
+    invoke-virtual {v2, v4, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1855
+    invoke-static {v2}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v2
+
+    const/high16 v4, 0x42c8
+
+    div-float/2addr v2, v4
+
+    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_4
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+
+    move-result-object v2
+
+    goto :goto_1
+
+    .line 1863
+    :catch_1
+    move-exception v0
+
+    move-object v6, v0
+
+    move v0, v1
+
+    move-object v1, v6
+
+    .line 1864
+    :goto_4
+    const-string v2, "SettingsProvider"
+
+    const-string v3, "Got execption parsing defaults."
+
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    .line 1865
+    :catch_2
+    move-exception v0
+
+    move-object v6, v0
+
+    move v0, v1
+
+    move-object v1, v6
+
+    .line 1866
+    :goto_5
+    const-string v2, "SettingsProvider"
+
+    const-string v3, "Got execption parsing defaults."
+
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    .line 1865
+    :catch_3
+    move-exception v1
+
+    goto :goto_5
+
+    .line 1863
+    :catch_4
+    move-exception v1
+
+    goto :goto_4
 .end method

@@ -69,7 +69,7 @@
 
     const/4 v2, 0x0
 
-    .line 2155
+    .line 2159
     new-array v0, v3, [I
 
     const/high16 v1, 0x7f01
@@ -78,7 +78,7 @@
 
     sput-object v0, Lcom/android/hwcamera/R$styleable;->CameraPreference:[I
 
-    .line 2182
+    .line 2186
     new-array v0, v3, [I
 
     const v1, 0x7f01000d
@@ -87,21 +87,21 @@
 
     sput-object v0, Lcom/android/hwcamera/R$styleable;->GridLines:[I
 
-    .line 2211
+    .line 2215
     new-array v0, v4, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/hwcamera/R$styleable;->IconIndicator:[I
 
-    .line 2246
+    .line 2250
     new-array v0, v4, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/hwcamera/R$styleable;->IconListPreference:[I
 
-    .line 2285
+    .line 2289
     const/4 v0, 0x4
 
     new-array v0, v0, [I
@@ -110,7 +110,7 @@
 
     sput-object v0, Lcom/android/hwcamera/R$styleable;->ListPreference:[I
 
-    .line 2354
+    .line 2358
     const/4 v0, 0x5
 
     new-array v0, v0, [I
@@ -121,7 +121,7 @@
 
     return-void
 
-    .line 2211
+    .line 2215
     nop
 
     :array_0
@@ -130,14 +130,14 @@
         0xbt 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 2246
+    .line 2250
     :array_1
     .array-data 0x4
         0xat 0x0t 0x1t 0x7ft
         0xct 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 2285
+    .line 2289
     :array_2
     .array-data 0x4
         0x6t 0x0t 0x1t 0x7ft
@@ -146,7 +146,7 @@
         0x9t 0x0t 0x1t 0x7ft
     .end array-data
 
-    .line 2354
+    .line 2358
     :array_3
     .array-data 0x4
         0x1t 0x0t 0x1t 0x7ft
@@ -161,7 +161,7 @@
     .locals 0
 
     .prologue
-    .line 2144
+    .line 2148
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

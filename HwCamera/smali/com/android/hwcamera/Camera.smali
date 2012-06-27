@@ -13784,7 +13784,7 @@
 .end method
 
 .method private viewLastImage()V
-    .locals 9
+    .locals 8
 
     .prologue
     .line 4482
@@ -13848,14 +13848,7 @@
     .line 4493
     .local v2, intent:Landroid/content/Intent;
     :try_start_0
-    const v8, 0x10000000
-
-    invoke-virtual {v2, v8}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    move-result-object v2
-
     invoke-virtual {p0, v2}, Lcom/android/hwcamera/Camera;->startActivity(Landroid/content/Intent;)V
-
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 

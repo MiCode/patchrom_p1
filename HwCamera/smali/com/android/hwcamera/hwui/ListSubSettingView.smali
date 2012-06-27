@@ -148,14 +148,14 @@
 
     const/4 v5, 0x0
 
-    .line 83
+    .line 86
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->listItem:Ljava/util/ArrayList;
 
-    .line 84
+    .line 87
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mPreferenceGroup:Lcom/android/hwcamera/PreferenceGroup;
 
     iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mKey:Ljava/lang/String;
@@ -166,23 +166,23 @@
 
     iput-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
 
-    .line 85
+    .line 88
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
 
     if-nez v3, :cond_1
 
-    .line 86
+    .line 89
     iput-boolean v5, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mHasDataState:Z
 
-    .line 110
+    .line 113
     :cond_0
     return-void
 
-    .line 89
+    .line 92
     :cond_1
     iput-boolean v6, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mHasDataState:Z
 
-    .line 90
+    .line 93
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
 
     invoke-virtual {v3}, Lcom/android/hwcamera/ListPreference;->getEntries()[Ljava/lang/CharSequence;
@@ -191,14 +191,14 @@
 
     iput-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->keyvalues:[Ljava/lang/CharSequence;
 
-    .line 91
+    .line 94
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
 
     invoke-virtual {v3}, Lcom/android/hwcamera/ListPreference;->getDefaultValue()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 92
+    .line 95
     .local v0, defaultValue:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mKey:Ljava/lang/String;
 
@@ -206,7 +206,7 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 93
+    .line 96
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mComboPreferences:Lcom/android/hwcamera/ComboPreferences;
 
     invoke-static {v3}, Lcom/android/hwcamera/CameraSettings;->readPreferredCameraId(Landroid/content/SharedPreferences;)I
@@ -217,7 +217,7 @@
 
     move-result-object v0
 
-    .line 96
+    .line 99
     :cond_2
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mComboPreferences:Lcom/android/hwcamera/ComboPreferences;
 
@@ -229,7 +229,7 @@
 
     iput-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mSetValue:Ljava/lang/String;
 
-    .line 97
+    .line 100
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -240,7 +240,7 @@
 
     if-ge v1, v3, :cond_0
 
-    .line 98
+    .line 101
     const-string v3, "enter"
 
     iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->keyvalues:[Ljava/lang/CharSequence;
@@ -253,12 +253,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 99
+    .line 102
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    .line 100
+    .line 103
     .local v2, map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v3, "ItemTitle"
 
@@ -272,7 +272,7 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 102
+    .line 105
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
 
     iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mSetValue:Ljava/lang/String;
@@ -283,7 +283,7 @@
 
     if-ne v1, v3, :cond_3
 
-    .line 103
+    .line 106
     const-string v3, "Radioimage"
 
     iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mRadioDrawable:[I
@@ -296,18 +296,18 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 107
+    .line 110
     :goto_1
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->listItem:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 97
+    .line 100
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 105
+    .line 108
     :cond_3
     const-string v3, "Radioimage"
 
@@ -332,10 +332,10 @@
     .parameter "state"
 
     .prologue
-    .line 113
+    .line 116
     iget-object v0, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mModeadpter:Landroid/widget/SimpleAdapter;
 
-    .line 115
+    .line 118
     .local v0, currentShootAdapter:Landroid/widget/SimpleAdapter;
     invoke-virtual {v0, p1}, Landroid/widget/SimpleAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -343,11 +343,11 @@
 
     check-cast v1, Ljava/util/HashMap;
 
-    .line 116
+    .line 119
     .local v1, currentmap:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     if-eqz p2, :cond_0
 
-    .line 117
+    .line 120
     const-string v2, "Radioimage"
 
     iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mRadioDrawable:[I
@@ -362,7 +362,7 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 118
+    .line 121
     const-string v2, "ItemTitle"
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -375,14 +375,14 @@
 
     iput-object v2, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mSetValue:Ljava/lang/String;
 
-    .line 122
+    .line 125
     :goto_0
     invoke-virtual {v0}, Landroid/widget/SimpleAdapter;->notifyDataSetChanged()V
 
-    .line 123
+    .line 126
     return-void
 
-    .line 120
+    .line 123
     :cond_0
     const-string v2, "Radioimage"
 
@@ -462,7 +462,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 80
+    .line 83
     iget-boolean v0, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mHasDataState:Z
 
     return v0
@@ -504,10 +504,10 @@
     .parameter "key"
 
     .prologue
-    .line 126
+    .line 129
     iput-object p1, p0, Lcom/android/hwcamera/hwui/ListSubSettingView;->mKey:Ljava/lang/String;
 
-    .line 127
+    .line 130
     return-void
 .end method
 

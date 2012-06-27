@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1747
+    .line 1751
     iput-object p1, p0, Lcom/android/server/ConnectivityService$3;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "i"
 
     .prologue
-    .line 1750
+    .line 1754
     iget-object v0, p0, Lcom/android/server/ConnectivityService$3;->this$0:Lcom/android/server/ConnectivityService;
 
     #getter for: Lcom/android/server/ConnectivityService;->mSwitchToNet:Landroid/net/NetworkStateTracker;
@@ -53,7 +53,7 @@
 
     invoke-interface {v0}, Landroid/net/NetworkStateTracker;->reconnect()Z
 
-    .line 1753
+    .line 1757
     iget-object v0, p0, Lcom/android/server/ConnectivityService$3;->this$0:Lcom/android/server/ConnectivityService;
 
     const/4 v1, 0x0
@@ -61,7 +61,7 @@
     #setter for: Lcom/android/server/ConnectivityService;->mShouldShutdownMobile:Z
     invoke-static {v0, v1}, Lcom/android/server/ConnectivityService;->access$702(Lcom/android/server/ConnectivityService;Z)Z
 
-    .line 1754
+    .line 1758
     iget-object v0, p0, Lcom/android/server/ConnectivityService$3;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v1, "you have chose to switch to Mobile data service!"
@@ -69,6 +69,6 @@
     #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/server/ConnectivityService;->access$100(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
-    .line 1755
+    .line 1759
     return-void
 .end method

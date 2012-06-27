@@ -38,18 +38,6 @@
     .parameter "savedInstanceState"
 
     .prologue
-    invoke-virtual {p0}, Lcom/huawei/powermanagement/ChooseModeActivity;->getActionBar()Landroid/app/ActionBar;
-
-    move-result-object v0
-
-    .local v0, actionBar:Landroid/app/ActionBar;
-    if-eqz v0, :cond_z
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
-
-    :cond_z
     const/4 v3, 0x1
 
     const/4 v2, 0x0
@@ -335,42 +323,4 @@
     .line 127
     :cond_0
     return-void
-.end method
-
-.method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 1
-    .parameter "item"
-
-    .prologue
-    .line 85
-    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
-
-    move-result v0
-
-    packed-switch v0, :pswitch_data_0
-
-    .line 91
-    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
-
-    move-result v0
-
-    :goto_0
-    return v0
-
-    .line 87
-    :pswitch_0
-    invoke-virtual {p0}, Lcom/huawei/powermanagement/ChooseModeActivity;->finish()V
-
-    .line 88
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    .line 85
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x102002c
-        :pswitch_0
-    .end packed-switch
 .end method

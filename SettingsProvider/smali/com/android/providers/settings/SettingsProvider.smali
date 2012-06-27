@@ -127,7 +127,7 @@
     .line 48
     invoke-direct {p0}, Landroid/content/ContentProvider;-><init>()V
 
-    .line 732
+    .line 735
     return-void
 .end method
 
@@ -258,7 +258,7 @@
 
     const/4 v12, 0x0
 
-    .line 324
+    .line 327
     sget-object v1, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
 
     new-array v2, v13, [Ljava/lang/String;
@@ -281,7 +281,7 @@
 
     move-result-object v6
 
-    .line 329
+    .line 332
     .local v6, c:Landroid/database/Cursor;
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
@@ -296,17 +296,17 @@
 
     move-result-object v10
 
-    .line 330
+    .line 333
     .local v10, value:Ljava/lang/String;
     :goto_0
     if-nez v10, :cond_1
 
-    .line 331
+    .line 334
     new-instance v8, Ljava/security/SecureRandom;
 
     invoke-direct {v8}, Ljava/security/SecureRandom;-><init>()V
 
-    .line 332
+    .line 335
     .local v8, random:Ljava/security/SecureRandom;
     invoke-virtual {v8}, Ljava/security/SecureRandom;->nextLong()J
 
@@ -316,7 +316,7 @@
 
     move-result-object v7
 
-    .line 333
+    .line 336
     .local v7, newAndroidIdValue:Ljava/lang/String;
     const-string v0, "SettingsProvider"
 
@@ -346,12 +346,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 334
+    .line 337
     new-instance v11, Landroid/content/ContentValues;
 
     invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
 
-    .line 335
+    .line 338
     .local v11, values:Landroid/content/ContentValues;
     const-string v0, "name"
 
@@ -359,12 +359,12 @@
 
     invoke-virtual {v11, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 336
+    .line 339
     const-string v0, "value"
 
     invoke-virtual {v11, v0, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 337
+    .line 340
     sget-object v0, Landroid/provider/Settings$Secure;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {p0, v0, v11}, Lcom/android/providers/settings/SettingsProvider;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -373,11 +373,11 @@
 
     move-result-object v9
 
-    .line 338
+    .line 341
     .local v9, uri:Landroid/net/Uri;
     if-nez v9, :cond_1
 
-    .line 344
+    .line 347
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     move v0, v12
@@ -393,10 +393,10 @@
     :cond_0
     move-object v10, v5
 
-    .line 329
+    .line 332
     goto :goto_0
 
-    .line 344
+    .line 347
     .restart local v10       #value:Ljava/lang/String;
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -426,14 +426,14 @@
 
     const/4 v3, 0x0
 
-    .line 292
+    .line 295
     iget-object v1, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
     invoke-virtual {v1}, Lcom/android/providers/settings/DatabaseHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v0
 
-    .line 293
+    .line 296
     .local v0, db:Landroid/database/sqlite/SQLiteDatabase;
     const/4 v1, 0x2
 
@@ -463,26 +463,26 @@
 
     move-result-object v9
 
-    .line 299
+    .line 302
     .local v9, c:Landroid/database/Cursor;
     :try_start_0
     monitor-enter p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 300
+    .line 303
     :try_start_1
     invoke-virtual {p2}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->evictAll()V
 
-    .line 301
+    .line 304
     const/4 v1, 0x1
 
     invoke-virtual {p2, v1}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->setFullyMatchesDisk(Z)V
 
-    .line 302
+    .line 305
     const/4 v11, 0x0
 
-    .line 303
+    .line 306
     .local v11, rows:I
     :goto_0
     invoke-interface {v9}, Landroid/database/Cursor;->moveToNext()Z
@@ -491,17 +491,17 @@
 
     if-eqz v1, :cond_0
 
-    .line 304
+    .line 307
     add-int/lit8 v11, v11, 0x1
 
-    .line 305
+    .line 308
     const/4 v1, 0x0
 
     invoke-interface {v9, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 306
+    .line 309
     .local v10, name:Ljava/lang/String;
     const/4 v1, 0x1
 
@@ -509,13 +509,13 @@
 
     move-result-object v12
 
-    .line 307
+    .line 310
     .local v12, value:Ljava/lang/String;
     invoke-virtual {p2, v10, v12}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->populate(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 317
+    .line 320
     .end local v10           #name:Ljava/lang/String;
     .end local v11           #rows:I
     .end local v12           #value:Ljava/lang/String;
@@ -531,7 +531,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 319
+    .line 322
     :catchall_1
     move-exception v1
 
@@ -539,20 +539,20 @@
 
     throw v1
 
-    .line 309
+    .line 312
     .restart local v11       #rows:I
     :cond_0
     const/16 v1, 0xc8
 
     if-le v11, v1, :cond_1
 
-    .line 312
+    .line 315
     const/4 v1, 0x0
 
     :try_start_3
     invoke-virtual {p2, v1}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->setFullyMatchesDisk(Z)V
 
-    .line 313
+    .line 316
     const-string v1, "SettingsProvider"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -575,7 +575,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 315
+    .line 318
     :cond_1
     const-string v1, "SettingsProvider"
 
@@ -623,15 +623,15 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 317
+    .line 320
     monitor-exit p2
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 319
+    .line 322
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
-    .line 321
+    .line 324
     return-void
 .end method
 
@@ -639,21 +639,21 @@
     .locals 2
 
     .prologue
-    .line 286
+    .line 289
     const-string v0, "secure"
 
     sget-object v1, Lcom/android/providers/settings/SettingsProvider;->sSecureCache:Lcom/android/providers/settings/SettingsProvider$SettingsCache;
 
     invoke-direct {p0, v0, v1}, Lcom/android/providers/settings/SettingsProvider;->fullyPopulateCache(Ljava/lang/String;Lcom/android/providers/settings/SettingsProvider$SettingsCache;)V
 
-    .line 287
+    .line 290
     const-string v0, "system"
 
     sget-object v1, Lcom/android/providers/settings/SettingsProvider;->sSystemCache:Lcom/android/providers/settings/SettingsProvider$SettingsCache;
 
     invoke-direct {p0, v0, v1}, Lcom/android/providers/settings/SettingsProvider;->fullyPopulateCache(Ljava/lang/String;Lcom/android/providers/settings/SettingsProvider$SettingsCache;)V
 
-    .line 288
+    .line 291
     return-void
 .end method
 
@@ -768,10 +768,10 @@
     .parameter "key"
 
     .prologue
-    .line 365
+    .line 368
     monitor-enter p2
 
-    .line 366
+    .line 369
     :try_start_0
     invoke-virtual {p2, p3}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -779,25 +779,25 @@
 
     check-cast v11, Landroid/os/Bundle;
 
-    .line 367
+    .line 370
     .local v11, value:Landroid/os/Bundle;
     if-eqz v11, :cond_1
 
-    .line 368
+    .line 371
     sget-object v1, Lcom/android/providers/settings/SettingsProvider;->TOO_LARGE_TO_CACHE_MARKER:Landroid/os/Bundle;
 
     if-eq v11, v1, :cond_2
 
-    .line 369
+    .line 372
     monitor-exit p2
 
-    .line 399
+    .line 402
     .end local v11           #value:Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-object v11
 
-    .line 372
+    .line 375
     .restart local v11       #value:Landroid/os/Bundle;
     :cond_1
     invoke-virtual {p2}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->fullyMatchesDisk()Z
@@ -806,7 +806,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 379
+    .line 382
     sget-object v11, Lcom/android/providers/settings/SettingsProvider;->NULL_SETTING:Landroid/os/Bundle;
 
     .end local v11           #value:Landroid/os/Bundle;
@@ -814,7 +814,7 @@
 
     goto :goto_0
 
-    .line 381
+    .line 384
     :catchall_0
     move-exception v1
 
@@ -831,18 +831,18 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 383
+    .line 386
     iget-object v1, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
     invoke-virtual {v1}, Lcom/android/providers/settings/DatabaseHelper;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v0
 
-    .line 384
+    .line 387
     .local v0, db:Landroid/database/sqlite/SQLiteDatabase;
     const/4 v9, 0x0
 
-    .line 386
+    .line 389
     .local v9, cursor:Landroid/database/Cursor;
     :try_start_2
     sget-object v2, Lcom/android/providers/settings/SettingsProvider;->COLUMN_VALUE:[Ljava/lang/String;
@@ -871,7 +871,7 @@
 
     move-result-object v9
 
-    .line 388
+    .line 391
     if-eqz v9, :cond_3
 
     invoke-interface {v9}, Landroid/database/Cursor;->getCount()I
@@ -882,10 +882,10 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 389
+    .line 392
     invoke-interface {v9}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 390
+    .line 393
     const/4 v1, 0x0
 
     invoke-interface {v9, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -899,7 +899,7 @@
 
     move-result-object v11
 
-    .line 396
+    .line 399
     .end local v11           #value:Landroid/os/Bundle;
     if-eqz v9, :cond_0
 
@@ -913,22 +913,22 @@
 
     invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
-    .line 398
+    .line 401
     :cond_4
     const/4 v1, 0x0
 
     invoke-virtual {p2, p3, v1}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->putIfAbsent(Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
 
-    .line 399
+    .line 402
     sget-object v11, Lcom/android/providers/settings/SettingsProvider;->NULL_SETTING:Landroid/os/Bundle;
 
     goto :goto_0
 
-    .line 392
+    .line 395
     :catch_0
     move-exception v10
 
-    .line 393
+    .line 396
     .local v10, e:Landroid/database/sqlite/SQLiteException;
     :try_start_3
     const-string v1, "SettingsProvider"
@@ -939,10 +939,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 394
+    .line 397
     const/4 v11, 0x0
 
-    .line 396
+    .line 399
     .end local v11           #value:Landroid/os/Bundle;
     if-eqz v9, :cond_0
 
@@ -969,18 +969,18 @@
     .parameter "initialValues"
 
     .prologue
-    .line 485
+    .line 488
     const-string v0, "value"
 
     invoke-virtual {p2, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
-    .line 486
+    .line 489
     .local v12, value:Ljava/lang/String;
     const/4 v9, 0x0
 
-    .line 487
+    .line 490
     .local v9, newProviders:Ljava/lang/String;
     if-eqz v12, :cond_5
 
@@ -992,14 +992,14 @@
 
     if-le v0, v1, :cond_5
 
-    .line 488
+    .line 491
     const/4 v0, 0x0
 
     invoke-virtual {v12, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v10
 
-    .line 489
+    .line 492
     .local v10, prefix:C
     const/16 v0, 0x2b
 
@@ -1009,7 +1009,7 @@
 
     if-ne v10, v0, :cond_5
 
-    .line 491
+    .line 494
     :cond_0
     const/4 v0, 0x1
 
@@ -1017,10 +1017,10 @@
 
     move-result-object v12
 
-    .line 494
+    .line 497
     const-string v11, ""
 
-    .line 495
+    .line 498
     .local v11, providers:Ljava/lang/String;
     const/4 v0, 0x1
 
@@ -1032,11 +1032,11 @@
 
     aput-object v1, v2, v0
 
-    .line 496
+    .line 499
     .local v2, columns:[Ljava/lang/String;
     const-string v3, "name=\'location_providers_allowed\'"
 
-    .line 497
+    .line 500
     .local v3, where:Ljava/lang/String;
     const/4 v4, 0x0
 
@@ -1050,7 +1050,7 @@
 
     move-result-object v6
 
-    .line 498
+    .line 501
     .local v6, cursor:Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
@@ -1062,11 +1062,11 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 500
+    .line 503
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 501
+    .line 504
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -1075,16 +1075,16 @@
 
     move-result-object v11
 
-    .line 503
+    .line 506
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 507
+    .line 510
     :cond_1
     invoke-virtual {v11, v12}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v8
 
-    .line 508
+    .line 511
     .local v8, index:I
     invoke-virtual {v12}, Ljava/lang/String;->length()I
 
@@ -1092,7 +1092,7 @@
 
     add-int v7, v8, v0
 
-    .line 510
+    .line 513
     .local v7, end:I
     if-lez v8, :cond_2
 
@@ -1108,7 +1108,7 @@
 
     const/4 v8, -0x1
 
-    .line 511
+    .line 514
     :cond_2
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
@@ -1126,7 +1126,7 @@
 
     const/4 v8, -0x1
 
-    .line 513
+    .line 516
     :cond_3
     const/16 v0, 0x2b
 
@@ -1134,27 +1134,27 @@
 
     if-gez v8, :cond_7
 
-    .line 515
+    .line 518
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v0
 
     if-nez v0, :cond_6
 
-    .line 516
+    .line 519
     move-object v9, v12
 
-    .line 538
+    .line 541
     :cond_4
     :goto_0
     if-eqz v9, :cond_5
 
-    .line 539
+    .line 542
     const-string v0, "value"
 
     invoke-virtual {p2, v0, v9}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 544
+    .line 547
     .end local v2           #columns:[Ljava/lang/String;
     .end local v3           #where:Ljava/lang/String;
     .end local v6           #cursor:Landroid/database/Cursor;
@@ -1168,7 +1168,7 @@
     :goto_1
     return v0
 
-    .line 503
+    .line 506
     .restart local v2       #columns:[Ljava/lang/String;
     .restart local v3       #where:Ljava/lang/String;
     .restart local v6       #cursor:Landroid/database/Cursor;
@@ -1181,7 +1181,7 @@
 
     throw v0
 
-    .line 518
+    .line 521
     .restart local v7       #end:I
     .restart local v8       #index:I
     :cond_6
@@ -1209,7 +1209,7 @@
 
     goto :goto_0
 
-    .line 520
+    .line 523
     :cond_7
     const/16 v0, 0x2d
 
@@ -1217,13 +1217,13 @@
 
     if-ltz v8, :cond_a
 
-    .line 523
+    .line 526
     if-lez v8, :cond_9
 
-    .line 524
+    .line 527
     add-int/lit8 v8, v8, -0x1
 
-    .line 529
+    .line 532
     :cond_8
     :goto_2
     const/4 v0, 0x0
@@ -1232,14 +1232,14 @@
 
     move-result-object v9
 
-    .line 530
+    .line 533
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
     move-result v0
 
     if-ge v7, v0, :cond_4
 
-    .line 531
+    .line 534
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1262,7 +1262,7 @@
 
     goto :goto_0
 
-    .line 525
+    .line 528
     :cond_9
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
@@ -1270,12 +1270,12 @@
 
     if-ge v7, v0, :cond_8
 
-    .line 526
+    .line 529
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
-    .line 535
+    .line 538
     :cond_a
     const/4 v0, 0x0
 
@@ -1438,7 +1438,7 @@
     .locals 2
 
     .prologue
-    .line 278
+    .line 281
     new-instance v0, Lcom/android/providers/settings/SettingsProvider$1;
 
     const-string v1, "populate-settings-caches"
@@ -1447,7 +1447,7 @@
 
     invoke-virtual {v0}, Lcom/android/providers/settings/SettingsProvider$1;->start()V
 
-    .line 283
+    .line 286
     return-void
 .end method
 
@@ -1461,12 +1461,12 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 448
+    .line 451
     new-instance v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;
 
     invoke-direct {v0, p1}, Lcom/android/providers/settings/SettingsProvider$SqlArguments;-><init>(Landroid/net/Uri;)V
 
-    .line 449
+    .line 452
     .local v0, args:Lcom/android/providers/settings/SettingsProvider$SqlArguments;
     const-string v6, "favorites"
 
@@ -1478,43 +1478,43 @@
 
     if-eqz v6, :cond_0
 
-    .line 472
+    .line 475
     :goto_0
     return v5
 
-    .line 452
+    .line 455
     :cond_0
     invoke-direct {p0, v0}, Lcom/android/providers/settings/SettingsProvider;->checkWritePermissions(Lcom/android/providers/settings/SettingsProvider$SqlArguments;)V
 
-    .line 453
+    .line 456
     iget-object v6, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
     invoke-static {v6}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->forTable(Ljava/lang/String;)Lcom/android/providers/settings/SettingsProvider$SettingsCache;
 
     move-result-object v1
 
-    .line 455
+    .line 458
     .local v1, cache:Lcom/android/providers/settings/SettingsProvider$SettingsCache;
     sget-object v6, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    .line 456
+    .line 459
     iget-object v6, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
     invoke-virtual {v6}, Lcom/android/providers/settings/DatabaseHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
-    .line 457
+    .line 460
     .local v2, db:Landroid/database/sqlite/SQLiteDatabase;
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->beginTransaction()V
 
-    .line 459
+    .line 462
     :try_start_0
     array-length v4, p2
 
-    .line 460
+    .line 463
     .local v4, numValues:I
     const/4 v3, 0x0
 
@@ -1522,7 +1522,7 @@
     :goto_1
     if-ge v3, v4, :cond_2
 
-    .line 461
+    .line 464
     iget-object v6, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
     const/4 v7, 0x0
@@ -1541,51 +1541,51 @@
 
     if-gez v6, :cond_1
 
-    .line 467
+    .line 470
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    .line 468
+    .line 471
     sget-object v6, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     goto :goto_0
 
-    .line 462
+    .line 465
     :cond_1
     :try_start_1
     aget-object v6, p2, v3
 
     invoke-static {v1, v6}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->populate(Lcom/android/providers/settings/SettingsProvider$SettingsCache;Landroid/content/ContentValues;)V
 
-    .line 460
+    .line 463
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 465
+    .line 468
     :cond_2
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 467
+    .line 470
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    .line 468
+    .line 471
     sget-object v5, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 471
+    .line 474
     invoke-direct {p0, p1}, Lcom/android/providers/settings/SettingsProvider;->sendNotify(Landroid/net/Uri;)V
 
-    .line 472
+    .line 475
     array-length v5, p2
 
     goto :goto_0
 
-    .line 467
+    .line 470
     .end local v3           #i:I
     .end local v4           #numValues:I
     :catchall_0
@@ -1593,7 +1593,7 @@
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    .line 468
+    .line 471
     sget-object v6, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -1608,7 +1608,7 @@
     .parameter "args"
 
     .prologue
-    .line 353
+    .line 356
     const-string v0, "GET_system"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1617,7 +1617,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 354
+    .line 357
     const-string v0, "system"
 
     sget-object v1, Lcom/android/providers/settings/SettingsProvider;->sSystemCache:Lcom/android/providers/settings/SettingsProvider$SettingsCache;
@@ -1626,11 +1626,11 @@
 
     move-result-object v0
 
-    .line 359
+    .line 362
     :goto_0
     return-object v0
 
-    .line 356
+    .line 359
     :cond_0
     const-string v0, "GET_secure"
 
@@ -1640,7 +1640,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 357
+    .line 360
     const-string v0, "secure"
 
     sget-object v1, Lcom/android/providers/settings/SettingsProvider;->sSecureCache:Lcom/android/providers/settings/SettingsProvider$SettingsCache;
@@ -1651,7 +1651,7 @@
 
     goto :goto_0
 
-    .line 359
+    .line 362
     :cond_1
     const/4 v0, 0x0
 
@@ -1665,12 +1665,12 @@
     .parameter "whereArgs"
 
     .prologue
-    .line 584
+    .line 587
     new-instance v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;
 
     invoke-direct {v0, p1, p2, p3}, Lcom/android/providers/settings/SettingsProvider$SqlArguments;-><init>(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 585
+    .line 588
     .local v0, args:Lcom/android/providers/settings/SettingsProvider$SqlArguments;
     const-string v3, "favorites"
 
@@ -1682,14 +1682,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 586
+    .line 589
     const/4 v1, 0x0
 
-    .line 602
+    .line 605
     :goto_0
     return v1
 
-    .line 587
+    .line 590
     :cond_0
     const-string v3, "old_favorites"
 
@@ -1701,28 +1701,28 @@
 
     if-eqz v3, :cond_1
 
-    .line 588
+    .line 591
     const-string v3, "favorites"
 
     iput-object v3, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
-    .line 590
+    .line 593
     :cond_1
     invoke-direct {p0, v0}, Lcom/android/providers/settings/SettingsProvider;->checkWritePermissions(Lcom/android/providers/settings/SettingsProvider$SqlArguments;)V
 
-    .line 592
+    .line 595
     sget-object v3, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    .line 593
+    .line 596
     iget-object v3, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
     invoke-virtual {v3}, Lcom/android/providers/settings/DatabaseHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
-    .line 594
+    .line 597
     .local v2, db:Landroid/database/sqlite/SQLiteDatabase;
     iget-object v3, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
@@ -1734,24 +1734,24 @@
 
     move-result v1
 
-    .line 595
+    .line 598
     .local v1, count:I
     sget-object v3, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 596
+    .line 599
     if-lez v1, :cond_2
 
-    .line 597
+    .line 600
     iget-object v3, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
     invoke-static {v3}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->invalidate(Ljava/lang/String;)V
 
-    .line 598
+    .line 601
     invoke-direct {p0, p1}, Lcom/android/providers/settings/SettingsProvider;->sendNotify(Landroid/net/Uri;)V
 
-    .line 600
+    .line 603
     :cond_2
     invoke-direct {p0}, Lcom/android/providers/settings/SettingsProvider;->startAsyncCachePopulation()V
 
@@ -1765,12 +1765,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 438
+    .line 441
     new-instance v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;
 
     invoke-direct {v0, p1, v1, v1}, Lcom/android/providers/settings/SettingsProvider$SqlArguments;-><init>(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 439
+    .line 442
     .local v0, args:Lcom/android/providers/settings/SettingsProvider$SqlArguments;
     iget-object v1, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->where:Ljava/lang/String;
 
@@ -1780,7 +1780,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 440
+    .line 443
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1801,7 +1801,7 @@
 
     move-result-object v1
 
-    .line 442
+    .line 445
     :goto_0
     return-object v1
 
@@ -1837,12 +1837,12 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 549
+    .line 552
     new-instance v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;
 
     invoke-direct {v0, p1}, Lcom/android/providers/settings/SettingsProvider$SqlArguments;-><init>(Landroid/net/Uri;)V
 
-    .line 550
+    .line 553
     .local v0, args:Lcom/android/providers/settings/SettingsProvider$SqlArguments;
     const-string v8, "favorites"
 
@@ -1854,23 +1854,23 @@
 
     if-eqz v8, :cond_1
 
-    .line 579
+    .line 582
     :cond_0
     :goto_0
     return-object v7
 
-    .line 553
+    .line 556
     :cond_1
     invoke-direct {p0, v0}, Lcom/android/providers/settings/SettingsProvider;->checkWritePermissions(Lcom/android/providers/settings/SettingsProvider$SqlArguments;)V
 
-    .line 557
+    .line 560
     const-string v8, "name"
 
     invoke-virtual {p2, v8}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 558
+    .line 561
     .local v3, name:Ljava/lang/String;
     const-string v8, "location_providers_allowed"
 
@@ -1880,14 +1880,14 @@
 
     if-eqz v8, :cond_2
 
-    .line 559
+    .line 562
     invoke-direct {p0, p1, p2}, Lcom/android/providers/settings/SettingsProvider;->parseProviderList(Landroid/net/Uri;Landroid/content/ContentValues;)Z
 
     move-result v8
 
     if-eqz v8, :cond_0
 
-    .line 562
+    .line 565
     :cond_2
     iget-object v8, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
@@ -1895,7 +1895,7 @@
 
     move-result-object v1
 
-    .line 563
+    .line 566
     .local v1, cache:Lcom/android/providers/settings/SettingsProvider$SettingsCache;
     const-string v8, "value"
 
@@ -1903,7 +1903,7 @@
 
     move-result-object v6
 
-    .line 564
+    .line 567
     .local v6, value:Ljava/lang/String;
     invoke-static {v1, v3, v6}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->isRedundantSetValue(Lcom/android/providers/settings/SettingsProvider$SettingsCache;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -1911,27 +1911,27 @@
 
     if-eqz v8, :cond_3
 
-    .line 565
+    .line 568
     invoke-static {p1, v3}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v7
 
     goto :goto_0
 
-    .line 568
+    .line 571
     :cond_3
     sget-object v8, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v8}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    .line 569
+    .line 572
     iget-object v8, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
     invoke-virtual {v8}, Lcom/android/providers/settings/DatabaseHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
-    .line 570
+    .line 573
     .local v2, db:Landroid/database/sqlite/SQLiteDatabase;
     iget-object v8, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
@@ -1939,33 +1939,33 @@
 
     move-result-wide v4
 
-    .line 571
+    .line 574
     .local v4, rowId:J
     sget-object v8, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v8}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 572
+    .line 575
     const-wide/16 v8, 0x0
 
     cmp-long v8, v4, v8
 
     if-lez v8, :cond_0
 
-    .line 574
+    .line 577
     invoke-static {v1, p2}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->populate(Lcom/android/providers/settings/SettingsProvider$SettingsCache;Landroid/content/ContentValues;)V
 
-    .line 577
+    .line 580
     invoke-direct {p0, p1, p2, v4, v5}, Lcom/android/providers/settings/SettingsProvider;->getUriFor(Landroid/net/Uri;Landroid/content/ContentValues;J)Landroid/net/Uri;
 
     move-result-object p1
 
-    .line 578
+    .line 581
     invoke-direct {p0, p1}, Lcom/android/providers/settings/SettingsProvider;->sendNotify(Landroid/net/Uri;)V
 
     move-object v7, p1
 
-    .line 579
+    .line 582
     goto :goto_0
 .end method
 
@@ -2005,7 +2005,7 @@
     .line 264
     const/4 v1, 0x0
 
-    .line 274
+    .line 277
     :goto_0
     return v1
 
@@ -2017,11 +2017,16 @@
 
     move-result-object v0
 
-    .line 270
+    .line 271
     .local v0, db:Landroid/database/sqlite/SQLiteDatabase;
+    iget-object v1, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
+
+    invoke-virtual {v1, v0}, Lcom/android/providers/settings/DatabaseHelper;->updateSystemexSettings(Landroid/database/sqlite/SQLiteDatabase;)I
+
+    .line 273
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->enableWriteAheadLogging()Z
 
-    .line 271
+    .line 274
     new-instance v1, Lcom/android/providers/settings/SettingsProvider$SettingsFileObserver;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->getPath()Ljava/lang/String;
@@ -2032,15 +2037,15 @@
 
     sput-object v1, Lcom/android/providers/settings/SettingsProvider;->sObserverInstance:Lcom/android/providers/settings/SettingsProvider$SettingsFileObserver;
 
-    .line 272
+    .line 275
     sget-object v1, Lcom/android/providers/settings/SettingsProvider;->sObserverInstance:Lcom/android/providers/settings/SettingsProvider$SettingsFileObserver;
 
     invoke-virtual {v1}, Lcom/android/providers/settings/SettingsProvider$SettingsFileObserver;->startWatching()V
 
-    .line 273
+    .line 276
     invoke-direct {p0}, Lcom/android/providers/settings/SettingsProvider;->startAsyncCachePopulation()V
 
-    .line 274
+    .line 277
     const/4 v1, 0x1
 
     goto :goto_0
@@ -2050,10 +2055,6 @@
     .locals 13
     .parameter "uri"
     .parameter "mode"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -2061,31 +2062,38 @@
     .end annotation
 
     .prologue
+    .line 678
     invoke-static {p1}, Landroid/media/RingtoneManager;->getDefaultType(Landroid/net/Uri;)I
 
     move-result v11
 
+    .line 680
     .local v11, ringtoneType:I
     const/4 v0, -0x1
 
     if-eq v11, v0, :cond_4
 
+    .line 681
     invoke-virtual {p0}, Lcom/android/providers/settings/SettingsProvider;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
+    .line 684
     .local v7, context:Landroid/content/Context;
     invoke-static {v7, v11}, Landroid/media/RingtoneManager;->getActualDefaultRingtoneUri(Landroid/content/Context;I)Landroid/net/Uri;
 
     move-result-object v12
 
+    .line 686
     .local v12, soundUri:Landroid/net/Uri;
     if-eqz v12, :cond_3
 
+    .line 688
     invoke-virtual {v12}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
     move-result-object v6
 
+    .line 689
     .local v6, authority:Ljava/lang/String;
     const-string v0, "drm"
 
@@ -2093,6 +2101,7 @@
 
     move-result v10
 
+    .line 690
     .local v10, isDrmAuthority:Z
     if-nez v10, :cond_0
 
@@ -2102,25 +2111,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    invoke-static {v12}, Landroid/media/ExtraRingtoneManager;->isExtraCases(Landroid/net/Uri;)Z
-
-    move-result v0
-
     if-eqz v0, :cond_2
 
+    .line 692
     :cond_0
     if-eqz v10, :cond_1
 
+    .line 697
     :try_start_0
     invoke-static {v7}, Landroid/provider/DrmStore;->enforceAccessDrmPermission(Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
+    .line 703
+    :cond_1
     const/4 v1, 0x0
 
+    .line 705
     .local v1, pfd:Landroid/os/ParcelFileDescriptor;
     :try_start_1
     invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2131,6 +2138,7 @@
 
     move-result-object v1
 
+    .line 706
     new-instance v0, Landroid/content/res/AssetFileDescriptor;
 
     const-wide/16 v2, 0x0
@@ -2141,14 +2149,16 @@
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 727
     .end local v1           #pfd:Landroid/os/ParcelFileDescriptor;
     .end local v6           #authority:Ljava/lang/String;
     .end local v7           #context:Landroid/content/Context;
     .end local v10           #isDrmAuthority:Z
     .end local v12           #soundUri:Landroid/net/Uri;
-    :goto_1
+    :goto_0
     return-object v0
 
+    .line 698
     .restart local v6       #authority:Ljava/lang/String;
     .restart local v7       #context:Landroid/content/Context;
     .restart local v10       #isDrmAuthority:Z
@@ -2156,6 +2166,7 @@
     :catch_0
     move-exception v8
 
+    .line 699
     .local v8, e:Ljava/lang/SecurityException;
     new-instance v0, Ljava/io/FileNotFoundException;
 
@@ -2167,18 +2178,13 @@
 
     throw v0
 
+    .line 707
     .end local v8           #e:Ljava/lang/SecurityException;
-    :cond_1
-    invoke-static {v12, v11}, Landroid/media/ExtraRingtoneManager;->getUriForExtraCases(Landroid/net/Uri;I)Landroid/net/Uri;
-
-    move-result-object v12
-
-    goto :goto_0
-
     .restart local v1       #pfd:Landroid/os/ParcelFileDescriptor;
     :catch_1
     move-exception v0
 
+    .line 713
     .end local v1           #pfd:Landroid/os/ParcelFileDescriptor;
     :cond_2
     :try_start_2
@@ -2188,11 +2194,13 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_0
 
+    .line 714
     :catch_2
     move-exception v9
 
+    .line 717
     .local v9, ex:Ljava/io/FileNotFoundException;
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2204,8 +2212,9 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_0
 
+    .line 723
     .end local v6           #authority:Ljava/lang/String;
     .end local v9           #ex:Ljava/io/FileNotFoundException;
     .end local v10           #isDrmAuthority:Z
@@ -2216,6 +2225,7 @@
 
     throw v0
 
+    .line 727
     .end local v7           #context:Landroid/content/Context;
     .end local v12           #soundUri:Landroid/net/Uri;
     :cond_4
@@ -2223,17 +2233,13 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
     .locals 8
     .parameter "uri"
     .parameter "mode"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -2241,31 +2247,38 @@
     .end annotation
 
     .prologue
+    .line 637
     invoke-static {p1}, Landroid/media/RingtoneManager;->getDefaultType(Landroid/net/Uri;)I
 
     move-result v4
 
+    .line 639
     .local v4, ringtoneType:I
     const/4 v6, -0x1
 
     if-eq v4, v6, :cond_2
 
+    .line 640
     invoke-virtual {p0}, Lcom/android/providers/settings/SettingsProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
+    .line 643
     .local v1, context:Landroid/content/Context;
     invoke-static {v1, v4}, Landroid/media/RingtoneManager;->getActualDefaultRingtoneUri(Landroid/content/Context;I)Landroid/net/Uri;
 
     move-result-object v5
 
+    .line 645
     .local v5, soundUri:Landroid/net/Uri;
     if-eqz v5, :cond_2
 
+    .line 647
     invoke-virtual {v5}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 648
     .local v0, authority:Ljava/lang/String;
     const-string v6, "drm"
 
@@ -2273,6 +2286,7 @@
 
     move-result v3
 
+    .line 649
     .local v3, isDrmAuthority:Z
     if-nez v3, :cond_0
 
@@ -2282,23 +2296,20 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
-
-    invoke-static {v5}, Landroid/media/ExtraRingtoneManager;->isExtraCases(Landroid/net/Uri;)Z
-
-    move-result v6
-
     if-eqz v6, :cond_2
 
+    .line 651
     :cond_0
     if-eqz v3, :cond_1
 
+    .line 656
     :try_start_0
     invoke-static {v1}, Landroid/provider/DrmStore;->enforceAccessDrmPermission(Landroid/content/Context;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_0
+    .line 662
+    :cond_1
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v6
@@ -2307,13 +2318,15 @@
 
     move-result-object v6
 
+    .line 667
     .end local v0           #authority:Ljava/lang/String;
     .end local v1           #context:Landroid/content/Context;
     .end local v3           #isDrmAuthority:Z
     .end local v5           #soundUri:Landroid/net/Uri;
-    :goto_1
+    :goto_0
     return-object v6
 
+    .line 657
     .restart local v0       #authority:Ljava/lang/String;
     .restart local v1       #context:Landroid/content/Context;
     .restart local v3       #isDrmAuthority:Z
@@ -2321,6 +2334,7 @@
     :catch_0
     move-exception v2
 
+    .line 658
     .local v2, e:Ljava/lang/SecurityException;
     new-instance v6, Ljava/io/FileNotFoundException;
 
@@ -2332,16 +2346,10 @@
 
     throw v6
 
-    .end local v2           #e:Ljava/lang/SecurityException;
-    :cond_1
-    invoke-static {v5, v4}, Landroid/media/ExtraRingtoneManager;->getUriForExtraCases(Landroid/net/Uri;I)Landroid/net/Uri;
-
-    move-result-object v5
-
-    goto :goto_0
-
+    .line 667
     .end local v0           #authority:Ljava/lang/String;
     .end local v1           #context:Landroid/content/Context;
+    .end local v2           #e:Ljava/lang/SecurityException;
     .end local v3           #isDrmAuthority:Z
     .end local v5           #soundUri:Landroid/net/Uri;
     :cond_2
@@ -2349,7 +2357,7 @@
 
     move-result-object v6
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
@@ -2361,7 +2369,7 @@
     .parameter "sort"
 
     .prologue
-    .line 404
+    .line 407
     new-instance v10, Lcom/android/providers/settings/SettingsProvider$SqlArguments;
 
     move-object/from16 v0, p3
@@ -2370,7 +2378,7 @@
 
     invoke-direct {v10, p1, v0, v1}, Lcom/android/providers/settings/SettingsProvider$SqlArguments;-><init>(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 405
+    .line 408
     .local v10, args:Lcom/android/providers/settings/SettingsProvider$SqlArguments;
     iget-object v4, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
@@ -2378,7 +2386,7 @@
 
     move-result-object v3
 
-    .line 412
+    .line 415
     .local v3, db:Landroid/database/sqlite/SQLiteDatabase;
     const-string v4, "favorites"
 
@@ -2390,14 +2398,14 @@
 
     if-eqz v4, :cond_0
 
-    .line 413
+    .line 416
     const/4 v13, 0x0
 
-    .line 431
+    .line 434
     :goto_0
     return-object v13
 
-    .line 414
+    .line 417
     :cond_0
     const-string v4, "old_favorites"
 
@@ -2409,12 +2417,12 @@
 
     if-eqz v4, :cond_3
 
-    .line 415
+    .line 418
     const-string v4, "favorites"
 
     iput-object v4, v10, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
-    .line 416
+    .line 419
     const-string v4, "PRAGMA table_info(favorites);"
 
     const/4 v5, 0x0
@@ -2423,11 +2431,11 @@
 
     move-result-object v11
 
-    .line 417
+    .line 420
     .local v11, cursor:Landroid/database/Cursor;
     if-eqz v11, :cond_2
 
-    .line 418
+    .line 421
     invoke-interface {v11}, Landroid/database/Cursor;->getCount()I
 
     move-result v4
@@ -2436,45 +2444,45 @@
 
     const/4 v12, 0x1
 
-    .line 419
+    .line 422
     .local v12, exists:Z
     :goto_1
     invoke-interface {v11}, Landroid/database/Cursor;->close()V
 
-    .line 420
+    .line 423
     if-nez v12, :cond_3
 
     const/4 v13, 0x0
 
     goto :goto_0
 
-    .line 418
+    .line 421
     .end local v12           #exists:Z
     :cond_1
     const/4 v12, 0x0
 
     goto :goto_1
 
-    .line 422
+    .line 425
     :cond_2
     const/4 v13, 0x0
 
     goto :goto_0
 
-    .line 426
+    .line 429
     .end local v11           #cursor:Landroid/database/Cursor;
     :cond_3
     new-instance v2, Landroid/database/sqlite/SQLiteQueryBuilder;
 
     invoke-direct {v2}, Landroid/database/sqlite/SQLiteQueryBuilder;-><init>()V
 
-    .line 427
+    .line 430
     .local v2, qb:Landroid/database/sqlite/SQLiteQueryBuilder;
     iget-object v4, v10, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
     invoke-virtual {v2, v4}, Landroid/database/sqlite/SQLiteQueryBuilder;->setTables(Ljava/lang/String;)V
 
-    .line 429
+    .line 432
     iget-object v5, v10, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->where:Ljava/lang/String;
 
     iget-object v6, v10, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->args:[Ljava/lang/String;
@@ -2491,7 +2499,7 @@
 
     move-result-object v13
 
-    .line 430
+    .line 433
     .local v13, ret:Landroid/database/Cursor;
     invoke-virtual {p0}, Lcom/android/providers/settings/SettingsProvider;->getContext()Landroid/content/Context;
 
@@ -2514,12 +2522,12 @@
     .parameter "whereArgs"
 
     .prologue
-    .line 607
+    .line 610
     new-instance v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;
 
     invoke-direct {v0, p1, p3, p4}, Lcom/android/providers/settings/SettingsProvider$SqlArguments;-><init>(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 608
+    .line 611
     .local v0, args:Lcom/android/providers/settings/SettingsProvider$SqlArguments;
     const-string v3, "favorites"
 
@@ -2531,30 +2539,30 @@
 
     if-eqz v3, :cond_0
 
-    .line 609
+    .line 612
     const/4 v1, 0x0
 
-    .line 623
+    .line 626
     :goto_0
     return v1
 
-    .line 611
+    .line 614
     :cond_0
     invoke-direct {p0, v0}, Lcom/android/providers/settings/SettingsProvider;->checkWritePermissions(Lcom/android/providers/settings/SettingsProvider$SqlArguments;)V
 
-    .line 613
+    .line 616
     sget-object v3, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    .line 614
+    .line 617
     iget-object v3, p0, Lcom/android/providers/settings/SettingsProvider;->mOpenHelper:Lcom/android/providers/settings/DatabaseHelper;
 
     invoke-virtual {v3}, Lcom/android/providers/settings/DatabaseHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v2
 
-    .line 615
+    .line 618
     .local v2, db:Landroid/database/sqlite/SQLiteDatabase;
     iget-object v3, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
@@ -2566,24 +2574,24 @@
 
     move-result v1
 
-    .line 616
+    .line 619
     .local v1, count:I
     sget-object v3, Lcom/android/providers/settings/SettingsProvider;->sKnownMutationsInFlight:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    .line 617
+    .line 620
     if-lez v1, :cond_1
 
-    .line 618
+    .line 621
     iget-object v3, v0, Lcom/android/providers/settings/SettingsProvider$SqlArguments;->table:Ljava/lang/String;
 
     invoke-static {v3}, Lcom/android/providers/settings/SettingsProvider$SettingsCache;->invalidate(Ljava/lang/String;)V
 
-    .line 619
+    .line 622
     invoke-direct {p0, p1}, Lcom/android/providers/settings/SettingsProvider;->sendNotify(Landroid/net/Uri;)V
 
-    .line 621
+    .line 624
     :cond_1
     invoke-direct {p0}, Lcom/android/providers/settings/SettingsProvider;->startAsyncCachePopulation()V
 

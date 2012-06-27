@@ -29,7 +29,7 @@
     .parameter "x4"
 
     .prologue
-    .line 193
+    .line 194
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     move-object v0, p0
@@ -56,7 +56,7 @@
     .parameter "on"
 
     .prologue
-    .line 196
+    .line 197
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -66,7 +66,7 @@
 
     invoke-static {v0}, Lcom/android/internal/app/ShutdownThread;->restart(Landroid/content/Context;)V
 
-    .line 197
+    .line 198
     return-void
 .end method
 
@@ -74,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 204
+    .line 205
     const/4 v0, 0x1
 
     return v0
@@ -84,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 200
+    .line 201
     const/4 v0, 0x1
 
     return v0

@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
+    .locals 7
     .parameter
     .parameter "view"
     .parameter "position"
@@ -56,108 +56,23 @@
     .prologue
     .line 62
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
-    move v0, p3
+    move v1, p3
 
     .line 63
-    .local v0, index:I
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+    .local v1, index:I
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
 
     #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/hwcamera/ListPreference;->getValue()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 64
-    .local v2, value:Ljava/lang/String;
-    if-nez v2, :cond_0
-
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mKey:Ljava/lang/String;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$100(Lcom/android/hwcamera/hwui/ListSubSettingView;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "pref_video_quality_key"
-
-    if-ne v3, v4, :cond_0
-
-    .line 65
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mComboPreferences:Lcom/android/hwcamera/ComboPreferences;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$200(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ComboPreferences;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/hwcamera/CameraSettings;->readPreferredCameraId(Landroid/content/SharedPreferences;)I
-
-    move-result v3
-
-    invoke-static {v3}, Lcom/android/hwcamera/CameraSettings;->getDefaultVideoQuality(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 68
-    :cond_0
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Lcom/android/hwcamera/ListPreference;->findIndexOfValue(Ljava/lang/String;)I
-
-    move-result v1
-
-    .line 69
-    .local v1, oldIndex:I
-    if-eq v1, v0, :cond_1
-
-    .line 70
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/hwcamera/ListPreference;->getSharedPreferences()Landroid/content/SharedPreferences;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
 
     move-result-object v4
 
-    monitor-enter v4
-
-    .line 71
-    :try_start_0
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
+    invoke-virtual {v4}, Lcom/android/hwcamera/ListPreference;->getValue()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v3, v0}, Lcom/android/hwcamera/ListPreference;->setValueIndex(I)V
-
-    .line 72
-    monitor-exit v4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 75
-    :cond_1
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListeners:Lcom/android/hwcamera/hwui/SuperPanel$Listeners;
-    invoke-static {v3}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$300(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/hwui/SuperPanel$Listeners;
-
-    move-result-object v3
-
+    .line 65
+    .local v3, value:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
 
     #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mKey:Ljava/lang/String;
@@ -165,44 +80,143 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+    const-string v5, "pref_video_quality_key"
+
+    if-ne v4, v5, :cond_0
+
+    .line 66
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mComboPreferences:Lcom/android/hwcamera/ComboPreferences;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$200(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ComboPreferences;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/hwcamera/CameraSettings;->readPreferredCameraId(Landroid/content/SharedPreferences;)I
+
+    move-result v4
+
+    invoke-static {v4}, Lcom/android/hwcamera/CameraSettings;->getDefaultVideoQuality(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 68
+    .local v0, defaultValue:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mComboPreferences:Lcom/android/hwcamera/ComboPreferences;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$200(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ComboPreferences;
+
+    move-result-object v4
+
+    const-string v5, "pref_video_quality_key"
+
+    invoke-virtual {v4, v5, v0}, Lcom/android/hwcamera/ComboPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 71
+    .end local v0           #defaultValue:Ljava/lang/String;
+    :cond_0
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
 
     #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
-    invoke-static {v5}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Lcom/android/hwcamera/ListPreference;->getValue()Ljava/lang/String;
+    invoke-virtual {v4, v3}, Lcom/android/hwcamera/ListPreference;->findIndexOfValue(Ljava/lang/String;)I
 
-    move-result-object v5
-
-    invoke-interface {v3, v4, v5}, Lcom/android/hwcamera/hwui/SuperPanel$Listeners;->onSharedPreferencesChanged(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 76
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v1, v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->ChangeRadioImg(IZ)V
-
-    .line 77
-    iget-object v3, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v3, p3, v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->ChangeRadioImg(IZ)V
-
-    .line 78
-    return-void
+    move-result v2
 
     .line 72
+    .local v2, oldIndex:I
+    if-eq v2, v1, :cond_1
+
+    .line 73
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/hwcamera/ListPreference;->getSharedPreferences()Landroid/content/SharedPreferences;
+
+    move-result-object v5
+
+    monitor-enter v5
+
+    .line 74
+    :try_start_0
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Lcom/android/hwcamera/ListPreference;->setValueIndex(I)V
+
+    .line 75
+    monitor-exit v5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 78
+    :cond_1
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListeners:Lcom/android/hwcamera/hwui/SuperPanel$Listeners;
+    invoke-static {v4}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$300(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/hwui/SuperPanel$Listeners;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mKey:Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$100(Lcom/android/hwcamera/hwui/ListSubSettingView;)Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    #getter for: Lcom/android/hwcamera/hwui/ListSubSettingView;->mListpre:Lcom/android/hwcamera/ListPreference;
+    invoke-static {v6}, Lcom/android/hwcamera/hwui/ListSubSettingView;->access$000(Lcom/android/hwcamera/hwui/ListSubSettingView;)Lcom/android/hwcamera/ListPreference;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/hwcamera/ListPreference;->getValue()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {v4, v5, v6}, Lcom/android/hwcamera/hwui/SuperPanel$Listeners;->onSharedPreferencesChanged(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 79
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v2, v5}, Lcom/android/hwcamera/hwui/ListSubSettingView;->ChangeRadioImg(IZ)V
+
+    .line 80
+    iget-object v4, p0, Lcom/android/hwcamera/hwui/ListSubSettingView$1;->this$0:Lcom/android/hwcamera/hwui/ListSubSettingView;
+
+    const/4 v5, 0x1
+
+    invoke-virtual {v4, p3, v5}, Lcom/android/hwcamera/hwui/ListSubSettingView;->ChangeRadioImg(IZ)V
+
+    .line 81
+    return-void
+
+    .line 75
     :catchall_0
-    move-exception v3
+    move-exception v4
 
     :try_start_1
-    monitor-exit v4
+    monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v3
+    throw v4
 .end method

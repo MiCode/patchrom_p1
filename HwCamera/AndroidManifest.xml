@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <application android:label="@string/camera_label" android:icon="@drawable/ic_launcher_camera" android:name="com.android.hwcamera.CameraAppImpl" android:taskAffinity="" android:hardwareAccelerated="true" android:debuggable="true">
+    <application android:label="@string/camera_label" android:icon="@drawable/ic_launcher_camera" android:name="com.android.hwcamera.CameraAppImpl" android:taskAffinity="" android:hardwareAccelerated="true">
         <uses-library android:name="com.google.android.media.effects" android:required="false" />
         <uses-library android:name="com.huawei.hwextcamera" android:required="false" />
         <receiver android:name="com.android.hwcamera.CameraButtonIntentReceiver">

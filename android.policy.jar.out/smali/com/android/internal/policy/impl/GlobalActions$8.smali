@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 683
+    .line 685
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$8;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,12 +39,12 @@
     .parameter "msg"
 
     .prologue
-    .line 685
+    .line 687
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-nez v0, :cond_1
 
-    .line 686
+    .line 688
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$8;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mDialog:Landroid/app/AlertDialog;
@@ -54,7 +54,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 687
+    .line 689
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$8;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mDialog:Landroid/app/AlertDialog;
@@ -64,12 +64,12 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 692
+    .line 694
     :cond_0
     :goto_0
     return-void
 
-    .line 689
+    .line 691
     :cond_1
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -77,7 +77,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 690
+    .line 692
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$8;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;

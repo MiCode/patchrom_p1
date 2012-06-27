@@ -185,45 +185,45 @@
 
     const v8, 0x7f02007e
 
-    .line 478
+    .line 470
     iget-object v6, p0, Lcom/android/hwcamera/CameraSettings;->mCameraInfo:[Landroid/hardware/Camera$CameraInfo;
 
     array-length v5, v6
 
-    .line 479
+    .line 471
     .local v5, numOfCameras:I
     const/4 v6, 0x2
 
     if-ge v5, v6, :cond_0
 
-    .line 480
+    .line 472
     invoke-virtual {p2}, Lcom/android/hwcamera/IconListPreference;->getKey()Ljava/lang/String;
 
     move-result-object v6
 
     invoke-static {p1, v6}, Lcom/android/hwcamera/CameraSettings;->removePreference(Lcom/android/hwcamera/PreferenceGroup;Ljava/lang/String;)Z
 
-    .line 506
+    .line 498
     :goto_0
     return-void
 
-    .line 484
+    .line 476
     :cond_0
     new-array v0, v5, [Ljava/lang/CharSequence;
 
-    .line 485
+    .line 477
     .local v0, entries:[Ljava/lang/CharSequence;
     new-array v1, v5, [Ljava/lang/CharSequence;
 
-    .line 486
+    .line 478
     .local v1, entryValues:[Ljava/lang/CharSequence;
     new-array v3, v5, [I
 
-    .line 487
+    .line 479
     .local v3, iconIds:[I
     new-array v4, v5, [I
 
-    .line 488
+    .line 480
     .local v4, largeIconIds:[I
     const/4 v2, 0x0
 
@@ -231,14 +231,14 @@
     :goto_1
     if-ge v2, v5, :cond_2
 
-    .line 489
+    .line 481
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v6
 
     aput-object v6, v1, v2
 
-    .line 490
+    .line 482
     iget-object v6, p0, Lcom/android/hwcamera/CameraSettings;->mCameraInfo:[Landroid/hardware/Camera$CameraInfo;
 
     aget-object v6, v6, v2
@@ -249,7 +249,7 @@
 
     if-ne v6, v7, :cond_1
 
-    .line 491
+    .line 483
     iget-object v6, p0, Lcom/android/hwcamera/CameraSettings;->mContext:Landroid/content/Context;
 
     const v7, 0x7f0c0016
@@ -260,19 +260,19 @@
 
     aput-object v6, v0, v2
 
-    .line 493
+    .line 485
     aput v9, v3, v2
 
-    .line 494
+    .line 486
     aput v9, v4, v2
 
-    .line 488
+    .line 480
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 496
+    .line 488
     :cond_1
     iget-object v6, p0, Lcom/android/hwcamera/CameraSettings;->mContext:Landroid/content/Context;
 
@@ -284,25 +284,25 @@
 
     aput-object v6, v0, v2
 
-    .line 498
+    .line 490
     aput v8, v3, v2
 
-    .line 499
+    .line 491
     aput v8, v4, v2
 
     goto :goto_2
 
-    .line 502
+    .line 494
     :cond_2
     invoke-virtual {p2, v0}, Lcom/android/hwcamera/IconListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
-    .line 503
+    .line 495
     invoke-virtual {p2, v1}, Lcom/android/hwcamera/IconListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
-    .line 504
+    .line 496
     invoke-virtual {p2, v3}, Lcom/android/hwcamera/IconListPreference;->setIconIds([I)V
 
-    .line 505
+    .line 497
     invoke-virtual {p2, v4}, Lcom/android/hwcamera/IconListPreference;->setLargeIconIds([I)V
 
     goto :goto_0
@@ -314,14 +314,14 @@
     .parameter "exposure"
 
     .prologue
-    .line 453
+    .line 445
     iget-object v9, p0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
 
     invoke-virtual {v9}, Landroid/hardware/Camera$Parameters;->getMaxExposureCompensation()I
 
     move-result v4
 
-    .line 454
+    .line 446
     .local v4, max:I
     iget-object v9, p0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
 
@@ -329,24 +329,24 @@
 
     move-result v6
 
-    .line 455
+    .line 447
     .local v6, min:I
     if-nez v4, :cond_0
 
     if-nez v6, :cond_0
 
-    .line 456
+    .line 448
     invoke-virtual {p2}, Lcom/android/hwcamera/ListPreference;->getKey()Ljava/lang/String;
 
     move-result-object v9
 
     invoke-static {p1, v9}, Lcom/android/hwcamera/CameraSettings;->removePreference(Lcom/android/hwcamera/PreferenceGroup;Ljava/lang/String;)Z
 
-    .line 474
+    .line 466
     :goto_0
     return-void
 
-    .line 459
+    .line 451
     :cond_0
     iget-object v9, p0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
 
@@ -354,7 +354,7 @@
 
     move-result v8
 
-    .line 462
+    .line 454
     .local v8, step:F
     int-to-float v9, v4
 
@@ -368,7 +368,7 @@
 
     double-to-int v5, v9
 
-    .line 463
+    .line 455
     .local v5, maxValue:I
     int-to-float v9, v6
 
@@ -382,7 +382,7 @@
 
     double-to-int v7, v9
 
-    .line 464
+    .line 456
     .local v7, minValue:I
     sub-int v9, v5, v7
 
@@ -390,7 +390,7 @@
 
     new-array v1, v9, [Ljava/lang/CharSequence;
 
-    .line 465
+    .line 457
     .local v1, entries:[Ljava/lang/CharSequence;
     sub-int v9, v5, v7
 
@@ -398,7 +398,7 @@
 
     new-array v2, v9, [Ljava/lang/CharSequence;
 
-    .line 466
+    .line 458
     .local v2, entryValues:[Ljava/lang/CharSequence;
     move v3, v7
 
@@ -406,7 +406,7 @@
     :goto_1
     if-gt v3, v5, :cond_2
 
-    .line 467
+    .line 459
     sub-int v9, v5, v3
 
     int-to-float v10, v3
@@ -423,12 +423,12 @@
 
     aput-object v10, v2, v9
 
-    .line 468
+    .line 460
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 469
+    .line 461
     .local v0, builder:Ljava/lang/StringBuilder;
     if-lez v3, :cond_1
 
@@ -436,7 +436,7 @@
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 470
+    .line 462
     :cond_1
     sub-int v9, v5, v3
 
@@ -450,17 +450,17 @@
 
     aput-object v10, v1, v9
 
-    .line 466
+    .line 458
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 472
+    .line 464
     .end local v0           #builder:Ljava/lang/StringBuilder;
     :cond_2
     invoke-virtual {p2, v1}, Lcom/android/hwcamera/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
-    .line 473
+    .line 465
     invoke-virtual {p2, v2}, Lcom/android/hwcamera/ListPreference;->setEntryValues([Ljava/lang/CharSequence;)V
 
     goto :goto_0
@@ -484,33 +484,33 @@
     .end annotation
 
     .prologue
-    .line 528
+    .line 520
     .local p3, supported:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {p2}, Lcom/android/hwcamera/ListPreference;->getEntries()[Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 532
+    .line 524
     .local v0, allEntries:[Ljava/lang/CharSequence;
     if-nez p3, :cond_1
 
-    .line 533
+    .line 525
     invoke-virtual {p2}, Lcom/android/hwcamera/ListPreference;->getKey()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-static {p1, v2}, Lcom/android/hwcamera/CameraSettings;->removePreference(Lcom/android/hwcamera/PreferenceGroup;Ljava/lang/String;)Z
 
-    .line 548
+    .line 540
     :cond_0
     :goto_0
     return-void
 
-    .line 537
+    .line 529
     :cond_1
     invoke-virtual {p2, p3}, Lcom/android/hwcamera/ListPreference;->filterUnsupported(Ljava/util/List;)V
 
-    .line 538
+    .line 530
     invoke-virtual {p2}, Lcom/android/hwcamera/ListPreference;->getEntries()[Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -519,7 +519,7 @@
 
     if-gtz v2, :cond_2
 
-    .line 539
+    .line 531
     invoke-virtual {p2}, Lcom/android/hwcamera/ListPreference;->getKey()Ljava/lang/String;
 
     move-result-object v2
@@ -528,13 +528,13 @@
 
     goto :goto_0
 
-    .line 544
+    .line 536
     :cond_2
     invoke-virtual {p2}, Lcom/android/hwcamera/ListPreference;->getValue()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 545
+    .line 537
     .local v1, value:Ljava/lang/String;
     invoke-virtual {p2, v1}, Lcom/android/hwcamera/ListPreference;->findIndexOfValue(Ljava/lang/String;)I
 
@@ -544,7 +544,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 546
+    .line 538
     const/4 v2, 0x0
 
     invoke-virtual {p2, v2}, Lcom/android/hwcamera/ListPreference;->setValueIndex(I)V
@@ -562,7 +562,7 @@
 
     .line 142
     .local v0, quality:I
-    const/4 v1, 0x6
+    const/4 v1, 0x5
 
     invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
 
@@ -571,9 +571,9 @@
     if-eqz v1, :cond_1
 
     .line 143
-    const/4 v0, 0x6
+    const/4 v0, 0x5
 
-    .line 162
+    .line 154
     :cond_0
     :goto_0
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -584,7 +584,7 @@
 
     .line 144
     :cond_1
-    const/4 v1, 0x5
+    const/4 v1, 0x4
 
     invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
 
@@ -593,13 +593,13 @@
     if-eqz v1, :cond_2
 
     .line 145
-    const/4 v0, 0x5
+    const/4 v0, 0x4
 
     goto :goto_0
 
     .line 146
     :cond_2
-    const/4 v1, 0x4
+    const/4 v1, 0x7
 
     invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
 
@@ -608,13 +608,13 @@
     if-eqz v1, :cond_3
 
     .line 147
-    const/4 v0, 0x4
+    const/4 v0, 0x7
 
     goto :goto_0
 
     .line 148
     :cond_3
-    const/4 v1, 0x7
+    const/4 v1, 0x2
 
     invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
 
@@ -623,27 +623,12 @@
     if-eqz v1, :cond_4
 
     .line 149
-    const/4 v0, 0x7
-
-    goto :goto_0
-
-    .line 150
-    :cond_4
-    const/4 v1, 0x2
-
-    invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 151
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 156
-    :cond_5
+    .line 151
+    :cond_4
     const/16 v1, 0x8
 
     invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
@@ -652,7 +637,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 157
+    .line 152
     const/16 v0, 0x8
 
     goto :goto_0
@@ -663,7 +648,7 @@
     .parameter "pref"
 
     .prologue
-    .line 641
+    .line 633
     const-string v0, "pref_camera_first_time"
 
     const/4 v1, 0x1
@@ -698,12 +683,12 @@
 
     const/4 v2, 0x2
 
-    .line 741
+    .line 733
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 743
+    .line 735
     .local v0, supported:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget v1, p0, Lcom/android/hwcamera/CameraSettings;->mCameraId:I
 
@@ -713,14 +698,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 744
+    .line 736
     invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 746
+    .line 738
     :cond_0
     iget v1, p0, Lcom/android/hwcamera/CameraSettings;->mCameraId:I
 
@@ -730,14 +715,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 747
+    .line 739
     invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 749
+    .line 741
     :cond_1
     iget v1, p0, Lcom/android/hwcamera/CameraSettings;->mCameraId:I
 
@@ -747,14 +732,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 750
+    .line 742
     invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 753
+    .line 745
     :cond_2
     iget v1, p0, Lcom/android/hwcamera/CameraSettings;->mCameraId:I
 
@@ -764,14 +749,14 @@
 
     if-eqz v1, :cond_3
 
-    .line 754
+    .line 746
     invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 756
+    .line 748
     :cond_3
     iget v1, p0, Lcom/android/hwcamera/CameraSettings;->mCameraId:I
 
@@ -781,14 +766,14 @@
 
     if-eqz v1, :cond_4
 
-    .line 757
+    .line 749
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 763
+    .line 755
     :cond_4
     iget v1, p0, Lcom/android/hwcamera/CameraSettings;->mCameraId:I
 
@@ -800,7 +785,7 @@
 
     if-eqz v1, :cond_5
 
-    .line 764
+    .line 756
     const/16 v1, 0x8
 
     invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -809,7 +794,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 769
+    .line 761
     :cond_5
     return-object v0
 .end method
@@ -821,21 +806,21 @@
     .prologue
     const/4 v2, 0x2
 
-    .line 773
+    .line 765
     invoke-static {v2}, Landroid/media/CamcorderProfile;->get(I)Landroid/media/CamcorderProfile;
 
     move-result-object v1
 
     iget v0, v1, Landroid/media/CamcorderProfile;->duration:I
 
-    .line 774
+    .line 766
     .local v0, MMS_VIDEO_DURATION:I
     if-ne v2, p0, :cond_0
 
-    .line 775
+    .line 767
     mul-int/lit16 v1, v0, 0x3e8
 
-    .line 777
+    .line 769
     :goto_0
     return v1
 
@@ -850,7 +835,7 @@
     .parameter "group"
 
     .prologue
-    .line 245
+    .line 237
     const-string v41, "pref_camera_videosize_key"
 
     move-object/from16 v0, p1
@@ -861,7 +846,7 @@
 
     move-result-object v32
 
-    .line 246
+    .line 238
     .local v32, videoSize:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_video_time_lapse_frame_interval_key"
 
@@ -873,7 +858,7 @@
 
     move-result-object v28
 
-    .line 247
+    .line 239
     .local v28, timeLapseInterval:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_picturesize_key"
 
@@ -885,7 +870,7 @@
 
     move-result-object v20
 
-    .line 248
+    .line 240
     .local v20, pictureSize:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_whitebalance_key"
 
@@ -899,7 +884,7 @@
 
     check-cast v40, Lcom/android/hwcamera/IconListPreference;
 
-    .line 249
+    .line 241
     .local v40, whiteBalance:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_camera_coloreffect_key"
 
@@ -913,7 +898,7 @@
 
     check-cast v9, Lcom/android/hwcamera/IconListPreference;
 
-    .line 250
+    .line 242
     .local v9, colorEffect:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_video_coloreffect_key"
 
@@ -927,7 +912,7 @@
 
     check-cast v34, Lcom/android/hwcamera/IconListPreference;
 
-    .line 251
+    .line 243
     .local v34, videocolorEffect:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_camera_scenemode_key"
 
@@ -939,7 +924,7 @@
 
     move-result-object v24
 
-    .line 252
+    .line 244
     .local v24, sceneMode:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_flashmode_key"
 
@@ -951,7 +936,7 @@
 
     move-result-object v15
 
-    .line 253
+    .line 245
     .local v15, flashMode:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_exposure_key"
 
@@ -963,7 +948,7 @@
 
     move-result-object v13
 
-    .line 254
+    .line 246
     .local v13, exposure:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_id_key"
 
@@ -977,7 +962,7 @@
 
     check-cast v8, Lcom/android/hwcamera/IconListPreference;
 
-    .line 256
+    .line 248
     .local v8, cameraId:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_camera_video_flashmode_key"
 
@@ -989,7 +974,7 @@
 
     move-result-object v29
 
-    .line 258
+    .line 250
     .local v29, videoFlashMode:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_iso_key"
 
@@ -1001,7 +986,7 @@
 
     move-result-object v18
 
-    .line 259
+    .line 251
     .local v18, mIso:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_continuousaf_key"
 
@@ -1013,7 +998,7 @@
 
     move-result-object v10
 
-    .line 260
+    .line 252
     .local v10, continuousAf:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_facedetection_key"
 
@@ -1025,7 +1010,7 @@
 
     move-result-object v14
 
-    .line 261
+    .line 253
     .local v14, faceDetection:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_picture_widescreen_key"
 
@@ -1037,7 +1022,7 @@
 
     move-result-object v21
 
-    .line 262
+    .line 254
     .local v21, picturesizewidescreen:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_shootmode_key"
 
@@ -1051,7 +1036,7 @@
 
     check-cast v25, Lcom/android/hwcamera/IconListPreference;
 
-    .line 263
+    .line 255
     .local v25, shootmode:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_camera_redeyedetection_key"
 
@@ -1063,7 +1048,7 @@
 
     move-result-object v22
 
-    .line 264
+    .line 256
     .local v22, redeyereduction:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_steady_video_key"
 
@@ -1075,7 +1060,7 @@
 
     move-result-object v27
 
-    .line 265
+    .line 257
     .local v27, steadyVideo:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_hdr_save_mode"
 
@@ -1087,7 +1072,7 @@
 
     move-result-object v16
 
-    .line 266
+    .line 258
     .local v16, hdrSaveMode:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_distortion_key"
 
@@ -1101,7 +1086,7 @@
 
     check-cast v12, Lcom/android/hwcamera/IconListPreference;
 
-    .line 267
+    .line 259
     .local v12, distortion:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_video_whitebalance_key"
 
@@ -1115,7 +1100,7 @@
 
     check-cast v38, Lcom/android/hwcamera/IconListPreference;
 
-    .line 268
+    .line 260
     .local v38, videowhitebalance:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_video_gps_key"
 
@@ -1127,7 +1112,7 @@
 
     move-result-object v36
 
-    .line 269
+    .line 261
     .local v36, videogps:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_contrast_key"
 
@@ -1139,7 +1124,7 @@
 
     move-result-object v11
 
-    .line 270
+    .line 262
     .local v11, contrast:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_brightness_key"
 
@@ -1151,7 +1136,7 @@
 
     move-result-object v7
 
-    .line 271
+    .line 263
     .local v7, brightness:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_saturation_key"
 
@@ -1163,7 +1148,7 @@
 
     move-result-object v23
 
-    .line 272
+    .line 264
     .local v23, saturation:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_auto_focusmode_key"
 
@@ -1175,7 +1160,7 @@
 
     move-result-object v5
 
-    .line 273
+    .line 265
     .local v5, autofocus:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_video_distortion_key"
 
@@ -1189,7 +1174,7 @@
 
     check-cast v35, Lcom/android/hwcamera/IconListPreference;
 
-    .line 274
+    .line 266
     .local v35, videodistortion:Lcom/android/hwcamera/IconListPreference;
     const-string v41, "pref_video_quality_key"
 
@@ -1201,7 +1186,7 @@
 
     move-result-object v30
 
-    .line 275
+    .line 267
     .local v30, videoQuality:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_video_quality_level_key"
 
@@ -1213,7 +1198,7 @@
 
     move-result-object v31
 
-    .line 277
+    .line 269
     .local v31, videoQualityLevel:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_shutter_sound_key"
 
@@ -1225,7 +1210,7 @@
 
     move-result-object v26
 
-    .line 278
+    .line 270
     .local v26, shutterSound:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_video_shutter_sound_key"
 
@@ -1237,7 +1222,7 @@
 
     move-result-object v37
 
-    .line 281
+    .line 273
     .local v37, videoshutterSound:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_camera_antibanding_key"
 
@@ -1249,7 +1234,7 @@
 
     move-result-object v4
 
-    .line 282
+    .line 274
     .local v4, antibanding:Lcom/android/hwcamera/ListPreference;
     const-string v41, "pref_video_antibanding_key"
 
@@ -1261,11 +1246,11 @@
 
     move-result-object v33
 
-    .line 285
+    .line 277
     .local v33, videoantibanding:Lcom/android/hwcamera/ListPreference;
     if-eqz v30, :cond_0
 
-    .line 286
+    .line 278
     invoke-direct/range {p0 .. p0}, Lcom/android/hwcamera/CameraSettings;->getSupportedVideoQuality()Ljava/util/ArrayList;
 
     move-result-object v41
@@ -1280,7 +1265,7 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 288
+    .line 280
     :cond_0
     if-eqz v32, :cond_1
 
@@ -1296,7 +1281,7 @@
 
     if-eqz v41, :cond_1
 
-    .line 289
+    .line 281
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1321,11 +1306,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 292
+    .line 284
     :cond_1
     if-eqz v20, :cond_3
 
-    .line 295
+    .line 287
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1340,7 +1325,7 @@
 
     move-result-object v19
 
-    .line 296
+    .line 288
     .local v19, picture:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     const-string v41, "ro.camera.show.eula"
 
@@ -1358,7 +1343,7 @@
 
     if-eqz v41, :cond_2
 
-    .line 297
+    .line 289
     const-string v41, "320x240"
 
     move-object/from16 v0, v19
@@ -1377,7 +1362,7 @@
 
     if-eq v0, v1, :cond_2
 
-    .line 298
+    .line 290
     const-string v41, "320x240"
 
     move-object/from16 v0, v19
@@ -1386,7 +1371,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 301
+    .line 293
     :cond_2
     move-object/from16 v0, p0
 
@@ -1398,12 +1383,12 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 303
+    .line 295
     .end local v19           #picture:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     :cond_3
     if-eqz v40, :cond_4
 
-    .line 304
+    .line 296
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1424,11 +1409,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 307
+    .line 299
     :cond_4
     if-eqz v38, :cond_5
 
-    .line 308
+    .line 300
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1449,11 +1434,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 311
+    .line 303
     :cond_5
     if-eqz v9, :cond_6
 
-    .line 312
+    .line 304
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1472,11 +1457,11 @@
 
     invoke-direct {v0, v1, v9, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 315
+    .line 307
     :cond_6
     if-eqz v34, :cond_7
 
-    .line 316
+    .line 308
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1497,11 +1482,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 319
+    .line 311
     :cond_7
     if-eqz v24, :cond_8
 
-    .line 320
+    .line 312
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1522,11 +1507,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 324
+    .line 316
     :cond_8
     if-eqz v15, :cond_9
 
-    .line 325
+    .line 317
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1545,11 +1530,11 @@
 
     invoke-direct {v0, v1, v15, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 328
+    .line 320
     :cond_9
     if-eqz v29, :cond_a
 
-    .line 329
+    .line 321
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1570,7 +1555,7 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 332
+    .line 324
     :cond_a
     if-eqz v13, :cond_b
 
@@ -1580,7 +1565,7 @@
 
     invoke-direct {v0, v1, v13}, Lcom/android/hwcamera/CameraSettings;->buildExposureCompensation(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;)V
 
-    .line 333
+    .line 325
     :cond_b
     if-eqz v8, :cond_c
 
@@ -1590,11 +1575,11 @@
 
     invoke-direct {v0, v1, v8}, Lcom/android/hwcamera/CameraSettings;->buildCameraId(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/IconListPreference;)V
 
-    .line 335
+    .line 327
     :cond_c
     if-eqz v18, :cond_d
 
-    .line 338
+    .line 330
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -1607,11 +1592,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 341
+    .line 333
     :cond_d
     if-eqz v10, :cond_f
 
-    .line 342
+    .line 334
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1642,7 +1627,7 @@
 
     if-gez v41, :cond_f
 
-    .line 345
+    .line 337
     :cond_e
     invoke-virtual {v10}, Lcom/android/hwcamera/ListPreference;->getKey()Ljava/lang/String;
 
@@ -1654,11 +1639,11 @@
 
     invoke-static {v0, v1}, Lcom/android/hwcamera/CameraSettings;->removePreference(Lcom/android/hwcamera/PreferenceGroup;Ljava/lang/String;)Z
 
-    .line 348
+    .line 340
     :cond_f
     if-eqz v14, :cond_10
 
-    .line 349
+    .line 341
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedFaceDetectionModes()Ljava/util/List;
 
     move-result-object v41
@@ -1671,11 +1656,11 @@
 
     invoke-direct {v0, v1, v14, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 352
+    .line 344
     :cond_10
     if-eqz v21, :cond_11
 
-    .line 353
+    .line 345
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1700,11 +1685,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 356
+    .line 348
     :cond_11
     if-eqz v25, :cond_12
 
-    .line 357
+    .line 349
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedShootModeValues()Ljava/util/List;
 
     move-result-object v41
@@ -1719,18 +1704,18 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 359
+    .line 351
     :cond_12
     if-eqz v22, :cond_13
 
-    .line 360
+    .line 352
     invoke-static {}, Lcom/android/hwcamera/Util;->getRedEyeReductionSupported()Z
 
     move-result v41
 
     if-nez v41, :cond_13
 
-    .line 361
+    .line 353
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -1743,11 +1728,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 364
+    .line 356
     :cond_13
     if-eqz v27, :cond_14
 
-    .line 365
+    .line 357
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -1760,7 +1745,7 @@
 
     move-result-object v39
 
-    .line 366
+    .line 358
     .local v39, vstabSupported:Ljava/lang/String;
     const-string v41, "true"
 
@@ -1774,7 +1759,7 @@
 
     if-nez v41, :cond_14
 
-    .line 367
+    .line 359
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -1787,12 +1772,12 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 370
+    .line 362
     .end local v39           #vstabSupported:Ljava/lang/String;
     :cond_14
     if-eqz v12, :cond_15
 
-    .line 371
+    .line 363
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedDistortionValues()Ljava/util/List;
 
     move-result-object v41
@@ -1805,11 +1790,11 @@
 
     invoke-direct {v0, v1, v12, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 373
+    .line 365
     :cond_15
     if-eqz v35, :cond_16
 
-    .line 374
+    .line 366
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedDistortionValues()Ljava/util/List;
 
     move-result-object v41
@@ -1824,11 +1809,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 378
+    .line 370
     :cond_16
     if-eqz v16, :cond_17
 
-    .line 379
+    .line 371
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedHdrMode()Ljava/util/List;
 
     move-result-object v41
@@ -1843,25 +1828,25 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 381
+    .line 373
     :cond_17
     if-eqz v36, :cond_18
 
-    .line 382
+    .line 374
     invoke-static {}, Lcom/android/hwcamera/Util;->isSupportedLocation()Z
 
     move-result v41
 
     if-nez v41, :cond_18
 
-    .line 383
+    .line 375
     const-string v41, "gpsstate"
 
     const-string v42, "filterUnsupportedOptions gps"
 
     invoke-static/range {v41 .. v42}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 384
+    .line 376
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -1874,11 +1859,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 387
+    .line 379
     :cond_18
     if-eqz v11, :cond_19
 
-    .line 388
+    .line 380
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedContrastDegrees()Ljava/util/List;
 
     move-result-object v41
@@ -1891,11 +1876,11 @@
 
     invoke-direct {v0, v1, v11, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 390
+    .line 382
     :cond_19
     if-eqz v23, :cond_1a
 
-    .line 391
+    .line 383
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedSaturationDegrees()Ljava/util/List;
 
     move-result-object v41
@@ -1910,11 +1895,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 393
+    .line 385
     :cond_1a
     if-eqz v7, :cond_1b
 
-    .line 394
+    .line 386
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedBrightnessDegrees()Ljava/util/List;
 
     move-result-object v41
@@ -1927,11 +1912,11 @@
 
     invoke-direct {v0, v1, v7, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 397
+    .line 389
     :cond_1b
     if-eqz v26, :cond_1c
 
-    .line 398
+    .line 390
     const-string v41, "ro.camera.shuttersound"
 
     const-string v42, "0"
@@ -1948,7 +1933,7 @@
 
     if-eqz v41, :cond_1c
 
-    .line 399
+    .line 391
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -1961,11 +1946,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 402
+    .line 394
     :cond_1c
     if-eqz v37, :cond_1d
 
-    .line 403
+    .line 395
     const-string v41, "ro.camera.shuttersound"
 
     const-string v42, "0"
@@ -1982,7 +1967,7 @@
 
     if-eqz v41, :cond_1d
 
-    .line 404
+    .line 396
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -1995,11 +1980,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 409
+    .line 401
     :cond_1d
     if-eqz v5, :cond_1e
 
-    .line 410
+    .line 402
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -2010,18 +1995,18 @@
 
     move-result-object v17
 
-    .line 411
+    .line 403
     .local v17, list:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     if-nez v17, :cond_22
 
     const/4 v6, 0x0
 
-    .line 412
+    .line 404
     .local v6, autofocusSupported:Z
     :goto_0
     if-nez v6, :cond_1e
 
-    .line 413
+    .line 405
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -2032,13 +2017,13 @@
 
     invoke-direct {v0, v1, v5, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 417
+    .line 409
     .end local v6           #autofocusSupported:Z
     .end local v17           #list:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     :cond_1e
     if-eqz v31, :cond_1f
 
-    .line 418
+    .line 410
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mContext:Landroid/content/Context;
@@ -2059,7 +2044,7 @@
 
     if-nez v41, :cond_1f
 
-    .line 419
+    .line 411
     const/16 v41, 0x0
 
     move-object/from16 v0, p0
@@ -2072,11 +2057,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 424
+    .line 416
     :cond_1f
     if-eqz v4, :cond_20
 
-    .line 425
+    .line 417
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mContext:Landroid/content/Context;
@@ -2097,7 +2082,7 @@
 
     if-eqz v41, :cond_24
 
-    .line 426
+    .line 418
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -2116,12 +2101,12 @@
 
     invoke-direct {v0, v1, v4, v2}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 433
+    .line 425
     :cond_20
     :goto_1
     if-eqz v33, :cond_21
 
-    .line 434
+    .line 426
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mContext:Landroid/content/Context;
@@ -2142,7 +2127,7 @@
 
     if-eqz v41, :cond_25
 
-    .line 435
+    .line 427
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/hwcamera/CameraSettings;->mParameters:Landroid/hardware/Camera$Parameters;
@@ -2163,12 +2148,12 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 440
+    .line 432
     :cond_21
     :goto_2
     return-void
 
-    .line 411
+    .line 403
     .restart local v17       #list:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     :cond_22
     const-string v41, "auto"
@@ -2192,7 +2177,7 @@
 
     goto/16 :goto_0
 
-    .line 428
+    .line 420
     .end local v17           #list:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     :cond_24
     const/16 v41, 0x0
@@ -2207,7 +2192,7 @@
 
     goto :goto_1
 
-    .line 437
+    .line 429
     :cond_25
     const/16 v41, 0x0
 
@@ -2231,20 +2216,20 @@
     .parameter "pref"
 
     .prologue
-    .line 170
+    .line 162
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
 
     move-result-object v5
 
-    .line 171
+    .line 163
     .local v5, supported:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     if-nez v5, :cond_0
 
-    .line 182
+    .line 174
     :goto_0
     return-void
 
-    .line 172
+    .line 164
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2268,7 +2253,7 @@
 
     aget-object v1, v0, v3
 
-    .line 174
+    .line 166
     .local v1, candidate:Ljava/lang/String;
     invoke-static {v1, v5, p1}, Lcom/android/hwcamera/CameraSettings;->setCameraPictureSize(Ljava/lang/String;Ljava/util/List;Landroid/hardware/Camera$Parameters;)Z
 
@@ -2276,30 +2261,30 @@
 
     if-eqz v6, :cond_1
 
-    .line 175
+    .line 167
     invoke-interface {p2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 176
+    .line 168
     .local v2, editor:Landroid/content/SharedPreferences$Editor;
     const-string v6, "pref_camera_picturesize_key"
 
     invoke-interface {v2, v6, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 177
+    .line 169
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto :goto_0
 
-    .line 172
+    .line 164
     .end local v2           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 181
+    .line 173
     .end local v1           #candidate:Ljava/lang/String;
     :cond_2
     const-string v6, "CameraSettings"
@@ -2318,20 +2303,20 @@
     .parameter "pref"
 
     .prologue
-    .line 190
+    .line 182
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
 
     move-result-object v5
 
-    .line 191
+    .line 183
     .local v5, supported:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     if-nez v5, :cond_0
 
-    .line 202
+    .line 194
     :goto_0
     return-void
 
-    .line 192
+    .line 184
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2355,7 +2340,7 @@
 
     aget-object v1, v0, v3
 
-    .line 194
+    .line 186
     .local v1, candidate:Ljava/lang/String;
     invoke-static {v1, v5, p1}, Lcom/android/hwcamera/CameraSettings;->setCameraPictureSize(Ljava/lang/String;Ljava/util/List;Landroid/hardware/Camera$Parameters;)Z
 
@@ -2363,30 +2348,30 @@
 
     if-eqz v6, :cond_1
 
-    .line 195
+    .line 187
     invoke-interface {p2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 196
+    .line 188
     .local v2, editor:Landroid/content/SharedPreferences$Editor;
     const-string v6, "pref_camera_picture_widescreen_key"
 
     invoke-interface {v2, v6, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 197
+    .line 189
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto :goto_0
 
-    .line 192
+    .line 184
     .end local v2           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 201
+    .line 193
     .end local v1           #candidate:Ljava/lang/String;
     :cond_2
     const-string v6, "CameraSettings"
@@ -2406,21 +2391,21 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 204
+    .line 196
     invoke-virtual {p1}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
 
     move-result-object v8
 
-    .line 205
+    .line 197
     .local v8, supported:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     if-nez v8, :cond_1
 
-    .line 218
+    .line 210
     :cond_0
     :goto_0
     return v10
 
-    .line 206
+    .line 198
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2448,7 +2433,7 @@
 
     aget-object v1, v0, v4
 
-    .line 208
+    .line 200
     .local v1, candidate:Ljava/lang/String;
     const/16 v11, 0x78
 
@@ -2456,13 +2441,13 @@
 
     move-result v5
 
-    .line 209
+    .line 201
     .local v5, index:I
     const/4 v11, -0x1
 
     if-eq v5, v11, :cond_0
 
-    .line 210
+    .line 202
     invoke-virtual {v1, v10, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v11
@@ -2471,7 +2456,7 @@
 
     move-result v9
 
-    .line 211
+    .line 203
     .local v9, width:I
     add-int/lit8 v11, v5, 0x1
 
@@ -2483,7 +2468,7 @@
 
     move-result v2
 
-    .line 212
+    .line 204
     .local v2, height:I
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -2504,7 +2489,7 @@
 
     check-cast v7, Landroid/hardware/Camera$Size;
 
-    .line 213
+    .line 205
     .local v7, size:Landroid/hardware/Camera$Size;
     iget v11, v7, Landroid/hardware/Camera$Size;->width:I
 
@@ -2514,12 +2499,12 @@
 
     if-ne v11, v2, :cond_2
 
-    .line 214
+    .line 206
     const/4 v10, 0x1
 
     goto :goto_0
 
-    .line 206
+    .line 198
     .end local v7           #size:Landroid/hardware/Camera$Size;
     :cond_3
     add-int/lit8 v3, v4, 0x1
@@ -2539,7 +2524,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 658
+    .line 650
     const-string v4, "pref_video_effect_key"
 
     const-string v5, "none"
@@ -2548,7 +2533,7 @@
 
     move-result-object v1
 
-    .line 659
+    .line 651
     .local v1, effectSelection:Ljava/lang/String;
     const-string v4, "none"
 
@@ -2560,12 +2545,12 @@
 
     move-object v0, v3
 
-    .line 686
+    .line 678
     :cond_0
     :goto_0
     return-object v0
 
-    .line 662
+    .line 654
     :cond_1
     const/16 v4, 0x2f
 
@@ -2573,7 +2558,7 @@
 
     move-result v2
 
-    .line 663
+    .line 655
     .local v2, separatorIndex:I
     add-int/lit8 v4, v2, 0x1
 
@@ -2581,7 +2566,7 @@
 
     move-result-object v0
 
-    .line 665
+    .line 657
     .local v0, effectParameter:Ljava/lang/String;
     const-string v4, "goofy_face"
 
@@ -2591,7 +2576,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 666
+    .line 658
     const-string v4, "squeeze"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2600,7 +2585,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 667
+    .line 659
     const/4 v3, 0x0
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2609,7 +2594,7 @@
 
     goto :goto_0
 
-    .line 668
+    .line 660
     :cond_2
     const-string v4, "big_eyes"
 
@@ -2619,7 +2604,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 669
+    .line 661
     const/4 v3, 0x1
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2628,7 +2613,7 @@
 
     goto :goto_0
 
-    .line 670
+    .line 662
     :cond_3
     const-string v4, "big_mouth"
 
@@ -2638,7 +2623,7 @@
 
     if-eqz v4, :cond_4
 
-    .line 671
+    .line 663
     const/4 v3, 0x2
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2647,7 +2632,7 @@
 
     goto :goto_0
 
-    .line 672
+    .line 664
     :cond_4
     const-string v4, "small_mouth"
 
@@ -2657,7 +2642,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 673
+    .line 665
     const/4 v3, 0x3
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2666,7 +2651,7 @@
 
     goto :goto_0
 
-    .line 674
+    .line 666
     :cond_5
     const-string v4, "big_nose"
 
@@ -2676,7 +2661,7 @@
 
     if-eqz v4, :cond_6
 
-    .line 675
+    .line 667
     const/4 v3, 0x4
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2685,7 +2670,7 @@
 
     goto :goto_0
 
-    .line 676
+    .line 668
     :cond_6
     const-string v4, "small_eyes"
 
@@ -2695,7 +2680,7 @@
 
     if-eqz v4, :cond_8
 
-    .line 677
+    .line 669
     const/4 v3, 0x5
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2704,7 +2689,7 @@
 
     goto :goto_0
 
-    .line 679
+    .line 671
     :cond_7
     const-string v4, "backdropper"
 
@@ -2714,7 +2699,7 @@
 
     if-nez v4, :cond_0
 
-    .line 685
+    .line 677
     :cond_8
     const-string v4, "CameraSettings"
 
@@ -2740,7 +2725,7 @@
 
     move-object v0, v3
 
-    .line 686
+    .line 678
     goto/16 :goto_0
 .end method
 
@@ -2751,7 +2736,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 690
+    .line 682
     const-string v2, "pref_video_effect_key"
 
     const-string v3, "none"
@@ -2760,7 +2745,7 @@
 
     move-result-object v0
 
-    .line 691
+    .line 683
     .local v0, effectSelection:Ljava/lang/String;
     const-string v2, "none"
 
@@ -2770,11 +2755,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 699
+    .line 691
     :goto_0
     return v1
 
-    .line 693
+    .line 685
     :cond_0
     const-string v2, "goofy_face"
 
@@ -2784,12 +2769,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 694
+    .line 686
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 695
+    .line 687
     :cond_1
     const-string v2, "backdropper"
 
@@ -2799,12 +2784,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 696
+    .line 688
     const/4 v1, 0x2
 
     goto :goto_0
 
-    .line 698
+    .line 690
     :cond_2
     const-string v2, "CameraSettings"
 
@@ -2836,7 +2821,7 @@
     .parameter "preferences"
 
     .prologue
-    .line 646
+    .line 638
     const-string v2, "pref_camera_exposure_key"
 
     const-string v3, "0"
@@ -2845,7 +2830,7 @@
 
     move-result-object v1
 
-    .line 650
+    .line 642
     .local v1, exposure:Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -2854,15 +2839,15 @@
 
     move-result v2
 
-    .line 654
+    .line 646
     :goto_0
     return v2
 
-    .line 651
+    .line 643
     :catch_0
     move-exception v0
 
-    .line 652
+    .line 644
     .local v0, ex:Ljava/lang/Exception;
     const-string v2, "CameraSettings"
 
@@ -2886,7 +2871,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 654
+    .line 646
     const/4 v2, 0x0
 
     goto :goto_0
@@ -2897,7 +2882,7 @@
     .parameter "pref"
 
     .prologue
-    .line 617
+    .line 609
     const-string v0, "pref_camera_id_key"
 
     const-string v1, "0"
@@ -2921,7 +2906,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 509
+    .line 501
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -2933,12 +2918,12 @@
     :goto_0
     if-ge v1, v2, :cond_2
 
-    .line 510
+    .line 502
     invoke-virtual {p0, v1}, Lcom/android/hwcamera/PreferenceGroup;->get(I)Lcom/android/hwcamera/CameraPreference;
 
     move-result-object v0
 
-    .line 511
+    .line 503
     .local v0, child:Lcom/android/hwcamera/CameraPreference;
     instance-of v3, v0, Lcom/android/hwcamera/PreferenceGroup;
 
@@ -2946,7 +2931,7 @@
 
     move-object v3, v0
 
-    .line 512
+    .line 504
     check-cast v3, Lcom/android/hwcamera/PreferenceGroup;
 
     invoke-static {v3, p1}, Lcom/android/hwcamera/CameraSettings;->removePreference(Lcom/android/hwcamera/PreferenceGroup;Ljava/lang/String;)Z
@@ -2957,12 +2942,12 @@
 
     move v3, v4
 
-    .line 522
+    .line 514
     .end local v0           #child:Lcom/android/hwcamera/CameraPreference;
     :goto_1
     return v3
 
-    .line 516
+    .line 508
     .restart local v0       #child:Lcom/android/hwcamera/CameraPreference;
     :cond_0
     instance-of v3, v0, Lcom/android/hwcamera/ListPreference;
@@ -2982,21 +2967,21 @@
 
     if-eqz v3, :cond_1
 
-    .line 518
+    .line 510
     invoke-virtual {p0, v1}, Lcom/android/hwcamera/PreferenceGroup;->removePreference(I)V
 
     move v3, v4
 
-    .line 519
+    .line 511
     goto :goto_1
 
-    .line 509
+    .line 501
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 522
+    .line 514
     :cond_2
     const/4 v3, 0x0
 
@@ -3009,10 +2994,10 @@
     .parameter "key"
 
     .prologue
-    .line 223
+    .line 215
     invoke-static {p0, p1}, Lcom/android/hwcamera/CameraSettings;->removePreference(Lcom/android/hwcamera/PreferenceGroup;Ljava/lang/String;)Z
 
-    .line 224
+    .line 216
     return-void
 .end method
 
@@ -3025,12 +3010,12 @@
     .prologue
     const/4 v6, -0x1
 
-    .line 704
+    .line 696
     invoke-static {p1}, Lcom/android/hwcamera/CameraSettings;->readPreferredCameraId(Landroid/content/SharedPreferences;)I
 
     move-result v1
 
-    .line 707
+    .line 699
     .local v1, currentCameraId:I
     invoke-static {}, Lcom/android/hwcamera/CameraHolder;->instance()Lcom/android/hwcamera/CameraHolder;
 
@@ -3040,26 +3025,26 @@
 
     move-result v0
 
-    .line 708
+    .line 700
     .local v0, backCameraId:I
     if-eq v0, v6, :cond_0
 
-    .line 709
+    .line 701
     invoke-virtual {p1, p0, v0}, Lcom/android/hwcamera/ComboPreferences;->setLocalId(Landroid/content/Context;I)V
 
-    .line 710
+    .line 702
     invoke-virtual {p1}, Lcom/android/hwcamera/ComboPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 711
+    .line 703
     .local v2, editor:Landroid/content/SharedPreferences$Editor;
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->clear()Landroid/content/SharedPreferences$Editor;
 
-    .line 712
+    .line 704
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 714
+    .line 706
     .end local v2           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_0
     invoke-static {}, Lcom/android/hwcamera/CameraHolder;->instance()Lcom/android/hwcamera/CameraHolder;
@@ -3070,56 +3055,56 @@
 
     move-result v3
 
-    .line 715
+    .line 707
     .local v3, frontCameraId:I
     if-eq v3, v6, :cond_1
 
-    .line 716
+    .line 708
     invoke-virtual {p1, p0, v3}, Lcom/android/hwcamera/ComboPreferences;->setLocalId(Landroid/content/Context;I)V
 
-    .line 717
+    .line 709
     invoke-virtual {p1}, Lcom/android/hwcamera/ComboPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 718
+    .line 710
     .restart local v2       #editor:Landroid/content/SharedPreferences$Editor;
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->clear()Landroid/content/SharedPreferences$Editor;
 
-    .line 719
+    .line 711
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 724
+    .line 716
     .end local v2           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_1
     invoke-virtual {p1, p0, v1}, Lcom/android/hwcamera/ComboPreferences;->setLocalId(Landroid/content/Context;I)V
 
-    .line 725
+    .line 717
     invoke-static {p1}, Lcom/android/hwcamera/CameraSettings;->upgradeAllPreferences(Lcom/android/hwcamera/ComboPreferences;)V
 
-    .line 730
+    .line 722
     const/4 v4, 0x0
 
-    .line 731
+    .line 723
     .local v4, wideScreenIsSupport:Z
     invoke-static {p0, p2}, Lcom/android/hwcamera/CameraSettings;->isSupportWideScreen(Landroid/content/Context;Landroid/hardware/Camera$Parameters;)Z
 
     move-result v4
 
-    .line 732
+    .line 724
     if-eqz v4, :cond_2
 
-    .line 733
+    .line 725
     invoke-static {p0, p2, p1}, Lcom/android/hwcamera/CameraSettings;->initialCameraWideScreenPictureSize(Landroid/content/Context;Landroid/hardware/Camera$Parameters;Landroid/content/SharedPreferences;)V
 
-    .line 737
+    .line 729
     :goto_0
     invoke-static {p1, v1}, Lcom/android/hwcamera/CameraSettings;->writePreferredCameraId(Landroid/content/SharedPreferences;I)V
 
-    .line 738
+    .line 730
     return-void
 
-    .line 735
+    .line 727
     :cond_2
     invoke-static {p0, p2, p1}, Lcom/android/hwcamera/CameraSettings;->initialCameraPictureSize(Landroid/content/Context;Landroid/hardware/Camera$Parameters;Landroid/content/SharedPreferences;)V
 
@@ -3148,15 +3133,15 @@
     .local p1, supported:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     const/4 v5, 0x0
 
-    .line 228
+    .line 220
     if-nez p1, :cond_1
 
-    .line 241
+    .line 233
     :cond_0
     :goto_0
     return v5
 
-    .line 231
+    .line 223
     :cond_1
     const/16 v6, 0x78
 
@@ -3164,13 +3149,13 @@
 
     move-result v2
 
-    .line 232
+    .line 224
     .local v2, index:I
     const/4 v6, -0x1
 
     if-eq v2, v6, :cond_0
 
-    .line 233
+    .line 225
     invoke-virtual {p0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v6
@@ -3179,7 +3164,7 @@
 
     move-result v4
 
-    .line 234
+    .line 226
     .local v4, width:I
     add-int/lit8 v6, v2, 0x1
 
@@ -3191,7 +3176,7 @@
 
     move-result v0
 
-    .line 235
+    .line 227
     .local v0, height:I
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3211,7 +3196,7 @@
 
     check-cast v3, Landroid/hardware/Camera$Size;
 
-    .line 236
+    .line 228
     .local v3, size:Landroid/hardware/Camera$Size;
     iget v6, v3, Landroid/hardware/Camera$Size;->width:I
 
@@ -3221,10 +3206,10 @@
 
     if-ne v6, v0, :cond_2
 
-    .line 237
+    .line 229
     invoke-virtual {p2, v4, v0}, Landroid/hardware/Camera$Parameters;->setPictureSize(II)V
 
-    .line 238
+    .line 230
     const/4 v5, 0x1
 
     goto :goto_0
@@ -3248,13 +3233,13 @@
     .end annotation
 
     .prologue
-    .line 551
+    .line 543
     .local p0, sizes:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/Camera$Size;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 552
+    .line 544
     .local v1, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3274,7 +3259,7 @@
 
     check-cast v2, Landroid/hardware/Camera$Size;
 
-    .line 553
+    .line 545
     .local v2, size:Landroid/hardware/Camera$Size;
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
 
@@ -3312,7 +3297,7 @@
 
     goto :goto_0
 
-    .line 555
+    .line 547
     .end local v2           #size:Landroid/hardware/Camera$Size;
     :cond_0
     return-object v1
@@ -3323,21 +3308,21 @@
     .parameter "pref"
 
     .prologue
-    .line 612
+    .line 604
     invoke-virtual {p0}, Lcom/android/hwcamera/ComboPreferences;->getGlobal()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/android/hwcamera/CameraSettings;->upgradeGlobalPreferences(Landroid/content/SharedPreferences;)V
 
-    .line 613
+    .line 605
     invoke-virtual {p0}, Lcom/android/hwcamera/ComboPreferences;->getLocal()Landroid/content/SharedPreferences;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/android/hwcamera/CameraSettings;->upgradeLocalPreferences(Landroid/content/SharedPreferences;)V
 
-    .line 614
+    .line 606
     return-void
 .end method
 
@@ -3348,7 +3333,7 @@
     .prologue
     const/4 v6, 0x4
 
-    .line 574
+    .line 566
     :try_start_0
     const-string v4, "pref_version_key"
 
@@ -3360,48 +3345,48 @@
 
     move-result v3
 
-    .line 578
+    .line 570
     .local v3, version:I
     :goto_0
     if-ne v3, v6, :cond_0
 
-    .line 609
+    .line 601
     :goto_1
     return-void
 
-    .line 575
+    .line 567
     .end local v3           #version:I
     :catch_0
     move-exception v1
 
-    .line 576
+    .line 568
     .local v1, ex:Ljava/lang/Exception;
     const/4 v3, 0x0
 
     .restart local v3       #version:I
     goto :goto_0
 
-    .line 580
+    .line 572
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_0
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 581
+    .line 573
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     if-nez v3, :cond_1
 
-    .line 584
+    .line 576
     const/4 v3, 0x1
 
-    .line 586
+    .line 578
     :cond_1
     const/4 v4, 0x1
 
     if-ne v3, v4, :cond_2
 
-    .line 588
+    .line 580
     const-string v4, "pref_camera_jpegquality_key"
 
     const-string v5, "85"
@@ -3410,7 +3395,7 @@
 
     move-result-object v2
 
-    .line 589
+    .line 581
     .local v2, quality:Ljava/lang/String;
     const-string v4, "65"
 
@@ -3420,51 +3405,51 @@
 
     if-eqz v4, :cond_5
 
-    .line 590
+    .line 582
     const-string v2, "normal"
 
-    .line 596
+    .line 588
     :goto_2
     const-string v4, "pref_camera_jpegquality_key"
 
     invoke-interface {v0, v4, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 597
+    .line 589
     const/4 v3, 0x2
 
-    .line 599
+    .line 591
     .end local v2           #quality:Ljava/lang/String;
     :cond_2
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_3
 
-    .line 600
+    .line 592
     const/4 v3, 0x3
 
-    .line 602
+    .line 594
     :cond_3
     const/4 v4, 0x3
 
     if-ne v3, v4, :cond_4
 
-    .line 605
+    .line 597
     const-string v4, "pref_camera_videoquality_key"
 
     invoke-interface {v0, v4}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 607
+    .line 599
     :cond_4
     const-string v4, "pref_version_key"
 
     invoke-interface {v0, v4, v6}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 608
+    .line 600
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto :goto_1
 
-    .line 591
+    .line 583
     .restart local v2       #quality:Ljava/lang/String;
     :cond_5
     const-string v4, "75"
@@ -3475,12 +3460,12 @@
 
     if-eqz v4, :cond_6
 
-    .line 592
+    .line 584
     const-string v2, "fine"
 
     goto :goto_2
 
-    .line 594
+    .line 586
     :cond_6
     const-string v2, "superfine"
 
@@ -3494,7 +3479,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 561
+    .line 553
     :try_start_0
     const-string v3, "pref_local_version_key"
 
@@ -3506,41 +3491,41 @@
 
     move-result v2
 
-    .line 565
+    .line 557
     .local v2, version:I
     :goto_0
     if-ne v2, v5, :cond_0
 
-    .line 569
+    .line 561
     :goto_1
     return-void
 
-    .line 562
+    .line 554
     .end local v2           #version:I
     :catch_0
     move-exception v1
 
-    .line 563
+    .line 555
     .local v1, ex:Ljava/lang/Exception;
     const/4 v2, 0x0
 
     .restart local v2       #version:I
     goto :goto_0
 
-    .line 566
+    .line 558
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_0
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 567
+    .line 559
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v3, "pref_local_version_key"
 
     invoke-interface {v0, v3, v5}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 568
+    .line 560
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto :goto_1
@@ -3552,21 +3537,21 @@
     .parameter "value"
 
     .prologue
-    .line 628
+    .line 620
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 629
+    .line 621
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "pref_camera_save_location_key"
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 630
+    .line 622
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 631
+    .line 623
     return-void
 .end method
 
@@ -3576,21 +3561,21 @@
     .parameter "value"
 
     .prologue
-    .line 635
+    .line 627
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 636
+    .line 628
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "pref_camera_first_time"
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 637
+    .line 629
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 638
+    .line 630
     return-void
 .end method
 
@@ -3600,12 +3585,12 @@
     .parameter "cameraId"
 
     .prologue
-    .line 622
+    .line 614
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 623
+    .line 615
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "pref_camera_id_key"
 
@@ -3615,10 +3600,10 @@
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 624
+    .line 616
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 625
+    .line 617
     return-void
 .end method
 
@@ -3629,20 +3614,20 @@
     .parameter "group"
 
     .prologue
-    .line 443
+    .line 435
     const-string v2, "pref_camera_shootmode_key"
 
     invoke-virtual {p1, v2}, Lcom/android/hwcamera/PreferenceGroup;->findPreference(Ljava/lang/String;)Lcom/android/hwcamera/ListPreference;
 
     move-result-object v0
 
-    .line 444
+    .line 436
     .local v0, shootmodeList:Lcom/android/hwcamera/ListPreference;
     invoke-static {}, Lcom/android/hwcamera/Util;->getSupportedShootModeValues()Ljava/util/List;
 
     move-result-object v1
 
-    .line 445
+    .line 437
     .local v1, supportedShootmode:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     const-string v2, "panorama"
 
@@ -3652,16 +3637,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 446
+    .line 438
     const-string v2, "panorama"
 
     invoke-interface {v1, v2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 448
+    .line 440
     :cond_0
     invoke-direct {p0, p1, v0, v1}, Lcom/android/hwcamera/CameraSettings;->filterUnsupportedOptions(Lcom/android/hwcamera/PreferenceGroup;Lcom/android/hwcamera/ListPreference;Ljava/util/List;)V
 
-    .line 449
+    .line 441
     return-void
 .end method
 

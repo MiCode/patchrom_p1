@@ -532,7 +532,7 @@
     .line 176
     .restart local v0       #_arg0:Z
     :goto_7
-    #invoke-virtual {p0, v0}, Lcom/android/internal/statusbar/IStatusBar$Stub;->updateBackground(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/statusbar/IStatusBar$Stub;->updateBackground(Z)V
 
     goto/16 :goto_0
 

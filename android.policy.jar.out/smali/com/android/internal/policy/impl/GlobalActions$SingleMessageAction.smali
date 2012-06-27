@@ -28,13 +28,13 @@
     .parameter "statusResId"
 
     .prologue
-    .line 386
+    .line 388
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 387
+    .line 389
     iput p1, p0, Lcom/android/internal/policy/impl/GlobalActions$SingleMessageAction;->mStatusResId:I
 
-    .line 388
+    .line 390
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .prologue
     const/16 v4, 0x8
 
-    .line 398
+    .line 400
     const v2, 0x1090040
 
     const/4 v3, 0x0
@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    .line 400
+    .line 402
     .local v1, v:Landroid/view/View;
     const v2, 0x1020263
 
@@ -69,7 +69,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 402
+    .line 404
     .local v0, statusView:Landroid/widget/TextView;
     const v2, 0x102000b
 
@@ -79,7 +79,7 @@
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 403
+    .line 405
     const v2, 0x1020006
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -88,15 +88,15 @@
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 404
+    .line 406
     invoke-virtual {v1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 405
+    .line 407
     iget v2, p0, Lcom/android/internal/policy/impl/GlobalActions$SingleMessageAction;->mStatusResId:I
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 406
+    .line 408
     return-object v1
 .end method
 
@@ -104,7 +104,7 @@
     .locals 1
 
     .prologue
-    .line 391
+    .line 393
     const/4 v0, 0x1
 
     return v0
@@ -115,7 +115,7 @@
     .parameter "v"
 
     .prologue
-    .line 411
+    .line 413
     return-void
 .end method
 
