@@ -212,7 +212,7 @@
     <string name="pref_camera_timer_five">5 seconds</string>
     <string name="pref_camera_timer_ten">10 seconds</string>
     <string name="pref_camera_save_location_title">Preferred save location</string>
-    <string name="pref_camera_save_location_default">memoryscard</string>
+    <string name="pref_camera_save_location_default">phone</string>
     <string name="pref_camera_shootmode_title">Shooting mode</string>
     <string name="pref_camera_shootmode_default">single</string>
     <string name="pref_camera_shootmode_entry_single">Single</string>

@@ -41,11 +41,11 @@ include $(PORT_BUILD)/porting.mk
 
 # To define any local-target
 local-zip-misc:
-	cp other/build.prop $(ZIP_DIR)/system/build.prop
+	cp other/build_B115.prop $(ZIP_DIR)/system/build.prop
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
 	cp other/internal_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
-	cp other/boot-B110-rooted.img $(ZIP_DIR)/boot.img
+	cp other/boot-B115-rooted.img $(ZIP_DIR)/boot.img
 	cp other/StockSettings.apk $(ZIP_DIR)/system/app
 
 	@echo update bootanimation
