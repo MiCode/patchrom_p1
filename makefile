@@ -15,7 +15,7 @@ local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings ThemeManage
 local-modified-apps := HwCamera SettingsProvider PowerManagement
 
 # All apks from MIUI
-local-miui-removed-apps     := SettingsProvider MediaProvider 
+local-miui-removed-apps     := SettingsProvider MediaProvider Bluetooth 
 
 # All apps need to be removed from original ZIP file
 local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 Hispace.apk \
@@ -46,7 +46,8 @@ local-zip-misc:
 	cp other/internal_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/boot-B115-rooted.img $(ZIP_DIR)/boot.img
-	cp other/StockSettings.apk $(ZIP_DIR)/system/app
+	cp other/StockSettings.apk $(ZIP_DIR)/system/app/
+	cp other/Settings_ex.apk $(ZIP_DIR)/system/app/
 
 	@echo update bootanimation
 	rm $(ZIP_DIR)/system/bin/bootanimation
