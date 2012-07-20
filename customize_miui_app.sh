@@ -13,6 +13,10 @@ if [ $1 = "MiuiSystemUI" ];then
 	$XMLMERGYTOOL $1/res/values $2/res/values
 fi
 
+if [ $1 = "MiuiGallery" ];then
+    $XMLMERGYTOOL $1/res/values $2/res/values
+fi
+
 if [ $1 = "Mms" ];then
 	$XMLMERGYTOOL $1/res/values $2/res/values
 fi
@@ -44,3 +48,16 @@ if [ $1 = "ThemeManager" ];then
       $XMLMERGYTOOL $1/res/values $2/res/values
 fi
 
+if [ $1 = "Updater" ];then
+    cp $1/Updater.part out/
+    cd out
+    $GIT_APPLY Updater.part
+    cd ..
+    for file in `find $2 -name *.rej`
+    do
+	echo "Updater patch fail"
+        exit 1
+    done
+
+	$XMLMERGYTOOL $1/res/values $2/res/values
+fi

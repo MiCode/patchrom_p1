@@ -9,10 +9,10 @@ local-zip-file     := stockrom_B115.zip
 local-out-zip-file := MIUI_p1.zip
 
 #
-local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings ThemeManager
+local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings ThemeManager Updater #MiuiGallery
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := HwCamera SettingsProvider PowerManagement
+local-modified-apps := HwCamera SettingsProvider PowerManagement 
 
 # All apks from MIUI
 local-miui-removed-apps     := SettingsProvider MediaProvider Bluetooth 
@@ -43,8 +43,6 @@ include $(PORT_BUILD)/porting.mk
 local-zip-misc:
 	cp other/build_B115.prop $(ZIP_DIR)/system/build.prop
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
-	cp other/internal_sd.fstab $(ZIP_DIR)/system/etc/
-	cp other/external_sd.fstab $(ZIP_DIR)/system/etc/
 	cp other/boot-B115-rooted.img $(ZIP_DIR)/boot.img
 	cp other/StockSettings.apk $(ZIP_DIR)/system/app/
 	cp other/Settings_ex.apk $(ZIP_DIR)/system/app/

@@ -467,6 +467,20 @@
     return-object v3
 .end method
 
+#    public static void installPackage(Context context, File packageFile)
+#        throws IOException {
+#        String filename = packageFile.getCanonicalPath();
+#        if (filename.startsWith("/ext_sdcard")) {
+#            Log.w(TAG, "replace /extsdcard to sdcard");
+#            filename = filename.replace("/ext_sdcard", "/sdcard");
+#        } else {
+#            Log.w(TAG, "!!! WRONG INSTALL PACKAGE PATH");
+#            return;
+#        }
+#        Log.w(TAG, "!!! REBOOTING TO INSTALL " + filename + " !!!");
+#        String arg = "--update_package=" + filename;
+#        bootCommand(context, arg);
+#    }
 .method public static installPackage(Landroid/content/Context;Ljava/io/File;)V
     .locals 5
     .parameter "context"
@@ -478,13 +492,33 @@
     .end annotation
 
     .prologue
-    .line 323
     invoke-virtual {p1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 324
     .local v1, filename:Ljava/lang/String;
+    const-string v2, "/ext_sdcard"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "RecoverySystem"
+
+    const-string v3, "replace /extsdcard to sdcard"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v2, "/ext_sdcard"
+
+    const-string v3, "/sdcard"
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v1
+
     const-string v2, "RecoverySystem"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -513,7 +547,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 325
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -532,12 +565,21 @@
 
     move-result-object v0
 
-    .line 326
     .local v0, arg:Ljava/lang/String;
     invoke-static {p0, v0}, Landroid/os/RecoverySystem;->bootCommand(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 327
+    .end local v0           #arg:Ljava/lang/String;
+    :goto_0
     return-void
+
+    :cond_0
+    const-string v2, "RecoverySystem"
+
+    const-string v3, "!!! WRONG INSTALL PACKAGE PATH"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public static rebootWipeCache(Landroid/content/Context;)V
