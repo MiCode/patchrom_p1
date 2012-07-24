@@ -116,11 +116,13 @@
     sput-object v0, Landroid/os/Environment;->SECURE_DATA_DIRECTORY:Ljava/io/File;
 
     .line 125
-    const-string v1, "/mnt/ext_sdcard"
+    const-string v0, "EXTERNAL_STORAGE"
 
-    new-instance v0, Ljava/io/File;
+    const-string v1, "/mnt/sdcard"
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/os/Environment;->getDirectory(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
 
     sput-object v0, Landroid/os/Environment;->EXTERNAL_STORAGE_DIRECTORY:Ljava/io/File;
 

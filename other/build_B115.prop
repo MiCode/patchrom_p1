@@ -290,5 +290,8 @@ ro.build.fingerprint=Huawei/U9200/hwu9200:4.0.3/HuaweiU9200/C00B115:user/ota-rel
 ro.skia.use_data_fonts=1
 ro.product.locale.language=zh
 ro.product.locale.region=cn
+
 persist.sys.timezone=Asia/Shanghai
+persist.sys.main_storage=external_sd
+
 ro.product.mod_device=hwu9200

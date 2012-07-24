@@ -9,7 +9,7 @@ local-zip-file     := stockrom_B115.zip
 local-out-zip-file := MIUI_p1.zip
 
 #
-local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings ThemeManager Updater #MiuiGallery
+local-miui-modified-apps := MiuiSystemUI MiuiHome Mms Phone Settings ThemeManager
 
 # All apps from original ZIP, but has smali files chanded
 local-modified-apps := HwCamera SettingsProvider PowerManagement 
