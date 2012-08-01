@@ -190,7 +190,6 @@ ro.config.hw_proximitySensor=true
 ro.config.switchPrimaryVolume=true
 #DTS2012021607935 guanjunujie 20120214 end
 #DTS2012021603135 h58695 begin
-persist.sys.main_storage=internal_sd
 #DTS2012021603135 h58695 end
 #DTS2012022308202 f00189446 begin
 #/*<DTS2010091000150 yangzijin 20100921 begin
