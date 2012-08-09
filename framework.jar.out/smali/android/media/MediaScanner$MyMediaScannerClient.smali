@@ -718,6 +718,7 @@
     iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
 
     move-object/from16 v25, v0
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
@@ -725,6 +726,7 @@
     move-object/from16 v2, v25
 
     invoke-direct {v0, v1, v2}, Landroid/media/MediaScanner$MyMediaScannerClient;->setSettingIfNotSet(Ljava/lang/String;Ljava/lang/String;)V
+
     const-string v24, "sms_delivered_sound"
 
     move-object/from16 v0, p1
@@ -1256,6 +1258,7 @@
     iget-object v0, v0, Landroid/media/MediaScanner$FileCacheEntry;->mPath:Ljava/lang/String;
 
     move-object/from16 v25, v0
+
     move-object/from16 v0, p0
 
     move-object/from16 v1, v24
