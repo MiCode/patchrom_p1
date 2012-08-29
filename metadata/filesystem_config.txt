@@ -33,7 +33,6 @@ system/app/Hispace.apk 0 0 644
 system/app/HoloSpiralWallpaper.apk 0 0 644
 system/app/HTMLViewer.apk 0 0 644
 system/app/HuaweiSecurityGuard.apk 0 0 644
-system/app/HuaweiSyncClient.apk 0 0 644
 system/app/HwAppIconsBoxy.apk 0 0 644
 system/app/HwAppIconsBreeze.apk 0 0 644
 system/app/HwBeyondTheSkyTheme.apk 0 0 644
@@ -46,12 +45,11 @@ system/app/HwDLNA.apk 0 0 644
 system/app/HwEmail3D.apk 0 0 644
 system/app/HwFlashlight.apk 0 0 644
 system/app/HwFMRadio.apk 0 0 644
-system/app/HwGestureService.apk 0 0 644
 system/app/HwGPMS.apk 0 0 644
+system/app/HwHiSync.apk 0 0 644
 system/app/HwIME.apk 0 0 644
 system/app/HwLauncher3D.apk 0 0 644
 system/app/HwLauncher5.apk 0 0 644
-system/app/HwMms.apk 0 0 644
 system/app/HwMusicWidget3D.apk 0 0 644
 system/app/HwOUC.apk 0 0 644
 system/app/HwPhotoAlbumWidget3D.apk 0 0 644
@@ -68,6 +66,7 @@ system/app/MagicSmokeWallpapers.apk 0 0 644
 system/app/MediaCenter.apk 0 0 644
 system/app/MediaProvider.apk 0 0 644
 system/app/MMITest_II.apk 0 0 644
+system/app/Mms.apk 0 0 644
 system/app/MyCalendar.apk 0 0 644
 system/app/MyEmail.apk 0 0 644
 system/app/NoiseField.apk 0 0 644
@@ -87,12 +86,10 @@ system/app/Provision.apk 0 0 644
 system/app/PushService.apk 0 0 644
 system/app/QuickSearchBox.apk 0 0 644
 system/app/Readme.apk 0 0 644
-system/app/RootExplorer.apk 0 0 644
 system/app/Settings.apk 0 0 644
 system/app/SettingsProvider.apk 0 0 644
 system/app/SharedStorageBackup.apk 0 0 644
 system/app/Stk.apk 0 0 644
-system/app/Superuser.apk 0 0 644
 system/app/SystemUI.apk 0 0 644
 system/app/TelephonyProvider.apk 0 0 644
 system/app/ToolBox.apk 0 0 644
@@ -701,6 +698,7 @@ system/lib/libexif.so 0 0 644
 system/lib/libexpat.so 0 0 644
 system/lib/libext4_utils.so 0 0 644
 system/lib/libfacelock_jni.so 0 0 644
+system/lib/libffmpeg.so 0 0 644
 system/lib/libFFTEm.so 0 0 644
 system/lib/libfilterfw.so 0 0 644
 system/lib/libfilterpack_imageproc.so 0 0 644
@@ -709,7 +707,6 @@ system/lib/libfmradio.so 0 0 644
 system/lib/libfm_volume.so 0 0 644
 system/lib/libfxjni.so 0 0 644
 system/lib/libgabi++.so 0 0 644
-system/lib/libgallery_algorithm.so 0 0 644
 system/lib/libGLESv1_CM.so 0 0 644
 system/lib/libGLESv2_dbg.so 0 0 644
 system/lib/libGLESv2.so 0 0 644
@@ -722,7 +719,6 @@ system/lib/libhelixplayer.so 0 0 644
 system/lib/libhuawei-audio-ril.so 0 0 644
 system/lib/libHWColorPen.so 0 0 644
 system/lib/libhw_flashlight.so 0 0 644
-system/lib/libHwGestureService.so 0 0 644
 system/lib/libhwui.so 0 0 644
 system/lib/libI420colorconvert.so 0 0 644
 system/lib/libicui18n.so 0 0 644
@@ -840,7 +836,6 @@ system/lib/soundfx/libbundlewrapper.so 0 0 644
 system/lib/soundfx/libdolbymobileeffect.so 0 0 644
 system/lib/soundfx/libreverbwrapper.so 0 0 644
 system/lib/soundfx/libvisualizer.so 0 0 644
-system/lost+found 0 0 755
 system/media 0 0 755
 system/media/audio 0 0 755
 system/media/audio/alarms 0 0 755
@@ -1116,7 +1111,6 @@ system/xbin/blockdev 0 0 755
 system/xbin/brctl 0 0 755
 system/xbin/bt_sco_app 0 2000 755
 system/xbin/bunzip2 0 0 755
-system/xbin/busybox 0 0 755
 system/xbin/bzcat 0 0 755
 system/xbin/bzip2 0 0 755
 system/xbin/cal 0 0 755
@@ -1181,6 +1175,7 @@ system/xbin/head 0 0 755
 system/xbin/hexdump 0 0 755
 system/xbin/id 0 0 755
 system/xbin/ifconfig 0 0 755
+system/xbin/insecure 0 2000 6755
 system/xbin/insmod 0 0 755
 system/xbin/install 0 0 755
 system/xbin/iostat 0 0 755

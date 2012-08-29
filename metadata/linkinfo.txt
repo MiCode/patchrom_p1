@@ -55,7 +55,7 @@ system/bin/watchprops|system/bin/toolbox
 system/bin/wipe|system/bin/toolbox
 system/fonts/DroidSans-Bold.ttf|system/fonts/Roboto-Bold.ttf
 system/fonts/DroidSans.ttf|system/fonts/Roboto-Regular.ttf
-system/vendor/firmware/hdcp.keys|system/vendor/firmware/hdcp.keys
+system/vendor/firmware/hdcp.keys|factory/hdcp.keys
 system/vendor/lib/libbltsville_cpu.so|system/vendor/lib/libbltsville_ticpu.so
 system/vendor/lib/libbltsville_ticpu.so|system/vendor/lib/libbltsville_ticpu.2.0.0.8.so
 system/xbin/arp|system/xbin/busybox

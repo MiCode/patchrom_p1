@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2777
+    .line 2774
     iput-object p1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 2781
+    .line 2778
     iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mEulaPreference:Landroid/content/SharedPreferences;
@@ -53,7 +53,7 @@
 
     invoke-static {v1, v2}, Lcom/android/hwcamera/CameraSettings;->writeFirstTime(Landroid/content/SharedPreferences;Z)V
 
-    .line 2782
+    .line 2779
     iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mLocationManager:Lcom/android/hwcamera/LocationManager;
@@ -72,11 +72,45 @@
 
     move-result v0
 
-    .line 2783
+    .line 2780
     .local v0, state:Z
     if-nez v0, :cond_0
 
+    .line 2781
+    const-string v1, "gpsstate"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " the current gps state is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2782
+    iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
+
+    #calls: Lcom/android/hwcamera/VideoCamera;->showConfirmGpsDialog()V
+    invoke-static {v1}, Lcom/android/hwcamera/VideoCamera;->access$6000(Lcom/android/hwcamera/VideoCamera;)V
+
+    .line 2790
+    :goto_0
+    return-void
+
     .line 2784
+    :cond_0
     const-string v1, "gpsstate"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -102,40 +136,6 @@
     .line 2785
     iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
 
-    #calls: Lcom/android/hwcamera/VideoCamera;->showConfirmGpsDialog()V
-    invoke-static {v1}, Lcom/android/hwcamera/VideoCamera;->access$6000(Lcom/android/hwcamera/VideoCamera;)V
-
-    .line 2793
-    :goto_0
-    return-void
-
-    .line 2787
-    :cond_0
-    const-string v1, "gpsstate"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, " the current gps state is "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2788
-    iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
-
     #getter for: Lcom/android/hwcamera/VideoCamera;->mPreferences:Lcom/android/hwcamera/ComboPreferences;
     invoke-static {v1}, Lcom/android/hwcamera/VideoCamera;->access$5300(Lcom/android/hwcamera/VideoCamera;)Lcom/android/hwcamera/ComboPreferences;
 
@@ -147,7 +147,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/android/hwcamera/RecordLocationPreference;->setLocationPreference(Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2790
+    .line 2787
     iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mSuperPanel:Lcom/android/hwcamera/hwui/SuperPanel;
@@ -159,7 +159,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/hwcamera/hwui/SuperPanel;->setGPSstatus(Z)V
 
-    .line 2791
+    .line 2788
     iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$7;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #calls: Lcom/android/hwcamera/VideoCamera;->onSharedPreferencesChanged()V

@@ -411,53 +411,8 @@
     .local v12, relativelyLength:I
     const/4 v13, 0x0
 
-    .line 112
+    .line 120
     .local v13, tempRelativelyLength:I
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "getCallerIndex(), NUM_LONG = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_LONG:I
-
-    move/from16 v20, v0
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",NUM_SHORT = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
-
-    move/from16 v20, v0
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 121
     const-string/jumbo v18, "ro.config.hwft_MatchNum"
 
     const/16 v19, 0x0
@@ -468,7 +423,7 @@
 
     if-nez v18, :cond_2
 
-    .line 123
+    .line 122
     const-string v18, "gsm.hw.matchnum"
 
     const/16 v19, 0x7
@@ -477,7 +432,7 @@
 
     move-result v9
 
-    .line 124
+    .line 123
     .local v9, numMatch:I
     const-string v18, "gsm.hw.matchnum.short"
 
@@ -487,7 +442,7 @@
 
     move-result v10
 
-    .line 125
+    .line 124
     .local v10, numMatchShort:I
     const/16 v18, 0x7
 
@@ -503,7 +458,7 @@
 
     iput v9, v0, Landroid/telephony/CallerInfoHW;->NUM_LONG:I
 
-    .line 126
+    .line 125
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_LONG:I
@@ -524,14 +479,78 @@
 
     iput v10, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
 
-    .line 127
+    .line 129
+    :cond_2
+    if-nez p2, :cond_4
+
+    .line 132
+    if-eqz p1, :cond_3
+
+    invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getCount()I
+
+    move-result v18
+
+    if-lez v18, :cond_3
+
+    .line 134
+    const/4 v6, 0x0
+
+    .line 136
+    :cond_3
     const-string v18, "CallerInfo"
 
     new-instance v19, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "getCallerIndex(), after setprop NUM_LONG = "
+    const-string v20, "CallerInfoHW(),null == compNum!fixedIndex = "
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move v7, v6
+
+    .line 329
+    .end local v6           #fixedIndex:I
+    .local v7, fixedIndex:I
+    :goto_0
+    return v7
+
+    .line 141
+    .end local v7           #fixedIndex:I
+    .restart local v6       #fixedIndex:I
+    :cond_4
+    invoke-static/range {p2 .. p2}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    .line 142
+    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    .line 144
+    .local v3, compNumLen:I
+    const-string v18, "CallerInfo"
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v20, "getCallerIndex(), NUM_LONG = "
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -563,83 +582,6 @@
 
     move-result-object v19
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 131
-    :cond_2
-    if-nez p2, :cond_4
-
-    .line 134
-    if-eqz p1, :cond_3
-
-    invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getCount()I
-
-    move-result v18
-
-    if-lez v18, :cond_3
-
-    .line 136
-    const/4 v6, 0x0
-
-    .line 138
-    :cond_3
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "CallerInfoHW(),null == compNum!fixedIndex = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    move v7, v6
-
-    .line 360
-    .end local v6           #fixedIndex:I
-    .local v7, fixedIndex:I
-    :goto_0
-    return v7
-
-    .line 143
-    .end local v7           #fixedIndex:I
-    .restart local v6       #fixedIndex:I
-    :cond_4
-    invoke-static/range {p2 .. p2}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p2
-
-    .line 144
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    .line 145
-    .local v3, compNumLen:I
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v20, "compNum: "
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -654,14 +596,26 @@
 
     move-result-object v19
 
+    const-string v20, "compNumLen"
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
     invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v19
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 150
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     .line 152
     move-object/from16 v0, p0
@@ -672,7 +626,7 @@
 
     move/from16 v0, v18
 
-    if-lt v3, v0, :cond_f
+    if-lt v3, v0, :cond_d
 
     .line 155
     move-object/from16 v0, p0
@@ -708,51 +662,14 @@
 
     move-result-object v5
 
-    .line 158
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "11:, compNumLong = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",compNumShort = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 161
+    .line 159
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v18
 
-    if-eqz v18, :cond_8
+    if-eqz v18, :cond_7
 
-    .line 163
+    .line 161
     move-object/from16 v0, p1
 
     move-object/from16 v1, p3
@@ -761,15 +678,15 @@
 
     move-result v2
 
-    .line 165
+    .line 163
     .local v2, columnIndex:I
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v2, v0, :cond_8
+    if-eq v2, v0, :cond_7
 
-    .line 169
+    .line 167
     :cond_5
     move-object/from16 v0, p1
 
@@ -777,71 +694,18 @@
 
     move-result-object v14
 
-    .line 170
+    .line 168
     invoke-static {v14}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 171
+    .line 169
     invoke-virtual {v14}, Ljava/lang/String;->length()I
 
     move-result v15
 
     .line 172
     .local v15, tmpNumLen:I
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "11: tmpNum = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", tmpNum.length11: "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual {v14}, Ljava/lang/String;->length()I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",ID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 176
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_LONG:I
@@ -850,9 +714,9 @@
 
     move/from16 v0, v18
 
-    if-lt v15, v0, :cond_a
+    if-lt v15, v0, :cond_9
 
-    .line 178
+    .line 174
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_LONG:I
@@ -867,7 +731,7 @@
 
     move-result-object v16
 
-    .line 182
+    .line 178
     move-object/from16 v0, v16
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
@@ -876,90 +740,25 @@
 
     if-nez v18, :cond_6
 
-    .line 184
-    if-le v3, v15, :cond_9
+    .line 180
+    if-le v3, v15, :cond_8
 
     sub-int v13, v3, v15
 
-    .line 185
+    .line 181
     :goto_1
     if-le v12, v13, :cond_6
 
-    .line 187
+    .line 183
     move v12, v13
 
-    .line 188
+    .line 184
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
 
     move-result v8
 
-    .line 189
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "11: break! numLongID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 194
+    .line 213
     :cond_6
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "11: >=NUM_LONG, and !=,  tmpNumLong = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", numLongID:"
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 224
-    :cond_7
     :goto_2
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->moveToNext()Z
 
@@ -967,57 +766,20 @@
 
     if-nez v18, :cond_5
 
-    .line 226
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "11:  numLongID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",numShortID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 228
+    .line 215
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v0, v8, :cond_d
+    if-eq v0, v8, :cond_b
 
-    .line 229
+    .line 216
     move v6, v8
 
-    .line 358
+    .line 327
     .end local v2           #columnIndex:I
     .end local v15           #tmpNumLen:I
-    :cond_8
+    :cond_7
     :goto_3
     const-string v18, "CallerInfo"
 
@@ -1045,23 +807,23 @@
 
     move v7, v6
 
-    .line 360
+    .line 329
     .end local v6           #fixedIndex:I
     .restart local v7       #fixedIndex:I
     goto/16 :goto_0
 
-    .line 184
+    .line 180
     .end local v7           #fixedIndex:I
     .restart local v2       #columnIndex:I
     .restart local v6       #fixedIndex:I
     .restart local v15       #tmpNumLen:I
-    :cond_9
+    :cond_8
     sub-int v13, v15, v3
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    .line 199
-    :cond_a
+    .line 191
+    :cond_9
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1070,9 +832,9 @@
 
     move/from16 v0, v18
 
-    if-lt v15, v0, :cond_c
+    if-lt v15, v0, :cond_6
 
-    .line 201
+    .line 193
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1087,112 +849,63 @@
 
     move-result-object v17
 
-    .line 205
+    .line 197
     move-object/from16 v0, v17
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
     move-result v18
 
-    if-nez v18, :cond_7
+    if-nez v18, :cond_6
 
-    .line 207
-    if-le v3, v15, :cond_b
+    .line 199
+    if-le v3, v15, :cond_a
 
     sub-int v13, v3, v15
 
-    .line 208
+    .line 200
     :goto_4
-    if-le v12, v13, :cond_7
+    if-le v12, v13, :cond_6
 
-    .line 210
+    .line 202
     move v12, v13
 
-    .line 211
+    .line 203
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
 
     move-result v11
 
-    .line 212
-    const-string v18, "CallerInfo"
+    goto :goto_2
 
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "11: >=NUM_SHORT, tmpNumShort = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", numShortID:"
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_2
-
-    .line 207
-    :cond_b
+    .line 199
+    :cond_a
     sub-int v13, v15, v3
 
     goto :goto_4
 
-    .line 220
-    :cond_c
-    const-string v18, "CallerInfo"
-
-    const-string/jumbo v19, "tmpNum11, continue"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_2
-
-    .line 230
-    :cond_d
+    .line 217
+    :cond_b
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v0, v11, :cond_e
+    if-eq v0, v11, :cond_c
 
-    .line 231
+    .line 218
     move v6, v11
 
-    goto/16 :goto_3
+    goto :goto_3
 
-    .line 233
-    :cond_e
+    .line 220
+    :cond_c
     const/4 v6, -0x1
 
-    goto/16 :goto_3
+    goto :goto_3
 
-    .line 237
+    .line 224
     .end local v2           #columnIndex:I
     .end local v15           #tmpNumLen:I
-    :cond_f
+    :cond_d
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1201,9 +914,9 @@
 
     move/from16 v0, v18
 
-    if-lt v3, v0, :cond_19
+    if-lt v3, v0, :cond_15
 
-    .line 240
+    .line 227
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1220,39 +933,14 @@
 
     move-result-object v5
 
-    .line 241
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "7:  compNumShort = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 243
+    .line 229
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v18
 
-    if-eqz v18, :cond_8
+    if-eqz v18, :cond_7
 
-    .line 245
+    .line 231
     move-object/from16 v0, p1
 
     move-object/from16 v1, p3
@@ -1261,87 +949,34 @@
 
     move-result v2
 
-    .line 247
+    .line 233
     .restart local v2       #columnIndex:I
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v2, v0, :cond_8
+    if-eq v2, v0, :cond_7
 
-    .line 251
-    :cond_10
+    .line 237
+    :cond_e
     move-object/from16 v0, p1
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 252
+    .line 238
     invoke-static {v14}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 253
+    .line 239
     invoke-virtual {v14}, Ljava/lang/String;->length()I
 
     move-result v15
 
-    .line 254
+    .line 241
     .restart local v15       #tmpNumLen:I
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "7: tmpNum = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", tmpNum.length7: "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual {v14}, Ljava/lang/String;->length()I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",ID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 258
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_LONG:I
@@ -1350,9 +985,9 @@
 
     move/from16 v0, v18
 
-    if-lt v15, v0, :cond_13
+    if-lt v15, v0, :cond_11
 
-    .line 260
+    .line 243
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1367,138 +1002,61 @@
 
     move-result-object v17
 
-    .line 264
+    .line 247
     move-object/from16 v0, v17
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
     move-result v18
 
-    if-nez v18, :cond_11
+    if-nez v18, :cond_f
 
-    .line 266
-    if-le v3, v15, :cond_12
+    .line 249
+    if-le v3, v15, :cond_10
 
     sub-int v13, v3, v15
 
-    .line 268
+    .line 251
     :goto_5
-    if-le v12, v13, :cond_11
+    if-le v12, v13, :cond_f
 
-    .line 270
+    .line 253
     move v12, v13
 
-    .line 271
+    .line 254
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
 
     move-result v8
 
-    .line 272
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "7: >=NUM_LONG, tmpNumShort = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", numLongID:"
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 306
-    :cond_11
-    :goto_6
+    .line 283
+    :cond_f
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v18
 
-    if-nez v18, :cond_10
+    if-nez v18, :cond_e
 
-    .line 308
-    :goto_7
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "7: numShortID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",numLongID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 310
+    .line 285
+    :goto_6
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v0, v11, :cond_17
+    if-eq v0, v11, :cond_13
 
-    .line 311
+    .line 286
     move v6, v11
 
     goto/16 :goto_3
 
-    .line 266
-    :cond_12
+    .line 249
+    :cond_10
     sub-int v13, v15, v3
 
     goto :goto_5
 
-    .line 279
-    :cond_13
+    .line 260
+    :cond_11
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1507,9 +1065,9 @@
 
     move/from16 v0, v18
 
-    if-lt v15, v0, :cond_16
+    if-lt v15, v0, :cond_f
 
-    .line 281
+    .line 262
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/telephony/CallerInfoHW;->NUM_SHORT:I
@@ -1524,147 +1082,71 @@
 
     move-result-object v17
 
-    .line 285
+    .line 266
     move-object/from16 v0, v17
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
     move-result v18
 
-    if-nez v18, :cond_15
+    if-nez v18, :cond_f
 
-    .line 287
-    if-le v3, v15, :cond_14
+    .line 268
+    if-le v3, v15, :cond_12
 
     sub-int v13, v3, v15
 
-    .line 288
-    :goto_8
-    if-le v12, v13, :cond_15
+    .line 269
+    :goto_7
+    if-le v12, v13, :cond_f
 
-    .line 290
+    .line 271
     move v12, v13
 
-    .line 291
+    .line 272
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
 
     move-result v11
 
-    .line 292
-    const-string v18, "CallerInfo"
+    .line 273
+    goto :goto_6
 
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "7: break! numShortID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 268
+    :cond_12
+    sub-int v13, v15, v3
 
     goto :goto_7
 
     .line 287
-    :cond_14
-    sub-int v13, v15, v3
-
-    goto :goto_8
-
-    .line 297
-    :cond_15
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "7: >=NUM_SHORT, and !=, tmpNumShort = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", numShortID:"
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_6
-
-    .line 302
-    :cond_16
-    const-string v18, "CallerInfo"
-
-    const-string v19, "7: continue"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_6
-
-    .line 312
-    :cond_17
+    :cond_13
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v0, v8, :cond_18
+    if-eq v0, v8, :cond_14
 
-    .line 313
+    .line 288
     move v6, v8
 
     goto/16 :goto_3
 
-    .line 315
-    :cond_18
+    .line 290
+    :cond_14
     const/4 v6, -0x1
 
     goto/16 :goto_3
 
-    .line 321
+    .line 296
     .end local v2           #columnIndex:I
     .end local v15           #tmpNumLen:I
-    :cond_19
+    :cond_15
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v18
 
-    if-eqz v18, :cond_8
+    if-eqz v18, :cond_7
 
-    .line 323
+    .line 298
     move-object/from16 v0, p1
 
     move-object/from16 v1, p3
@@ -1673,95 +1155,42 @@
 
     move-result v2
 
-    .line 325
+    .line 300
     .restart local v2       #columnIndex:I
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-eq v2, v0, :cond_8
+    if-eq v2, v0, :cond_7
 
-    .line 329
-    :cond_1a
+    .line 304
+    :cond_16
     move-object/from16 v0, p1
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 330
+    .line 305
     invoke-static {v14}, Landroid/telephony/PhoneNumberUtils;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 331
+    .line 306
     invoke-virtual {v14}, Ljava/lang/String;->length()I
 
     move-result v15
 
-    .line 332
+    .line 308
     .restart local v15       #tmpNumLen:I
-    const-string v18, "CallerInfo"
+    if-ne v15, v3, :cond_17
 
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "5: tmpNum = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ", tmpNum.length: "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual {v14}, Ljava/lang/String;->length()I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string v20, ",ID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
-
-    move-result v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 335
-    if-ne v15, v3, :cond_1b
-
-    .line 337
+    .line 310
     const/16 v18, -0x1
 
     move/from16 v0, v18
 
-    if-ne v0, v6, :cond_1c
+    if-ne v0, v6, :cond_17
 
     move-object/from16 v0, p2
 
@@ -1769,81 +1198,23 @@
 
     move-result v18
 
-    if-nez v18, :cond_1c
+    if-nez v18, :cond_17
 
-    .line 339
+    .line 312
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->getPosition()I
 
     move-result v6
 
-    .line 340
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "5: break! numLongID = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 352
-    :goto_9
-    const-string v18, "CallerInfo"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "5: fixedIndex = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    .line 313
     goto/16 :goto_3
 
-    .line 346
-    :cond_1b
-    const-string v18, "CallerInfo"
-
-    const-string v19, "5: continue"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 350
-    :cond_1c
+    .line 321
+    :cond_17
     invoke-interface/range {p1 .. p1}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v18
 
-    if-nez v18, :cond_1a
+    if-nez v18, :cond_16
 
-    goto :goto_9
+    goto/16 :goto_3
 .end method

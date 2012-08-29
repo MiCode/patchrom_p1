@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 797
+    .line 799
     iput-object p1, p0, Lcom/android/hwcamera/VideoCamera$3;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "animation"
 
     .prologue
-    .line 799
+    .line 801
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$3;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mControlBarAnim:Landroid/view/animation/Animation;
@@ -52,7 +52,7 @@
 
     if-ne p1, v0, :cond_1
 
-    .line 800
+    .line 802
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$3;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mIsOnGalleryExState:Z
@@ -62,7 +62,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 801
+    .line 803
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$3;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mControlBar:Landroid/view/View;
@@ -74,12 +74,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 806
+    .line 808
     :cond_0
     :goto_0
     return-void
 
-    .line 803
+    .line 805
     :cond_1
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$3;->this$0:Lcom/android/hwcamera/VideoCamera;
 
@@ -90,7 +90,7 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 804
+    .line 806
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$3;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #calls: Lcom/android/hwcamera/VideoCamera;->galleryExClose()V
@@ -104,7 +104,7 @@
     .parameter "animation"
 
     .prologue
-    .line 809
+    .line 811
     return-void
 .end method
 
@@ -113,6 +113,6 @@
     .parameter "animation"
 
     .prologue
-    .line 812
+    .line 814
     return-void
 .end method

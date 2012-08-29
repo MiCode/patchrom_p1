@@ -1118,11 +1118,9 @@
     :goto_0
     move v0, v1
 
-    .line 643
     :cond_0
     return v0
 
-    .line 627
     :cond_1
     const/16 v2, 0x2c
 
@@ -1951,20 +1949,17 @@
 
     move-result-object v1
 
-    .line 655
     .local v1, subStr:Ljava/lang/String;
     goto :goto_0
 
     if-eqz v1, :cond_1
 
-    .line 656
     const/16 v3, 0x3b
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(I)I
 
     move-result v2
 
-    .line 657
     .local v2, wIndex:I
     const/16 v3, 0x2c
 

@@ -3,7 +3,7 @@
 #
 
 # The original zip file, MUST be specified by each product
-local-zip-file     := stockrom_B115.zip
+local-zip-file     := stockrom.zip
 
 # The output zip file of MIUI rom, the default is porting_miui.zip if not specified
 local-out-zip-file := MIUI_p1.zip
@@ -18,14 +18,7 @@ local-modified-apps := HwCamera SettingsProvider PowerManagement
 local-miui-removed-apps     := SettingsProvider MediaProvider Bluetooth 
 
 # All apps need to be removed from original ZIP file
-local-remove-apps := AccountAgent ApkBatchInstall ContactsExt Galaxy4 Gallery2 Hispace.apk \
-	HandWritingSimpPack Hispace HoloSpiralWallpaper HuaweiSecurityGuard HuaweiSyncClient \
-	HwAppIconsBoxy HwAppIconsBreeze HwBeyondTheSkyTheme HwCalendar3D HwCloudDrive HwDLNA \
-	HwDawnTheme_small HwEmail3D HwFlashlight HwMms HwMusicWidget3D HwPhotoAlbumWidget3D \
-	HwSoundRecorder HwUnlock3D HwWallpaper HwWeatherClock3D MyCalendar MyEmail PhaseBeam \
-	PhoneFinder PinyinPack PotterUnlock ProjectMenuAct Protips PushService Readme HwLauncher5 \
-	HwLauncher3D AllBackup HwIME MagicSmokeWallpapers HwGPMS HwOUC MMITest_II MagicSmokeWallpapers \
-	NoiseField NotePad RootExplorer Superuser SystemUI ToolBox TotemWeather VideoEditor
+include phoneapps.mk
 
 # To include the local targets before and after zip the final ZIP file, 
 # and the local-targets should:
@@ -41,9 +34,9 @@ include $(PORT_BUILD)/porting.mk
 
 # To define any local-target
 local-zip-misc:
-	cp other/build_B115.prop $(ZIP_DIR)/system/build.prop
+	cp other/build_B118.prop $(ZIP_DIR)/system/build.prop
 	cp other/Generic.kl $(ZIP_DIR)/system/usr/keylayout/
-	cp other/boot-B115-rooted.img $(ZIP_DIR)/boot.img
+	cp other/boot-b118-rooted.img $(ZIP_DIR)/boot.img
 	cp other/StockSettings.apk $(ZIP_DIR)/system/app/
 	cp other/Settings_ex.apk $(ZIP_DIR)/system/app/
 
