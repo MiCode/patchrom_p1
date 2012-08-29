@@ -2725,7 +2725,7 @@
 
     invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 2112
+    .line 2102
     :goto_0
     return-void
 
@@ -2819,92 +2819,6 @@
     invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 2100
-    const-string v4, "  mActivePasswordQuality=0x"
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    .line 2101
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordQuality:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    .line 2102
-    const-string v4, "  mActivePasswordLength="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordLength:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2103
-    const-string v4, "  mActivePasswordUpperCase="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordUpperCase:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2104
-    const-string v4, "  mActivePasswordLowerCase="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordLowerCase:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2105
-    const-string v4, "  mActivePasswordLetters="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordLetters:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2106
-    const-string v4, "  mActivePasswordNumeric="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordNumeric:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2107
-    const-string v4, "  mActivePasswordSymbols="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordSymbols:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2108
-    const-string v4, "  mActivePasswordNonLetter="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mActivePasswordNonLetter:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2109
-    const-string v4, "  mFailedPasswordAttempts="
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v4, p0, Lcom/android/server/DevicePolicyManagerService;->mFailedPasswordAttempts:I
-
-    invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
-
-    .line 2110
     const-string v4, "  mPasswordOwner="
 
     invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2913,10 +2827,10 @@
 
     invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 2111
+    .line 2101
     monitor-exit p0
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .end local v0           #N:I
     .end local v2           #i:I

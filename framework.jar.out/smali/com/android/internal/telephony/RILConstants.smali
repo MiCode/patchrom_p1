@@ -380,6 +380,8 @@
 
 .field public static final RIL_UNSOL_RESPONSE_SIM_STATUS_CHANGED:I = 0x3fb
 
+.field public static final RIL_UNSOL_RESPONSE_SIM_TYPE:I = 0x40c
+
 .field public static final RIL_UNSOL_RESPONSE_VOICE_NETWORK_STATE_CHANGED:I = 0x3ea
 
 .field public static final RIL_UNSOL_RESTRICTED_STATE_CHANGED:I = 0x3ff

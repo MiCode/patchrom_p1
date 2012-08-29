@@ -711,9 +711,9 @@
     .line 293
     const/16 v0, 0x6f3a
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1
 
-    .line 294
+    .line 295
     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->phone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneBase;->getIccCard()Lcom/android/internal/telephony/IccCard;
@@ -726,14 +726,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 295
-    const/16 p1, 0x4f30
+    sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_USIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    invoke-static {}, Lcom/android/internal/telephony/IccCardApplication;->getIccTypeHw()Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    move-result-object v1
+
+    if-ne v0, v1, :cond_1
 
     .line 298
-    .end local p1
     :cond_0
+    const/16 p1, 0x4f30
+
+    .line 301
+    .end local p1
+    :cond_1
     return p1
 .end method
 

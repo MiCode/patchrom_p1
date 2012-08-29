@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1490
+    .line 1496
     iput-object p1, p0, Lcom/android/hwcamera/VideoCamera$5;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 1492
+    .line 1498
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$5;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #calls: Lcom/android/hwcamera/VideoCamera;->updateAndShowStorageHint()V
     invoke-static {v0}, Lcom/android/hwcamera/VideoCamera;->access$5200(Lcom/android/hwcamera/VideoCamera;)V
 
-    .line 1493
+    .line 1499
     return-void
 .end method

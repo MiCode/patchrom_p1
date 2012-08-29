@@ -13,6 +13,10 @@
 .end annotation
 
 
+# static fields
+.field private static SimType:Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+
 # instance fields
 .field public aid:Ljava/lang/String;
 
@@ -32,6 +36,18 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 173
+    sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_SIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    sput-object v0, Lcom/android/internal/telephony/IccCardApplication;->SimType:Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -42,6 +58,38 @@
     return-void
 .end method
 
+.method public static getIccTypeHw()Lcom/android/internal/telephony/IccCardApplication$AppType;
+    .locals 1
+
+    .prologue
+    .line 297
+    sget-object v0, Lcom/android/internal/telephony/IccCardApplication;->SimType:Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    return-object v0
+.end method
+
+.method public static setIccTypeHw(I)V
+    .locals 2
+    .parameter "type"
+
+    .prologue
+    .line 292
+    new-instance v0, Lcom/android/internal/telephony/IccCardApplication;
+
+    invoke-direct {v0}, Lcom/android/internal/telephony/IccCardApplication;-><init>()V
+
+    .line 293
+    .local v0, tmpIccCard:Lcom/android/internal/telephony/IccCardApplication;
+    invoke-virtual {v0, p0}, Lcom/android/internal/telephony/IccCardApplication;->AppTypeFromRILInt(I)Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/android/internal/telephony/IccCardApplication;->SimType:Lcom/android/internal/telephony/IccCardApplication$AppType;
+
+    .line 294
+    return-void
+.end method
+
 
 # virtual methods
 .method AppStateFromRILInt(I)Lcom/android/internal/telephony/IccCardApplication$AppState;
@@ -49,10 +97,10 @@
     .parameter "state"
 
     .prologue
-    .line 193
+    .line 196
     packed-switch p1, :pswitch_data_0
 
-    .line 201
+    .line 204
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -77,16 +125,16 @@
 
     throw v1
 
-    .line 194
+    .line 197
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_UNKNOWN:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    .line 204
+    .line 207
     .local v0, newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     :goto_0
     return-object v0
 
-    .line 195
+    .line 198
     .end local v0           #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_DETECTED:Lcom/android/internal/telephony/IccCardApplication$AppState;
@@ -94,7 +142,7 @@
     .restart local v0       #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     goto :goto_0
 
-    .line 196
+    .line 199
     .end local v0           #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_PIN:Lcom/android/internal/telephony/IccCardApplication$AppState;
@@ -102,7 +150,7 @@
     .restart local v0       #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     goto :goto_0
 
-    .line 197
+    .line 200
     .end local v0           #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     :pswitch_3
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_PUK:Lcom/android/internal/telephony/IccCardApplication$AppState;
@@ -110,7 +158,7 @@
     .restart local v0       #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     goto :goto_0
 
-    .line 198
+    .line 201
     .end local v0           #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     :pswitch_4
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_SUBSCRIPTION_PERSO:Lcom/android/internal/telephony/IccCardApplication$AppState;
@@ -118,7 +166,7 @@
     .restart local v0       #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     goto :goto_0
 
-    .line 199
+    .line 202
     .end local v0           #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     :pswitch_5
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_READY:Lcom/android/internal/telephony/IccCardApplication$AppState;
@@ -126,7 +174,7 @@
     .restart local v0       #newState:Lcom/android/internal/telephony/IccCardApplication$AppState;
     goto :goto_0
 
-    .line 193
+    .line 196
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -143,10 +191,10 @@
     .parameter "type"
 
     .prologue
-    .line 176
+    .line 179
     packed-switch p1, :pswitch_data_0
 
-    .line 184
+    .line 187
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -171,16 +219,16 @@
 
     throw v1
 
-    .line 177
+    .line 180
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_UNKNOWN:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 187
+    .line 190
     .local v0, newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     :goto_0
     return-object v0
 
-    .line 178
+    .line 181
     .end local v0           #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_SIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -188,7 +236,7 @@
     .restart local v0       #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     goto :goto_0
 
-    .line 179
+    .line 182
     .end local v0           #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_USIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -196,7 +244,7 @@
     .restart local v0       #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     goto :goto_0
 
-    .line 180
+    .line 183
     .end local v0           #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_3
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_RUIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -204,7 +252,7 @@
     .restart local v0       #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     goto :goto_0
 
-    .line 181
+    .line 184
     .end local v0           #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_4
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_CSIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -212,7 +260,7 @@
     .restart local v0       #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     goto :goto_0
 
-    .line 182
+    .line 185
     .end local v0           #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_5
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_ISIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -220,7 +268,7 @@
     .restart local v0       #newType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     goto :goto_0
 
-    .line 176
+    .line 179
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -237,10 +285,10 @@
     .parameter "substate"
 
     .prologue
-    .line 210
+    .line 213
     packed-switch p1, :pswitch_data_0
 
-    .line 237
+    .line 240
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -265,16 +313,16 @@
 
     throw v1
 
-    .line 211
+    .line 214
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_UNKNOWN:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
 
-    .line 240
+    .line 243
     .local v0, newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :goto_0
     return-object v0
 
-    .line 212
+    .line 215
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_IN_PROGRESS:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -282,7 +330,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 213
+    .line 216
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_READY:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -290,7 +338,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 214
+    .line 217
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_3
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_NETWORK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -298,7 +346,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 215
+    .line 218
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_4
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_NETWORK_SUBSET:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -306,7 +354,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 216
+    .line 219
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_5
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_CORPORATE:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -314,7 +362,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 217
+    .line 220
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_6
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_SERVICE_PROVIDER:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -322,7 +370,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 218
+    .line 221
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_7
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_SIM:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -330,7 +378,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 219
+    .line 222
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_8
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_NETWORK_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -338,7 +386,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 220
+    .line 223
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_9
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -346,7 +394,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 221
+    .line 224
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_a
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_CORPORATE_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -354,7 +402,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 222
+    .line 225
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_b
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -362,7 +410,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 223
+    .line 226
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_c
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_SIM_SIM_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -370,7 +418,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 224
+    .line 227
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_d
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_NETWORK1:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -378,7 +426,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 225
+    .line 228
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_e
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_NETWORK2:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -386,7 +434,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 226
+    .line 229
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_f
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_HRPD:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -394,7 +442,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 227
+    .line 230
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_10
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_CORPORATE:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -402,7 +450,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 228
+    .line 231
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_11
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_SERVICE_PROVIDER:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -410,7 +458,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 229
+    .line 232
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_12
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_RUIM:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -418,7 +466,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 230
+    .line 233
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_13
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_NETWORK1_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -426,7 +474,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 231
+    .line 234
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_14
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_NETWORK2_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -434,7 +482,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 232
+    .line 235
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_15
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_HRPD_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -442,7 +490,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 233
+    .line 236
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_16
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_CORPORATE_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -450,7 +498,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 234
+    .line 237
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_17
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -458,7 +506,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 235
+    .line 238
     .end local v0           #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     :pswitch_18
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$PersoSubState;->PERSOSUBSTATE_RUIM_RUIM_PUK:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
@@ -466,7 +514,7 @@
     .restart local v0       #newSubState:Lcom/android/internal/telephony/IccCardApplication$PersoSubState;
     goto :goto_0
 
-    .line 210
+    .line 213
     nop
 
     :pswitch_data_0
@@ -504,10 +552,10 @@
     .parameter "state"
 
     .prologue
-    .line 245
+    .line 248
     packed-switch p1, :pswitch_data_0
 
-    .line 265
+    .line 268
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -532,28 +580,19 @@
 
     throw v1
 
-    .line 247
+    .line 250
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_UNKNOWN:Lcom/android/internal/telephony/IccCardStatus$PinState;
 
-    .line 267
+    .line 270
     .local v0, newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
     :goto_0
     return-object v0
 
-    .line 250
+    .line 253
     .end local v0           #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_NOT_VERIFIED:Lcom/android/internal/telephony/IccCardStatus$PinState;
-
-    .line 251
-    .restart local v0       #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
-    goto :goto_0
-
-    .line 253
-    .end local v0           #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
-    :pswitch_2
-    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_VERIFIED:Lcom/android/internal/telephony/IccCardStatus$PinState;
 
     .line 254
     .restart local v0       #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
@@ -561,8 +600,8 @@
 
     .line 256
     .end local v0           #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
-    :pswitch_3
-    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_DISABLED:Lcom/android/internal/telephony/IccCardStatus$PinState;
+    :pswitch_2
+    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_VERIFIED:Lcom/android/internal/telephony/IccCardStatus$PinState;
 
     .line 257
     .restart local v0       #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
@@ -570,8 +609,8 @@
 
     .line 259
     .end local v0           #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
-    :pswitch_4
-    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_BLOCKED:Lcom/android/internal/telephony/IccCardStatus$PinState;
+    :pswitch_3
+    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_DISABLED:Lcom/android/internal/telephony/IccCardStatus$PinState;
 
     .line 260
     .restart local v0       #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
@@ -579,14 +618,23 @@
 
     .line 262
     .end local v0           #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
-    :pswitch_5
-    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_PERM_BLOCKED:Lcom/android/internal/telephony/IccCardStatus$PinState;
+    :pswitch_4
+    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_BLOCKED:Lcom/android/internal/telephony/IccCardStatus$PinState;
 
     .line 263
     .restart local v0       #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
     goto :goto_0
 
-    .line 245
+    .line 265
+    .end local v0           #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
+    :pswitch_5
+    sget-object v0, Lcom/android/internal/telephony/IccCardStatus$PinState;->PINSTATE_ENABLED_PERM_BLOCKED:Lcom/android/internal/telephony/IccCardStatus$PinState;
+
+    .line 266
+    .restart local v0       #newPinState:Lcom/android/internal/telephony/IccCardStatus$PinState;
+    goto :goto_0
+
+    .line 248
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -602,12 +650,12 @@
     .locals 3
 
     .prologue
-    .line 272
+    .line 275
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 274
+    .line 277
     .local v0, sb:Ljava/lang/StringBuilder;
     const-string/jumbo v1, "{"
 
@@ -631,14 +679,14 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 275
+    .line 278
     iget-object v1, p0, Lcom/android/internal/telephony/IccCardApplication;->app_state:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
     sget-object v2, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_SUBSCRIPTION_PERSO:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
     if-ne v1, v2, :cond_0
 
-    .line 276
+    .line 279
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -649,7 +697,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 278
+    .line 281
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/IccCardApplication;->app_type:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
@@ -669,7 +717,7 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 281
+    .line 284
     :cond_1
     const-string v1, ",pin1="
 
@@ -681,7 +729,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 282
+    .line 285
     const-string v1, ",pin2="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -692,13 +740,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 284
+    .line 287
     :cond_2
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 285
+    .line 288
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

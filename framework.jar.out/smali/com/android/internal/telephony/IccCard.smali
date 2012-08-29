@@ -1383,15 +1383,21 @@
     if-eqz v4, :cond_35
 
     .line 645
-    new-instance v27, Lcom/android/internal/telephony/AdnRecordCache;
-
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/IccCard;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
-    move-object/from16 v28, v0
+    move-object/from16 v27, v0
 
-    invoke-direct/range {v27 .. v28}, Lcom/android/internal/telephony/AdnRecordCache;-><init>(Lcom/android/internal/telephony/PhoneBase;)V
+    move-object/from16 v0, v27
+
+    iget-object v0, v0, Lcom/android/internal/telephony/PhoneBase;->mIccRecords:Lcom/android/internal/telephony/IccRecords;
+
+    move-object/from16 v27, v0
+
+    invoke-virtual/range {v27 .. v27}, Lcom/android/internal/telephony/IccRecords;->getAdnCache()Lcom/android/internal/telephony/AdnRecordCache;
+
+    move-result-object v27
 
     move-object/from16 v0, v27
 

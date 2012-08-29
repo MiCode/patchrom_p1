@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 870
+    .line 872
     iput-object p1, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 873
+    .line 875
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     iget-object v1, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
@@ -66,19 +66,19 @@
     #calls: Lcom/android/hwcamera/VideoCamera;->switchCameraId(I)V
     invoke-static {v0, v1}, Lcom/android/hwcamera/VideoCamera;->access$4200(Lcom/android/hwcamera/VideoCamera;I)V
 
-    .line 874
+    .line 876
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #calls: Lcom/android/hwcamera/VideoCamera;->flashModeUpdate()V
     invoke-static {v0}, Lcom/android/hwcamera/VideoCamera;->access$4300(Lcom/android/hwcamera/VideoCamera;)V
 
-    .line 875
+    .line 877
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #calls: Lcom/android/hwcamera/VideoCamera;->updatesuperpanel()V
     invoke-static {v0}, Lcom/android/hwcamera/VideoCamera;->access$4400(Lcom/android/hwcamera/VideoCamera;)V
 
-    .line 876
+    .line 878
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mCameraId:I
@@ -88,7 +88,7 @@
 
     if-nez v0, :cond_0
 
-    .line 877
+    .line 879
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
     #getter for: Lcom/android/hwcamera/VideoCamera;->mSwitchCameraImage:Lcom/android/hwcamera/RotateImageView;
@@ -100,11 +100,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/hwcamera/RotateImageView;->setImageResource(I)V
 
-    .line 882
+    .line 884
     :goto_0
     return-void
 
-    .line 879
+    .line 881
     :cond_0
     iget-object v0, p0, Lcom/android/hwcamera/VideoCamera$4;->this$0:Lcom/android/hwcamera/VideoCamera;
 
