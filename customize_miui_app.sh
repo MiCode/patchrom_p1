@@ -24,6 +24,13 @@ fi
 if [ $1 = "Phone" ];then
 echo "Merge Phone's xml"
 	$XMLMERGYTOOL $1/res/values $2/res/values
+    for file in `find $1/smali -name *.part`
+    do
+	filepath=`dirname $file`
+	filename=`basename $file .part`
+        dstfile="out/$filepath/$filename"
+        cat $file >> $dstfile
+    done
 fi
 
 if [ $1 = "MiuiHome" ];then
