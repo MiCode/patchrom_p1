@@ -609,28 +609,24 @@
     :cond_7
     new-array v15, v10, [Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
-    .line 192
     .local v15, localeInfos:[Lcom/android/internal/app/LocalePicker$LocaleInfo;
     const/4 v11, 0x0
 
     :goto_5
     if-ge v11, v10, :cond_8
 
-    .line 193
     aget-object v25, v18, v11
 
     aput-object v25, v15, v11
 
-    .line 192
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_5
 
-    .line 195
     :cond_8
     invoke-static {v15}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
 
-    .line 196
+    invoke-static {v15}, Lmiui/util/ExtraLocalePicker;->adjustLocaleOrder([Lcom/android/internal/app/LocalePicker$LocaleInfo;)V
     new-instance v25, Landroid/widget/ArrayAdapter;
 
     move-object/from16 v0, v25
