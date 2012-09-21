@@ -14573,7 +14573,17 @@
     :cond_9
     const/4 v6, 0x0
 
-    .line 2006
+    invoke-direct {p0, v11}, Lcom/android/providers/media/MediaProvider;->isPrivacyMode(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_MIUI_ADD_1
+
+    const/4 v1, 0x0
+
+    goto/16 :goto_0
+
+    :cond_MIUI_ADD_1
     sparse-switch v11, :sswitch_data_0
 
     .line 2324
@@ -17528,4 +17538,68 @@
         0xc8 -> :sswitch_1
         0xc9 -> :sswitch_1
     .end sparse-switch
+.end method
+
+.method private isPrivacyMode(I)Z
+    .locals 3
+    .parameter "table"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    const/4 v1, 0x1
+
+    if-eq p1, v1, :cond_0
+
+    const/4 v2, 0x2
+
+    if-eq p1, v2, :cond_0
+
+    const/4 v2, 0x4
+
+    if-eq p1, v2, :cond_0
+
+    const/4 v2, 0x3
+
+    if-eq p1, v2, :cond_0
+
+    const/16 v2, 0xc8
+
+    if-eq p1, v2, :cond_0
+
+    const/16 v2, 0xc9
+
+    if-eq p1, v2, :cond_0
+
+    const/16 v2, 0xca
+
+    if-eq p1, v2, :cond_0
+
+    const/16 v2, 0xcb
+
+    if-ne p1, v2, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/providers/media/MediaProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lmiui/provider/ExtraSettings$Secure;->checkPrivacyAndReturnCursor(Landroid/content/Context;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .local v0, emptyCursor:Landroid/database/Cursor;
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .end local v0           #emptyCursor:Landroid/database/Cursor;
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
