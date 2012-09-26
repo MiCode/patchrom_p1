@@ -29,5 +29,4 @@ local-phone-apps :=  \
 			UserDictionaryProvider \
 			VisualizationWallpapers \
 			VoiceDialer \
-			VpnDialogs \
 			WAPPushManager 
