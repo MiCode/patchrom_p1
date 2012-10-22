@@ -8489,19 +8489,15 @@
 
     .line 538
     .local v2, rule:I
-    iget-object v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
-
-    iget-object v7, v7, Lcom/android/internal/telephony/gsm/GSMPhone;->mIccRecords:Lcom/android/internal/telephony/IccRecords;
-
-    invoke-virtual {v7}, Lcom/android/internal/telephony/IccRecords;->getServiceProviderName()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getSpn()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 540
     .local v5, spn:Ljava/lang/String;
-    const/4 v1, 0x0
+    invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getPlmn()Ljava/lang/String;
 
-    .line 542
+    move-result-object v1
+
     .local v1, plmn:Ljava/lang/String;
     iget-object v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
