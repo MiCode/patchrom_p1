@@ -9,10 +9,6 @@ GIT_APPLY=$PORT_ROOT/tools/git.apply
 
 echo "original dir: $2"
 echo "target dir:$1"
-if [ $1 = "MiuiSystemUI" ];then
-	$XMLMERGYTOOL $1/res/values $2/res/values
-fi
-
 if [ $1 = "MiuiGallery" ];then
     $XMLMERGYTOOL $1/res/values $2/res/values
 fi
